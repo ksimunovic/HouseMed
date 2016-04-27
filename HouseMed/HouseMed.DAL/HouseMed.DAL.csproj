@@ -54,7 +54,7 @@
     <Compile Include="cijepljenje.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="djelatniciDAL.cs" />
     <Compile Include="djelatnici.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
