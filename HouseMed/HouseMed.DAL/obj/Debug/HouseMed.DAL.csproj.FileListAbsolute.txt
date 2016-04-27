@@ -1,0 +1,5 @@
+D:\FAKS\FAKS\3. god\PI\HouseMed\HouseMed.DAL\bin\Debug\HouseMed.DAL.dll
+D:\FAKS\FAKS\3. god\PI\HouseMed\HouseMed.DAL\bin\Debug\HouseMed.DAL.pdb
+D:\FAKS\FAKS\3. god\PI\HouseMed\HouseMed.DAL\obj\Debug\HouseMed.DAL.csprojResolveAssemblyReference.cache
+D:\FAKS\FAKS\3. god\PI\HouseMed\HouseMed.DAL\obj\Debug\HouseMed.DAL.dll
+D:\FAKS\FAKS\3. god\PI\HouseMed\HouseMed.DAL\obj\Debug\HouseMed.DAL.pdb
