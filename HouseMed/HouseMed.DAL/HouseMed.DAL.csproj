@@ -54,10 +54,10 @@
     <Compile Include="cijepljenje.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="djelatniciDAL.cs" />
     <Compile Include="djelatnici.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="djelatniciDAL.cs" />
     <Compile Include="evidencija_hospitalizacije.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
@@ -95,25 +95,23 @@
     <Compile Include="sifra_zdrv_ustanove.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>HouseMedModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="uputnica.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="HouseMedModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HouseMedModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="HouseMedModel.edmx.diagram">
       <DependentUpon>HouseMedModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HouseMedModel.Context.tt">
@@ -126,9 +124,6 @@
       <DependentUpon>HouseMedModel.edmx</DependentUpon>
       <LastGenOutput>HouseMedModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

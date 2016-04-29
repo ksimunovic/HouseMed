@@ -154,16 +154,6 @@
     <NavigationProperty Name="recepti" Relationship="Self.FK_recepti_sifra_zdrv_ustanove" FromRole="sifra_zdrv_ustanove" ToRole="recepti" />
     <NavigationProperty Name="uputnica" Relationship="Self.FK_uputnica_sifra_zdrv_ustanove" FromRole="sifra_zdrv_ustanove" ToRole="uputnica" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="uputnica">
     <Key>
       <PropertyRef Name="uputnicaID" />
@@ -407,7 +397,6 @@
     <EntitySet Name="raspored" EntityType="Self.raspored" />
     <EntitySet Name="recepti" EntityType="Self.recepti" />
     <EntitySet Name="sifra_zdrv_ustanove" EntityType="Self.sifra_zdrv_ustanove" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="uputnica" EntityType="Self.uputnica" />
     <AssociationSet Name="FK_cijepljenje_djelatnici" Association="Self.FK_cijepljenje_djelatnici">
       <End Role="djelatnici" EntitySet="djelatnici" />
