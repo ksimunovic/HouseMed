@@ -18,3 +18,6 @@ D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed\obj\Debug\HouseMed.Utilities.frm
 D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed\obj\Debug\HouseMed.csproj.GenerateResource.Cache
 D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed\obj\Debug\HouseMed.exe
 D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed\obj\Debug\HouseMed.pdb
+C:\Users\Karlo\Documents\r16049\HouseMed\HouseMed\bin\Debug\HouseMed.exe.config
+C:\Users\Karlo\Documents\r16049\HouseMed\HouseMed\obj\Debug\HouseMed.exe
+C:\Users\Karlo\Documents\r16049\HouseMed\HouseMed\obj\Debug\HouseMed.pdb
