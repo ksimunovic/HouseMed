@@ -1,9 +1,0 @@
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\bin\Debug\HouseMed.BAL.dll
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\bin\Debug\HouseMed.BAL.pdb
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\bin\Debug\HouseMed.DAL.dll
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\bin\Debug\EntityFramework.dll
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\bin\Debug\HouseMed.DAL.pdb
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\bin\Debug\EntityFramework.xml
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\obj\Debug\HouseMed.BLL.csprojResolveAssemblyReference.cache
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\obj\Debug\HouseMed.BAL.dll
-D:\FAKS\FAKS\3. god\PI\r16049\HouseMed\HouseMed.BAL\obj\Debug\HouseMed.BAL.pdb
