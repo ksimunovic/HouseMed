@@ -1,6 +1,6 @@
-﻿namespace HouseMed.Utilities
+﻿namespace HouseMed.Recipes
 {
-    partial class frmRecipes
+    partial class frmAddNewRecipe
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // frmRecipes
+            // frmAddNewRecipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 353);
-            this.Name = "frmRecipes";
-            this.Text = "Recepti";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "frmAddNewRecipe";
+            this.Text = "Izradi novi recept";
             this.ResumeLayout(false);
 
         }

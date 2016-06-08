@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HouseMed.Utilities
+namespace HouseMed.Recipes
 {
-    public partial class frmRecipes : Form
+    public partial class frmAddNewRecipe : Form
     {
-        public frmRecipes()
+        public frmAddNewRecipe()
         {
             InitializeComponent();
         }
