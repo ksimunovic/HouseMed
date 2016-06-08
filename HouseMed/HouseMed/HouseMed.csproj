@@ -69,16 +69,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\frmCertificates.cs">
+    <Compile Include="Certificates\frmCertificates.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilities\frmCertificates.Designer.cs">
+    <Compile Include="Certificates\frmCertificates.Designer.cs">
       <DependentUpon>frmCertificates.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\frmRecipes.cs">
+    <Compile Include="Recipes\frmAddNewRecipe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilities\frmRecipes.Designer.cs">
+    <Compile Include="Recipes\frmAddNewRecipe.Designer.cs">
+      <DependentUpon>frmAddNewRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\frmRecipes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipes\frmRecipes.Designer.cs">
       <DependentUpon>frmRecipes.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmLogin.resx">
@@ -96,7 +102,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Utilities\frmRecipes.resx">
+    <EmbeddedResource Include="Recipes\frmAddNewRecipe.resx">
+      <DependentUpon>frmAddNewRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipes\frmRecipes.resx">
       <DependentUpon>frmRecipes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

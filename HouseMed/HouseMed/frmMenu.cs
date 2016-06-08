@@ -16,5 +16,10 @@ namespace HouseMed
         {
             InitializeComponent();
         }
+
+        private void btnRecept_Click(object sender, EventArgs e)
+        {
+             
+        }
     }
 }

@@ -59,6 +59,7 @@
             this.btnRecept.TabIndex = 2;
             this.btnRecept.Text = "Izrada recepata";
             this.btnRecept.UseVisualStyleBackColor = true;
+            this.btnRecept.Click += new System.EventHandler(this.btnRecept_Click);
             // 
             // frmMenu
             // 
