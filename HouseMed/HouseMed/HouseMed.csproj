@@ -81,11 +81,11 @@
     <Compile Include="Recipes\frmAddNewRecipe.Designer.cs">
       <DependentUpon>frmAddNewRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recipes\frmRecipes.cs">
+    <Compile Include="Recipes\frmRecipe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recipes\frmRecipes.Designer.cs">
-      <DependentUpon>frmRecipes.cs</DependentUpon>
+    <Compile Include="Recipes\frmRecipe.Designer.cs">
+      <DependentUpon>frmRecipe.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -105,10 +105,11 @@
     <EmbeddedResource Include="Recipes\frmAddNewRecipe.resx">
       <DependentUpon>frmAddNewRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recipes\frmRecipes.resx">
-      <DependentUpon>frmRecipes.cs</DependentUpon>
+    <EmbeddedResource Include="Recipes\frmRecipe.resx">
+      <DependentUpon>frmRecipe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\HouseMed.DAL.recepti.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,9 +124,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HouseMed.BAL\HouseMed.BLL.csproj">
+    <ProjectReference Include="..\HouseMed.BAL\HouseMed.BAL.csproj">
       <Project>{0dad1f44-d740-4255-8c1f-c01e102d4da6}</Project>
-      <Name>HouseMed.BLL</Name>
+      <Name>HouseMed.BAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\HouseMed.DAL\HouseMed.DAL.csproj">
       <Project>{c41c3b73-f5d4-4ddc-ae20-7400fe0ffba0}</Project>

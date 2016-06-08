@@ -15,7 +15,7 @@ namespace HouseMed
     {
         #region Variables
         // instance to access the methods
-        GetData djelatniciData = new GetData();
+        DjelatniciBAL djelatniciData = new DjelatniciBAL();
         #endregion
 
         #region Constructor
@@ -28,7 +28,7 @@ namespace HouseMed
         #region Button methods
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var djelatniciLista = djelatniciData.GetDjelatnici();
+            var djelatniciLista = djelatniciData.GetAllDjelatnici();
 
             foreach (var it in djelatniciLista)
             {

@@ -57,7 +57,8 @@
     <Compile Include="djelatnici.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="djelatniciDAL.cs" />
+    <Compile Include="djelatniciContext.cs" />
+    <Compile Include="DjelatniciDAL.cs" />
     <Compile Include="evidencija_hospitalizacije.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
@@ -92,6 +93,7 @@
     <Compile Include="recepti.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ReceptiDAL.cs" />
     <Compile Include="sifra_zdrv_ustanove.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
