@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace HouseMed.BAL
 {
-    public class GetData
+    public class DjelatniciBAL
     {
         /// <summary>
         /// Method for getting all the workers in the hospital
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<djelatnici> GetDjelatnici()
+        public IEnumerable<djelatnici> GetAllDjelatnici()
         {
-            djelatniciDAL dj = new djelatniciDAL();
-            return dj.ReadDjelatnici();
+            DjelatniciDAL dj = new DjelatniciDAL();
+            return dj.GetAllDjelatnici();
         }
     }
 }
