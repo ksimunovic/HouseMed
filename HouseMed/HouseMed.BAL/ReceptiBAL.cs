@@ -23,7 +23,7 @@ namespace HouseMed.BAL
 
         #region public methods
         /// <summary>
-        /// Returns all the "Recepti" from the DB
+        /// Returns all the "Recepti" from the DB to bind the bindingsource
         /// </summary>
         /// <returns></returns>
         public BindingList<recepti> GetALLRecepti()

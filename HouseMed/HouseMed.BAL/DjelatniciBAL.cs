@@ -9,14 +9,21 @@ namespace HouseMed.BAL
 {
     public class DjelatniciBAL
     {
+        #region private variables
+        private DjelatniciDAL _djelatnici;
+        #endregion
+
+        #region public methods
         /// <summary>
         /// Method for getting all the workers in the hospital
         /// </summary>
         /// <returns></returns>
         public IEnumerable<djelatnici> GetAllDjelatnici()
         {
-            DjelatniciDAL dj = new DjelatniciDAL();
-            return dj.GetAllDjelatnici();
+            _djelatnici = new DjelatniciDAL();
+            return _djelatnici.GetAllDjelatnici();
         }
+        #endregion
+
     }
 }

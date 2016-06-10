@@ -80,6 +80,7 @@
     <Compile Include="lijekovi.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="LijekoviDAL.cs" />
     <Compile Include="pacijenti.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
@@ -100,6 +101,7 @@
     <Compile Include="uputnica.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ZdravUstanovaDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
