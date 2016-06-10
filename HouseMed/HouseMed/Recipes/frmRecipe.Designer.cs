@@ -34,7 +34,7 @@
             this.dgvRecipe = new System.Windows.Forms.DataGridView();
             this.receptiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.receptIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.slucajDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.slucajDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lijekoviIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doziranjeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +42,6 @@
             this.pacijentiIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.djelatniciIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sifrazdrvustanoveIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djelatniciDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lijekoviDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacijentiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sifrazdrvustanoveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receptiBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -71,29 +67,22 @@
             // 
             // dgvRecipe
             // 
-            this.dgvRecipe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRecipe.AutoGenerateColumns = false;
             this.dgvRecipe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecipe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.receptIDDataGridViewTextBoxColumn,
-            this.slucajDataGridViewImageColumn,
+            this.slucajDataGridViewTextBoxColumn,
             this.lijekoviIDDataGridViewTextBoxColumn,
             this.kolicinaDataGridViewTextBoxColumn,
             this.doziranjeDataGridViewTextBoxColumn,
             this.nadoplataDataGridViewTextBoxColumn,
             this.pacijentiIDDataGridViewTextBoxColumn,
             this.djelatniciIDDataGridViewTextBoxColumn,
-            this.sifrazdrvustanoveIDDataGridViewTextBoxColumn,
-            this.djelatniciDataGridViewTextBoxColumn,
-            this.lijekoviDataGridViewTextBoxColumn,
-            this.pacijentiDataGridViewTextBoxColumn,
-            this.sifrazdrvustanoveDataGridViewTextBoxColumn});
+            this.sifrazdrvustanoveIDDataGridViewTextBoxColumn});
             this.dgvRecipe.DataSource = this.receptiBindingSource;
-            this.dgvRecipe.Location = new System.Drawing.Point(4, 41);
+            this.dgvRecipe.Location = new System.Drawing.Point(1, 46);
             this.dgvRecipe.Name = "dgvRecipe";
-            this.dgvRecipe.Size = new System.Drawing.Size(942, 323);
+            this.dgvRecipe.Size = new System.Drawing.Size(942, 320);
             this.dgvRecipe.TabIndex = 2;
             // 
             // receptiBindingSource
@@ -106,11 +95,11 @@
             this.receptIDDataGridViewTextBoxColumn.HeaderText = "receptID";
             this.receptIDDataGridViewTextBoxColumn.Name = "receptIDDataGridViewTextBoxColumn";
             // 
-            // slucajDataGridViewImageColumn
+            // slucajDataGridViewTextBoxColumn
             // 
-            this.slucajDataGridViewImageColumn.DataPropertyName = "slucaj";
-            this.slucajDataGridViewImageColumn.HeaderText = "slucaj";
-            this.slucajDataGridViewImageColumn.Name = "slucajDataGridViewImageColumn";
+            this.slucajDataGridViewTextBoxColumn.DataPropertyName = "slucaj";
+            this.slucajDataGridViewTextBoxColumn.HeaderText = "slucaj";
+            this.slucajDataGridViewTextBoxColumn.Name = "slucajDataGridViewTextBoxColumn";
             // 
             // lijekoviIDDataGridViewTextBoxColumn
             // 
@@ -154,39 +143,11 @@
             this.sifrazdrvustanoveIDDataGridViewTextBoxColumn.HeaderText = "sifra_zdrv_ustanoveID";
             this.sifrazdrvustanoveIDDataGridViewTextBoxColumn.Name = "sifrazdrvustanoveIDDataGridViewTextBoxColumn";
             // 
-            // djelatniciDataGridViewTextBoxColumn
-            // 
-            this.djelatniciDataGridViewTextBoxColumn.DataPropertyName = "djelatnici";
-            this.djelatniciDataGridViewTextBoxColumn.HeaderText = "djelatnici";
-            this.djelatniciDataGridViewTextBoxColumn.Name = "djelatniciDataGridViewTextBoxColumn";
-            this.djelatniciDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // lijekoviDataGridViewTextBoxColumn
-            // 
-            this.lijekoviDataGridViewTextBoxColumn.DataPropertyName = "lijekovi";
-            this.lijekoviDataGridViewTextBoxColumn.HeaderText = "lijekovi";
-            this.lijekoviDataGridViewTextBoxColumn.Name = "lijekoviDataGridViewTextBoxColumn";
-            this.lijekoviDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pacijentiDataGridViewTextBoxColumn
-            // 
-            this.pacijentiDataGridViewTextBoxColumn.DataPropertyName = "pacijenti";
-            this.pacijentiDataGridViewTextBoxColumn.HeaderText = "pacijenti";
-            this.pacijentiDataGridViewTextBoxColumn.Name = "pacijentiDataGridViewTextBoxColumn";
-            this.pacijentiDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // sifrazdrvustanoveDataGridViewTextBoxColumn
-            // 
-            this.sifrazdrvustanoveDataGridViewTextBoxColumn.DataPropertyName = "sifra_zdrv_ustanove";
-            this.sifrazdrvustanoveDataGridViewTextBoxColumn.HeaderText = "sifra_zdrv_ustanove";
-            this.sifrazdrvustanoveDataGridViewTextBoxColumn.Name = "sifrazdrvustanoveDataGridViewTextBoxColumn";
-            this.sifrazdrvustanoveDataGridViewTextBoxColumn.Visible = false;
-            // 
             // frmRecipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 367);
+            this.ClientSize = new System.Drawing.Size(943, 367);
             this.Controls.Add(this.dgvRecipe);
             this.Controls.Add(this.lblNewRecipe);
             this.Controls.Add(this.btnNewRecipe);
@@ -207,7 +168,7 @@
         private System.Windows.Forms.Button btnNewRecipe;
         private System.Windows.Forms.DataGridView dgvRecipe;
         private System.Windows.Forms.DataGridViewTextBoxColumn receptIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn slucajDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slucajDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lijekoviIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn doziranjeDataGridViewTextBoxColumn;
@@ -215,10 +176,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pacijentiIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn djelatniciIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sifrazdrvustanoveIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djelatniciDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lijekoviDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pacijentiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sifrazdrvustanoveDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource receptiBindingSource;
     }
 }

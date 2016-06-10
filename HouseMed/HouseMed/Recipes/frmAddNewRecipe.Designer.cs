@@ -30,7 +30,7 @@
         {
             this.lblKolicina = new System.Windows.Forms.Label();
             this.txtKolicina = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDoziranje = new System.Windows.Forms.TextBox();
             this.lblDoziranje = new System.Windows.Forms.Label();
             this.lblPacijent = new System.Windows.Forms.Label();
             this.txtPacijent = new System.Windows.Forms.TextBox();
@@ -69,13 +69,13 @@
             this.txtKolicina.Size = new System.Drawing.Size(100, 20);
             this.txtKolicina.TabIndex = 1;
             // 
-            // textBox1
+            // txtDoziranje
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 97);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 49);
-            this.textBox1.TabIndex = 2;
+            this.txtDoziranje.Location = new System.Drawing.Point(64, 97);
+            this.txtDoziranje.Multiline = true;
+            this.txtDoziranje.Name = "txtDoziranje";
+            this.txtDoziranje.Size = new System.Drawing.Size(181, 49);
+            this.txtDoziranje.TabIndex = 2;
             // 
             // lblDoziranje
             // 
@@ -99,6 +99,7 @@
             // 
             this.txtPacijent.Location = new System.Drawing.Point(64, 21);
             this.txtPacijent.Name = "txtPacijent";
+            this.txtPacijent.ReadOnly = true;
             this.txtPacijent.Size = new System.Drawing.Size(100, 20);
             this.txtPacijent.TabIndex = 5;
             // 
@@ -159,6 +160,7 @@
             this.comboUstanova.Name = "comboUstanova";
             this.comboUstanova.Size = new System.Drawing.Size(177, 21);
             this.comboUstanova.TabIndex = 11;
+            this.comboUstanova.SelectedValueChanged += new System.EventHandler(this.comboUstanova_SelectedValueChanged);
             // 
             // lblUstanova
             // 
@@ -188,7 +190,7 @@
             this.gbPacijent.Controls.Add(this.lblPacijent);
             this.gbPacijent.Controls.Add(this.lblDoziranje);
             this.gbPacijent.Controls.Add(this.lblLijekovi);
-            this.gbPacijent.Controls.Add(this.textBox1);
+            this.gbPacijent.Controls.Add(this.txtDoziranje);
             this.gbPacijent.Controls.Add(this.txtPacijent);
             this.gbPacijent.Controls.Add(this.txtKolicina);
             this.gbPacijent.Controls.Add(this.btnChoosePatient);
@@ -225,11 +227,13 @@
             this.btnChooseMedicine.TabIndex = 12;
             this.btnChooseMedicine.Text = "Odaberi";
             this.btnChooseMedicine.UseVisualStyleBackColor = true;
+            this.btnChooseMedicine.Click += new System.EventHandler(this.btnChooseMedicine_Click);
             // 
             // txtLijekovi
             // 
             this.txtLijekovi.Location = new System.Drawing.Point(64, 45);
             this.txtLijekovi.Name = "txtLijekovi";
+            this.txtLijekovi.ReadOnly = true;
             this.txtLijekovi.Size = new System.Drawing.Size(100, 20);
             this.txtLijekovi.TabIndex = 11;
             // 
@@ -278,7 +282,7 @@
 
         private System.Windows.Forms.Label lblKolicina;
         private System.Windows.Forms.TextBox txtKolicina;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDoziranje;
         private System.Windows.Forms.Label lblDoziranje;
         private System.Windows.Forms.Label lblPacijent;
         private System.Windows.Forms.TextBox txtPacijent;
