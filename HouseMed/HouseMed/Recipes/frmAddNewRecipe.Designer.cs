@@ -111,6 +111,7 @@
             this.btnChoosePatient.TabIndex = 6;
             this.btnChoosePatient.Text = "Odaberi";
             this.btnChoosePatient.UseVisualStyleBackColor = true;
+            this.btnChoosePatient.Click += new System.EventHandler(this.btnChoosePatient_Click);
             // 
             // chckNadoplata
             // 

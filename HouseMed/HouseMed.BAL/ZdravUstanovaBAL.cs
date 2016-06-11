@@ -13,10 +13,16 @@ namespace HouseMed.BAL
         private ZdravUstanovaDAL _zdravUstanova;
         #endregion
 
+        #region constructor
+        public ZdravUstanovaBAL()
+        {
+            _zdravUstanova = new ZdravUstanovaDAL();
+        }
+        #endregion
+
         #region public methods
         public IEnumerable<sifra_zdrv_ustanove> GetAllUstanove()
         {
-            _zdravUstanova = new ZdravUstanovaDAL();
             return _zdravUstanova.GetAllUstanove();
         }
         #endregion

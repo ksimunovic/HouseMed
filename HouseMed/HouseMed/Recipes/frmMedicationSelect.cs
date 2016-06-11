@@ -69,7 +69,7 @@ namespace HouseMed.Recipes
             var selectedItem = dgvMedication.CurrentRow.DataBoundItem as lijekovi;
             if (selectedItem != null)
             {
-                frmAddNewRecipe.GetObjects.lijekovi = selectedItem;
+                frmAddNewRecipe.ObjectProps.lijekovi = selectedItem;
             }
             this.Close();
         }

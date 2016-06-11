@@ -40,11 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CijepljenjeBAL.cs" />
     <Compile Include="DjelatniciBAL.cs" />
     <Compile Include="HelpClass.cs" />
+    <Compile Include="HospitalizacijaBAL.cs" />
     <Compile Include="LijekoviBAL.cs" />
+    <Compile Include="PacijentiBAL.cs" />
+    <Compile Include="PostupciBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RasporedBAL.cs" />
     <Compile Include="ReceptiBAL.cs" />
+    <Compile Include="UputnicaBAL.cs" />
     <Compile Include="ZdravUstanovaBAL.cs" />
   </ItemGroup>
   <ItemGroup>

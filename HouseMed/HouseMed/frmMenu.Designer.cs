@@ -41,6 +41,7 @@
             this.btnEkarton.TabIndex = 0;
             this.btnEkarton.Text = "E - karton";
             this.btnEkarton.UseVisualStyleBackColor = true;
+            this.btnEkarton.Click += new System.EventHandler(this.btnEkarton_Click);
             // 
             // btnLijekovi
             // 

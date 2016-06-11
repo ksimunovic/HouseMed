@@ -1,35 +1,35 @@
 ﻿using HouseMed.DAL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HouseMed.BAL
 {
-    public class DjelatniciBAL
+    public class PacijentiBAL
     {
         #region private variables
-        private DjelatniciDAL _djelatnici;
+        private PacijentiDAL _pacijentiDAL;
         #endregion
 
         #region constructor
-        public DjelatniciBAL()
+        public PacijentiBAL()
         {
-            _djelatnici = new DjelatniciDAL();
+            _pacijentiDAL = new PacijentiDAL();
         }
         #endregion
 
         #region public methods
         /// <summary>
-        /// Method for getting all the workers in the hospital
+        /// method for getting all the "pacijenti" from the DB
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<djelatnici> GetAllDjelatnici()
+        public BindingList<pacijenti> GetAllPacijenti()
         {
-            return _djelatnici.GetAllDjelatnici();
+            return _pacijentiDAL.GetAllPacijenti();
         }
         #endregion
-
     }
 }
