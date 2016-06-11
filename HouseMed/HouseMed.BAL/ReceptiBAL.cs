@@ -11,13 +11,13 @@ namespace HouseMed.BAL
     public class ReceptiBAL
     {
         #region private variables
-        private ReceptiDAL _receptiDal;
+        private ReceptiDAL _receptiDAL;
         #endregion
 
         #region consturctor
         public ReceptiBAL()
         {
-            _receptiDal = new ReceptiDAL();
+            _receptiDAL = new ReceptiDAL();
         }
         #endregion
 
@@ -28,7 +28,16 @@ namespace HouseMed.BAL
         /// <returns></returns>
         public BindingList<recepti> GetALLRecepti()
         {
-            return _receptiDal.GetAllRecepti();
+            return _receptiDAL.GetAllRecepti();
+        }
+        /// <summary>
+        /// Returns all the "Recepti" from the DB with ID names not values
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public BindingList<receptiCustom> GetAllReceptiNamedPropsById(int PacijentId)
+        {
+            return _receptiDAL.GetAllReceptiNamedPropsById(PacijentId);
         }
         #endregion
 

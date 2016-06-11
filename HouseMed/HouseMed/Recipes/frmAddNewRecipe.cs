@@ -8,7 +8,7 @@ namespace HouseMed.Recipes
 {
     public partial class frmAddNewRecipe : Form
     {
-        public static class GetObjects
+        public static class ObjectProps
         {
             public static pacijenti pacijenti { get; set; }
             public static lijekovi lijekovi { get; set; }
@@ -69,11 +69,25 @@ namespace HouseMed.Recipes
         {
             frmMedicationSelect frm = new frmMedicationSelect();
             frm.ShowDialog();
-            if(GetObjects.lijekovi != null)
+            if(ObjectProps.lijekovi != null)
             {
-                txtLijekovi.Text = GetObjects.lijekovi.naziv;
+                txtLijekovi.Text = ObjectProps.lijekovi.naziv;
             }
             
+        }
+        /// <summary>
+        /// Button[Odaberi] "Pacijent" event handler: Open new form to select the patient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChoosePatient_Click(object sender, EventArgs e)
+        {
+            E_Carton.frmECarton frm = new E_Carton.frmECarton();
+            frm.ShowDialog();
+            if(ObjectProps.pacijenti != null)
+            {
+                txtPacijent.Text = ObjectProps.pacijenti.ImePrezime;
+            }
         }
         /// <summary>
         /// ComboBox[Djelatnici] event handler: take djelatnici ID when the selection is changed
@@ -126,16 +140,15 @@ namespace HouseMed.Recipes
             recepti recepti = new recepti()
             {
                 kolicina = HelpClass.GetValueOrNull<int>(txtKolicina.Text),
-                nadoplata = HelpClass.GetValueOrNull<bool>(chckNadoplata.Text),
+                nadoplata = chckNadoplata.Checked,
                 djelatniciID = _djelatniciID,
                 sifra_zdrv_ustanoveID = _ustanovaID,
-                pacijentiID = GetObjects.pacijenti.pacijentiID,
-                lijekoviID = GetObjects.lijekovi.lijekoviID,
+                pacijentiID = ObjectProps.pacijenti != null ? ObjectProps.pacijenti.pacijentiID : (int?)null,
+                lijekoviID = ObjectProps.lijekovi != null? ObjectProps.lijekovi.lijekoviID : (int?)null,
                 doziranje = txtDoziranje.Text,
                 slucaj = txtSlucaj.Text
             };
         }
         #endregion
-        
     }
 }
