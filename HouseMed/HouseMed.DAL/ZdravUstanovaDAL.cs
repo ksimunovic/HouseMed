@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace HouseMed.DAL
 {
-    public class DjelatniciDAL
+    public class ZdravUstanovaDAL
     {
         #region private variables
-        // instance the DB entities so we can use it as a context for queries
+        // instance the DB context
         DAL.HouseMedDBEntities context = new HouseMedDBEntities();
         #endregion
 
         #region public methods
         /// <summary>
-        /// Method for getting all the workers in the hospital
+        /// Getting ALL the Ustanovas from the DB
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<djelatnici> GetAllDjelatnici()
+        public IEnumerable<sifra_zdrv_ustanove> GetAllUstanove()
         {
             try
             {
-                return (from a in context.djelatnici
-                        select a).ToList();
+                return (from a in context.sifra_zdrv_ustanove
+                       select a).ToList();
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
         #endregion
-
     }
 }

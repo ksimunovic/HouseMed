@@ -21,8 +21,8 @@ namespace HouseMed.DAL
             this.lijekovi = new HashSet<lijekovi>();
             this.pacijenti = new HashSet<pacijenti>();
             this.raspored = new HashSet<raspored>();
-            this.recepti = new HashSet<recepti>();
             this.uputnica = new HashSet<uputnica>();
+            this.recepti = new HashSet<recepti>();
         }
     
         public int sifra_zdrv_ustanoveID { get; set; }
@@ -40,8 +40,8 @@ namespace HouseMed.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<raspored> raspored { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<recepti> recepti { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<uputnica> uputnica { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<recepti> recepti { get; set; }
     }
 }

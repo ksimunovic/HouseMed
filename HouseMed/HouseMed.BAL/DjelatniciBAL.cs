@@ -1,16 +1,23 @@
-﻿using System;
+﻿using HouseMed.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HouseMed.DAL
+namespace HouseMed.BAL
 {
-    public class DjelatniciDAL
+    public class DjelatniciBAL
     {
         #region private variables
-        // instance the DB entities so we can use it as a context for queries
-        DAL.HouseMedDBEntities context = new HouseMedDBEntities();
+        private DjelatniciDAL _djelatnici;
+        #endregion
+
+        #region constructor
+        public DjelatniciBAL()
+        {
+            _djelatnici = new DjelatniciDAL();
+        }
         #endregion
 
         #region public methods
@@ -20,15 +27,7 @@ namespace HouseMed.DAL
         /// <returns></returns>
         public IEnumerable<djelatnici> GetAllDjelatnici()
         {
-            try
-            {
-                return (from a in context.djelatnici
-                        select a).ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _djelatnici.GetAllDjelatnici();
         }
         #endregion
 

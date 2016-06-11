@@ -41,6 +41,7 @@
             this.btnEkarton.TabIndex = 0;
             this.btnEkarton.Text = "E - karton";
             this.btnEkarton.UseVisualStyleBackColor = true;
+            this.btnEkarton.Click += new System.EventHandler(this.btnEkarton_Click);
             // 
             // btnLijekovi
             // 
@@ -57,8 +58,9 @@
             this.btnRecept.Name = "btnRecept";
             this.btnRecept.Size = new System.Drawing.Size(83, 37);
             this.btnRecept.TabIndex = 2;
-            this.btnRecept.Text = "Izrada recepata";
+            this.btnRecept.Text = "Recepti";
             this.btnRecept.UseVisualStyleBackColor = true;
+            this.btnRecept.Click += new System.EventHandler(this.btnRecept_Click);
             // 
             // frmMenu
             // 
