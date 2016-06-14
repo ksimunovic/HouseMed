@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HouseMed.DAL
 {
@@ -33,7 +34,7 @@ namespace HouseMed.DAL
 
                 throw;
             }
-            
+
         }
         /// <summary>
         /// Method for getting all the Recipes from the DB with full names
@@ -57,7 +58,7 @@ namespace HouseMed.DAL
                                    Kolicina = a.kolicina,
                                    Doziranje = a.doziranje,
                                    Nadoplata = a.nadoplata,
-                                   PacijentiIDName = string.Concat(c.ime," ",c.prezime),
+                                   PacijentiIDName = string.Concat(c.ime, " ", c.prezime),
                                    DjelatniciIDName = string.Concat(d.ime, " ", d.prezime),
                                    SifraZdrvUstanoveIDName = e.naziv
                                }).ToList();
@@ -67,6 +68,21 @@ namespace HouseMed.DAL
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+        /// <summary>
+        /// Adds new "Recept" into the DB
+        /// </summary>
+        public void AddNewRecept(recepti recept)
+        {
+            try
+            {
+                context.recepti.Add(recept);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
                 throw;
             }
         }

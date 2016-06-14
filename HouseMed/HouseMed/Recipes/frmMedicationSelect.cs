@@ -60,11 +60,11 @@ namespace HouseMed.Recipes
             this.Close();
         }
         /// <summary>
-        /// Button[OK] event handler: closes the form and passes the selected object
+        /// Button[Odaberi] event handler: closes the form and passes the selected object
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnOk_Click(object sender, EventArgs e)
+        private void btnOdaberi_Click(object sender, EventArgs e)
         {
             var selectedItem = dgvMedication.CurrentRow.DataBoundItem as lijekovi;
             if (selectedItem != null)
@@ -73,8 +73,16 @@ namespace HouseMed.Recipes
             }
             this.Close();
         }
-
-        #endregion
-
+        /// <summary>
+        /// Button[Dodaj] event handler: opens the new form for adding a new "lijekovi" object into the DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnNewLijek_Click(object sender, EventArgs e)
+        {
+            HouseMed.Medication.frmAddNewMedication frm = new Medication.frmAddNewMedication();
+            frm.ShowDialog();
+        }
     }
+    #endregion
 }
