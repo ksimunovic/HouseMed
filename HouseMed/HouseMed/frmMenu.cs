@@ -36,7 +36,7 @@ namespace HouseMed
             Recipes.frmRecipe frm = new frmRecipe();
             frm.ShowDialog();
         }
-<<<<<<< HEAD
+
         /// <summary>
         /// Button[Lijekovi] event handler: open the "frmMedicationSelect" form
         /// </summary>
@@ -48,8 +48,7 @@ namespace HouseMed
             frm.ShowDialog();
         }
 
-        #endregion
-=======
+
 
         /// <summary>
         /// Buttton[Bolnica] event handler: open the "frmHospitalDays" form
@@ -62,8 +61,5 @@ namespace HouseMed
             frm.ShowDialog();
         }
         #endregion
-
-
->>>>>>> refs/remotes/origin/master
     }
 }
