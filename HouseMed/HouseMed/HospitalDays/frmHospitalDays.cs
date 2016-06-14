@@ -44,7 +44,7 @@ namespace HouseMed.HospitalDays
         {
             dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(1);
             cbPacijenti.DataSource = _pacijentiBAL.GetAllPacijenti();
-            cbPacijenti.DisplayMember = "ImePrezime";
+            cbPacijenti.DisplayMember = "ime";
             cbPacijenti.ValueMember = "pacijentID";
         }
 
