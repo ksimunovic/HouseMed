@@ -15,7 +15,7 @@ namespace HouseMed.DAL
     public partial class recepti
     {
         public int receptID { get; set; }
-        public byte[] slucaj { get; set; }
+        public string slucaj { get; set; }
         public Nullable<int> lijekoviID { get; set; }
         public Nullable<int> kolicina { get; set; }
         public string doziranje { get; set; }

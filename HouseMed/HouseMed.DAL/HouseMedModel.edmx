@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HouseMedDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HouseMedDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cijepljenje">
           <Key>
             <PropertyRef Name="cijepljenjeID" />
@@ -107,7 +107,7 @@
             <PropertyRef Name="receptID" />
           </Key>
           <Property Name="receptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="slucaj" Type="varbinary(max)" />
+          <Property Name="slucaj" Type="varchar(max)" />
           <Property Name="lijekoviID" Type="int" />
           <Property Name="kolicina" Type="int" />
           <Property Name="doziranje" Type="varchar(max)" />
@@ -125,16 +125,6 @@
           <Property Name="mjesto" Type="varchar" MaxLength="50" />
           <Property Name="ulica" Type="varchar" MaxLength="50" />
           <Property Name="telefon" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="uputnica">
           <Key>
@@ -376,7 +366,6 @@
           <EntitySet Name="raspored" EntityType="Self.raspored" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="recepti" EntityType="Self.recepti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sifra_zdrv_ustanove" EntityType="Self.sifra_zdrv_ustanove" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uputnica" EntityType="Self.uputnica" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_cijepljenje_djelatnici" Association="Self.FK_cijepljenje_djelatnici">
             <End Role="djelatnici" EntitySet="djelatnici" />
@@ -451,8 +440,7 @@
             <End Role="uputnica" EntitySet="uputnica" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HouseMedDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -491,8 +479,8 @@
           <NavigationProperty Name="sifra_zdrv_ustanove" Relationship="Self.FK_djelatnici_sifra_zdrv_ustanove" FromRole="djelatnici" ToRole="sifra_zdrv_ustanove" />
           <NavigationProperty Name="postupci" Relationship="Self.FK_postupci_djelatnici" FromRole="djelatnici" ToRole="postupci" />
           <NavigationProperty Name="postupci1" Relationship="Self.FK_postupci_djelatnici1" FromRole="djelatnici" ToRole="postupci" />
-          <NavigationProperty Name="recepti" Relationship="Self.FK_recepti_djelatnici" FromRole="djelatnici" ToRole="recepti" />
           <NavigationProperty Name="uputnica" Relationship="Self.FK_uputnica_djelatnici" FromRole="djelatnici" ToRole="uputnica" />
+          <NavigationProperty Name="recepti" Relationship="HouseMedDBModel.FK_recepti_djelatnici" FromRole="djelatnici" ToRole="recepti" />
         </EntityType>
         <EntityType Name="evidencija_hospitalizacije">
           <Key>
@@ -518,7 +506,7 @@
           <Property Name="cijena" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="sifra_zdrv_ustanoveID" Type="Int32" />
           <NavigationProperty Name="sifra_zdrv_ustanove" Relationship="Self.FK_lijekovi_sifra_zdrv_ustanove" FromRole="lijekovi" ToRole="sifra_zdrv_ustanove" />
-          <NavigationProperty Name="recepti" Relationship="Self.FK_recepti_lijekovi" FromRole="lijekovi" ToRole="recepti" />
+          <NavigationProperty Name="recepti" Relationship="HouseMedDBModel.FK_recepti_lijekovi" FromRole="lijekovi" ToRole="recepti" />
         </EntityType>
         <EntityType Name="pacijenti">
           <Key>
@@ -542,8 +530,8 @@
           <NavigationProperty Name="sifra_zdrv_ustanove" Relationship="Self.FK_pacijenti_sifra_zdrv_ustanove" FromRole="pacijenti" ToRole="sifra_zdrv_ustanove" />
           <NavigationProperty Name="postupci" Relationship="Self.FK_postupci_pacijenti" FromRole="pacijenti" ToRole="postupci" />
           <NavigationProperty Name="raspored" Relationship="Self.FK_raspored_pacijenti" FromRole="pacijenti" ToRole="raspored" />
-          <NavigationProperty Name="recepti" Relationship="Self.FK_recepti_pacijenti" FromRole="pacijenti" ToRole="recepti" />
           <NavigationProperty Name="uputnica" Relationship="Self.FK_uputnica_Pacijenti" FromRole="pacijenti" ToRole="uputnica" />
+          <NavigationProperty Name="recepti" Relationship="HouseMedDBModel.FK_recepti_pacijenti" FromRole="pacijenti" ToRole="recepti" />
         </EntityType>
         <EntityType Name="postupci">
           <Key>
@@ -576,24 +564,6 @@
           <NavigationProperty Name="pacijenti" Relationship="Self.FK_raspored_pacijenti" FromRole="raspored" ToRole="pacijenti" />
           <NavigationProperty Name="sifra_zdrv_ustanove" Relationship="Self.FK_raspored_sifra_zdrv_ustanove" FromRole="raspored" ToRole="sifra_zdrv_ustanove" />
         </EntityType>
-        <EntityType Name="recepti">
-          <Key>
-            <PropertyRef Name="receptID" />
-          </Key>
-          <Property Name="receptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="slucaj" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="lijekoviID" Type="Int32" />
-          <Property Name="kolicina" Type="Int32" />
-          <Property Name="doziranje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="nadoplata" Type="Boolean" />
-          <Property Name="pacijentiID" Type="Int32" />
-          <Property Name="djelatniciID" Type="Int32" />
-          <Property Name="sifra_zdrv_ustanoveID" Type="Int32" />
-          <NavigationProperty Name="djelatnici" Relationship="Self.FK_recepti_djelatnici" FromRole="recepti" ToRole="djelatnici" />
-          <NavigationProperty Name="lijekovi" Relationship="Self.FK_recepti_lijekovi" FromRole="recepti" ToRole="lijekovi" />
-          <NavigationProperty Name="pacijenti" Relationship="Self.FK_recepti_pacijenti" FromRole="recepti" ToRole="pacijenti" />
-          <NavigationProperty Name="sifra_zdrv_ustanove" Relationship="Self.FK_recepti_sifra_zdrv_ustanove" FromRole="recepti" ToRole="sifra_zdrv_ustanove" />
-        </EntityType>
         <EntityType Name="sifra_zdrv_ustanove">
           <Key>
             <PropertyRef Name="sifra_zdrv_ustanoveID" />
@@ -607,18 +577,8 @@
           <NavigationProperty Name="lijekovi" Relationship="Self.FK_lijekovi_sifra_zdrv_ustanove" FromRole="sifra_zdrv_ustanove" ToRole="lijekovi" />
           <NavigationProperty Name="pacijenti" Relationship="Self.FK_pacijenti_sifra_zdrv_ustanove" FromRole="sifra_zdrv_ustanove" ToRole="pacijenti" />
           <NavigationProperty Name="raspored" Relationship="Self.FK_raspored_sifra_zdrv_ustanove" FromRole="sifra_zdrv_ustanove" ToRole="raspored" />
-          <NavigationProperty Name="recepti" Relationship="Self.FK_recepti_sifra_zdrv_ustanove" FromRole="sifra_zdrv_ustanove" ToRole="recepti" />
           <NavigationProperty Name="uputnica" Relationship="Self.FK_uputnica_sifra_zdrv_ustanove" FromRole="sifra_zdrv_ustanove" ToRole="uputnica" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="recepti" Relationship="HouseMedDBModel.FK_recepti_sifra_zdrv_ustanove" FromRole="sifra_zdrv_ustanove" ToRole="recepti" />
         </EntityType>
         <EntityType Name="uputnica">
           <Key>
@@ -697,18 +657,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_recepti_djelatnici">
-          <End Role="djelatnici" Type="Self.djelatnici" Multiplicity="0..1" />
-          <End Role="recepti" Type="Self.recepti" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="djelatnici">
-              <PropertyRef Name="djelatniciID" />
-            </Principal>
-            <Dependent Role="recepti">
-              <PropertyRef Name="djelatniciID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_uputnica_djelatnici">
           <End Role="djelatnici" Type="Self.djelatnici" Multiplicity="0..1" />
           <End Role="uputnica" Type="Self.uputnica" Multiplicity="*" />
@@ -742,18 +690,6 @@
             </Principal>
             <Dependent Role="lijekovi">
               <PropertyRef Name="sifra_zdrv_ustanoveID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_recepti_lijekovi">
-          <End Role="lijekovi" Type="Self.lijekovi" Multiplicity="0..1" />
-          <End Role="recepti" Type="Self.recepti" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lijekovi">
-              <PropertyRef Name="lijekoviID" />
-            </Principal>
-            <Dependent Role="recepti">
-              <PropertyRef Name="lijekoviID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -793,18 +729,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_recepti_pacijenti">
-          <End Role="pacijenti" Type="Self.pacijenti" Multiplicity="0..1" />
-          <End Role="recepti" Type="Self.recepti" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pacijenti">
-              <PropertyRef Name="pacijentiID" />
-            </Principal>
-            <Dependent Role="recepti">
-              <PropertyRef Name="pacijentiID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_uputnica_Pacijenti">
           <End Role="pacijenti" Type="Self.pacijenti" Multiplicity="0..1" />
           <End Role="uputnica" Type="Self.uputnica" Multiplicity="*" />
@@ -829,18 +753,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_recepti_sifra_zdrv_ustanove">
-          <End Role="sifra_zdrv_ustanove" Type="Self.sifra_zdrv_ustanove" Multiplicity="0..1" />
-          <End Role="recepti" Type="Self.recepti" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sifra_zdrv_ustanove">
-              <PropertyRef Name="sifra_zdrv_ustanoveID" />
-            </Principal>
-            <Dependent Role="recepti">
-              <PropertyRef Name="sifra_zdrv_ustanoveID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_uputnica_sifra_zdrv_ustanove">
           <End Role="sifra_zdrv_ustanove" Type="Self.sifra_zdrv_ustanove" Multiplicity="0..1" />
           <End Role="uputnica" Type="Self.uputnica" Multiplicity="*" />
@@ -861,9 +773,7 @@
           <EntitySet Name="pacijenti" EntityType="Self.pacijenti" />
           <EntitySet Name="postupci" EntityType="Self.postupci" />
           <EntitySet Name="raspored" EntityType="Self.raspored" />
-          <EntitySet Name="recepti" EntityType="Self.recepti" />
           <EntitySet Name="sifra_zdrv_ustanove" EntityType="Self.sifra_zdrv_ustanove" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="uputnica" EntityType="Self.uputnica" />
           <AssociationSet Name="FK_cijepljenje_djelatnici" Association="Self.FK_cijepljenje_djelatnici">
             <End Role="djelatnici" EntitySet="djelatnici" />
@@ -885,10 +795,6 @@
             <End Role="djelatnici" EntitySet="djelatnici" />
             <End Role="postupci" EntitySet="postupci" />
           </AssociationSet>
-          <AssociationSet Name="FK_recepti_djelatnici" Association="Self.FK_recepti_djelatnici">
-            <End Role="djelatnici" EntitySet="djelatnici" />
-            <End Role="recepti" EntitySet="recepti" />
-          </AssociationSet>
           <AssociationSet Name="FK_uputnica_djelatnici" Association="Self.FK_uputnica_djelatnici">
             <End Role="djelatnici" EntitySet="djelatnici" />
             <End Role="uputnica" EntitySet="uputnica" />
@@ -900,10 +806,6 @@
           <AssociationSet Name="FK_lijekovi_sifra_zdrv_ustanove" Association="Self.FK_lijekovi_sifra_zdrv_ustanove">
             <End Role="sifra_zdrv_ustanove" EntitySet="sifra_zdrv_ustanove" />
             <End Role="lijekovi" EntitySet="lijekovi" />
-          </AssociationSet>
-          <AssociationSet Name="FK_recepti_lijekovi" Association="Self.FK_recepti_lijekovi">
-            <End Role="lijekovi" EntitySet="lijekovi" />
-            <End Role="recepti" EntitySet="recepti" />
           </AssociationSet>
           <AssociationSet Name="FK_pacijenti_sifra_zdrv_ustanove" Association="Self.FK_pacijenti_sifra_zdrv_ustanove">
             <End Role="sifra_zdrv_ustanove" EntitySet="sifra_zdrv_ustanove" />
@@ -917,10 +819,6 @@
             <End Role="pacijenti" EntitySet="pacijenti" />
             <End Role="raspored" EntitySet="raspored" />
           </AssociationSet>
-          <AssociationSet Name="FK_recepti_pacijenti" Association="Self.FK_recepti_pacijenti">
-            <End Role="pacijenti" EntitySet="pacijenti" />
-            <End Role="recepti" EntitySet="recepti" />
-          </AssociationSet>
           <AssociationSet Name="FK_uputnica_Pacijenti" Association="Self.FK_uputnica_Pacijenti">
             <End Role="pacijenti" EntitySet="pacijenti" />
             <End Role="uputnica" EntitySet="uputnica" />
@@ -929,15 +827,94 @@
             <End Role="sifra_zdrv_ustanove" EntitySet="sifra_zdrv_ustanove" />
             <End Role="raspored" EntitySet="raspored" />
           </AssociationSet>
-          <AssociationSet Name="FK_recepti_sifra_zdrv_ustanove" Association="Self.FK_recepti_sifra_zdrv_ustanove">
-            <End Role="sifra_zdrv_ustanove" EntitySet="sifra_zdrv_ustanove" />
-            <End Role="recepti" EntitySet="recepti" />
-          </AssociationSet>
           <AssociationSet Name="FK_uputnica_sifra_zdrv_ustanove" Association="Self.FK_uputnica_sifra_zdrv_ustanove">
             <End Role="sifra_zdrv_ustanove" EntitySet="sifra_zdrv_ustanove" />
             <End Role="uputnica" EntitySet="uputnica" />
           </AssociationSet>
+          <EntitySet Name="recepti" EntityType="HouseMedDBModel.recepti" />
+          <AssociationSet Name="FK_recepti_djelatnici" Association="HouseMedDBModel.FK_recepti_djelatnici">
+            <End Role="djelatnici" EntitySet="djelatnici" />
+            <End Role="recepti" EntitySet="recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recepti_lijekovi" Association="HouseMedDBModel.FK_recepti_lijekovi">
+            <End Role="lijekovi" EntitySet="lijekovi" />
+            <End Role="recepti" EntitySet="recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recepti_pacijenti" Association="HouseMedDBModel.FK_recepti_pacijenti">
+            <End Role="pacijenti" EntitySet="pacijenti" />
+            <End Role="recepti" EntitySet="recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recepti_sifra_zdrv_ustanove" Association="HouseMedDBModel.FK_recepti_sifra_zdrv_ustanove">
+            <End Role="sifra_zdrv_ustanove" EntitySet="sifra_zdrv_ustanove" />
+            <End Role="recepti" EntitySet="recepti" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="recepti">
+          <Key>
+            <PropertyRef Name="receptID" />
+          </Key>
+          <Property Name="receptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="slucaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="lijekoviID" Type="Int32" />
+          <Property Name="kolicina" Type="Int32" />
+          <Property Name="doziranje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nadoplata" Type="Boolean" />
+          <Property Name="pacijentiID" Type="Int32" />
+          <Property Name="djelatniciID" Type="Int32" />
+          <Property Name="sifra_zdrv_ustanoveID" Type="Int32" />
+          <NavigationProperty Name="djelatnici" Relationship="HouseMedDBModel.FK_recepti_djelatnici" FromRole="recepti" ToRole="djelatnici" />
+          <NavigationProperty Name="lijekovi" Relationship="HouseMedDBModel.FK_recepti_lijekovi" FromRole="recepti" ToRole="lijekovi" />
+          <NavigationProperty Name="pacijenti" Relationship="HouseMedDBModel.FK_recepti_pacijenti" FromRole="recepti" ToRole="pacijenti" />
+          <NavigationProperty Name="sifra_zdrv_ustanove" Relationship="HouseMedDBModel.FK_recepti_sifra_zdrv_ustanove" FromRole="recepti" ToRole="sifra_zdrv_ustanove" />
+        </EntityType>
+        <Association Name="FK_recepti_djelatnici">
+          <End Type="HouseMedDBModel.djelatnici" Role="djelatnici" Multiplicity="0..1" />
+          <End Type="HouseMedDBModel.recepti" Role="recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="djelatnici">
+              <PropertyRef Name="djelatniciID" />
+            </Principal>
+            <Dependent Role="recepti">
+              <PropertyRef Name="djelatniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recepti_lijekovi">
+          <End Type="HouseMedDBModel.lijekovi" Role="lijekovi" Multiplicity="0..1" />
+          <End Type="HouseMedDBModel.recepti" Role="recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lijekovi">
+              <PropertyRef Name="lijekoviID" />
+            </Principal>
+            <Dependent Role="recepti">
+              <PropertyRef Name="lijekoviID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recepti_pacijenti">
+          <End Type="HouseMedDBModel.pacijenti" Role="pacijenti" Multiplicity="0..1" />
+          <End Type="HouseMedDBModel.recepti" Role="recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacijenti">
+              <PropertyRef Name="pacijentiID" />
+            </Principal>
+            <Dependent Role="recepti">
+              <PropertyRef Name="pacijentiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recepti_sifra_zdrv_ustanove">
+          <End Type="HouseMedDBModel.sifra_zdrv_ustanove" Role="sifra_zdrv_ustanove" Multiplicity="0..1" />
+          <End Type="HouseMedDBModel.recepti" Role="recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sifra_zdrv_ustanove">
+              <PropertyRef Name="sifra_zdrv_ustanoveID" />
+            </Principal>
+            <Dependent Role="recepti">
+              <PropertyRef Name="sifra_zdrv_ustanoveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1048,21 +1025,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="recepti">
-            <EntityTypeMapping TypeName="HouseMedDBModel.recepti">
-              <MappingFragment StoreEntitySet="recepti">
-                <ScalarProperty Name="receptID" ColumnName="receptID" />
-                <ScalarProperty Name="slucaj" ColumnName="slucaj" />
-                <ScalarProperty Name="lijekoviID" ColumnName="lijekoviID" />
-                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
-                <ScalarProperty Name="doziranje" ColumnName="doziranje" />
-                <ScalarProperty Name="nadoplata" ColumnName="nadoplata" />
-                <ScalarProperty Name="pacijentiID" ColumnName="pacijentiID" />
-                <ScalarProperty Name="djelatniciID" ColumnName="djelatniciID" />
-                <ScalarProperty Name="sifra_zdrv_ustanoveID" ColumnName="sifra_zdrv_ustanoveID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sifra_zdrv_ustanove">
             <EntityTypeMapping TypeName="HouseMedDBModel.sifra_zdrv_ustanove">
               <MappingFragment StoreEntitySet="sifra_zdrv_ustanove">
@@ -1071,17 +1033,6 @@
                 <ScalarProperty Name="mjesto" ColumnName="mjesto" />
                 <ScalarProperty Name="ulica" ColumnName="ulica" />
                 <ScalarProperty Name="telefon" ColumnName="telefon" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="HouseMedDBModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1097,6 +1048,21 @@
                 <ScalarProperty Name="napomena" ColumnName="napomena" />
                 <ScalarProperty Name="datum" ColumnName="datum" />
                 <ScalarProperty Name="djelatniciID" ColumnName="djelatniciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recepti">
+            <EntityTypeMapping TypeName="HouseMedDBModel.recepti">
+              <MappingFragment StoreEntitySet="recepti">
+                <ScalarProperty Name="sifra_zdrv_ustanoveID" ColumnName="sifra_zdrv_ustanoveID" />
+                <ScalarProperty Name="djelatniciID" ColumnName="djelatniciID" />
+                <ScalarProperty Name="pacijentiID" ColumnName="pacijentiID" />
+                <ScalarProperty Name="nadoplata" ColumnName="nadoplata" />
+                <ScalarProperty Name="doziranje" ColumnName="doziranje" />
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+                <ScalarProperty Name="lijekoviID" ColumnName="lijekoviID" />
+                <ScalarProperty Name="slucaj" ColumnName="slucaj" />
+                <ScalarProperty Name="receptID" ColumnName="receptID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

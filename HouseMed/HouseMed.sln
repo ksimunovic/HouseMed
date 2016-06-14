@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseMed", "HouseMed\HouseMed.csproj", "{73B698EC-A600-470D-8D22-6BFE5D8E35E2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{23598BAB-9C35-464A-A2DD-9271CBA779BC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{A9EC7A47-19D8-41F5-9451-3A3FAE26C0C8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BAL", "BAL", "{A9EC7A47-19D8-41F5-9451-3A3FAE26C0C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseMed.DAL", "HouseMed.DAL\HouseMed.DAL.csproj", "{C41C3B73-F5D4-4DDC-AE20-7400FE0FFBA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseMed.BLL", "HouseMed.BAL\HouseMed.BLL.csproj", "{0DAD1F44-D740-4255-8C1F-C01E102D4DA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseMed.BAL", "HouseMed.BAL\HouseMed.BAL.csproj", "{0DAD1F44-D740-4255-8C1F-C01E102D4DA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
