@@ -52,6 +52,7 @@
             this.btnLijekovi.TabIndex = 1;
             this.btnLijekovi.Text = "Lijekovi";
             this.btnLijekovi.UseVisualStyleBackColor = true;
+            this.btnLijekovi.Click += new System.EventHandler(this.btnLijekovi_Click);
             // 
             // btnRecept
             // 
