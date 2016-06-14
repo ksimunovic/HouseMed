@@ -10,7 +10,7 @@ using HouseMed.DAL;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HouseMed.HospitalDays
+namespace HouseMed.HospitalDays 
 {
     public partial class frmHospitalDays : Form
     {
