@@ -39,6 +39,14 @@ namespace HouseMed.BAL
         {
             return _receptiDAL.GetAllReceptiNamedPropsById(PacijentId);
         }
+
+        /// <summary>
+        /// Adds new "Recept" into the DB
+        /// </summary>
+        public void AddNewRecept(recepti recept)
+        {
+            _receptiDAL.AddNewRecept(recept);
+        }
         #endregion
 
     }

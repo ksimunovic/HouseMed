@@ -28,7 +28,7 @@ namespace HouseMed.Recipes
         #region form methods
         private void frmRecipe_Load(object sender, EventArgs e)
         {
-            dgvRecipe.DataSource = _receptiBAL.GetALLRecepti();
+            RefreshRecipeDatagrid();
         }
         #endregion
 
@@ -42,6 +42,17 @@ namespace HouseMed.Recipes
         {
             frmAddNewRecipe frm = new frmAddNewRecipe();
             frm.ShowDialog();
+            RefreshRecipeDatagrid();
+        }
+        #endregion
+
+        #region private methods
+        /// <summary>
+        /// Setting the datagrid datasource
+        /// </summary>
+        private void RefreshRecipeDatagrid()
+        {
+            dgvRecipe.DataSource = _receptiBAL.GetALLRecepti();
         }
         #endregion
     }

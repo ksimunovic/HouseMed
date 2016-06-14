@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HouseMed.BAL
 {
@@ -19,11 +20,23 @@ namespace HouseMed.BAL
         /// <returns></returns>
         public static T? GetValueOrNull<T>(this string value) where T : struct
         {
-            if (string.IsNullOrEmpty(value))
+            try
             {
+                if (string.IsNullOrEmpty(value))
+                {
+                    return null;
+                }
+                return (T)Convert.ChangeType(value, typeof(T));
+            }
+            catch (Exception e)
+            {
+                if(e is FormatException)
+                {
+                    MessageBox.Show(String.Format("Vijednost: '{0}' je krivog formata", value));
+                }
                 return null;
             }
-            return (T)Convert.ChangeType(value, typeof(T));
+            
         }
     }
 }

@@ -16,6 +16,7 @@ namespace HouseMed.Recipes
         #region private variables
         private DjelatniciBAL _djelatniciBAL;
         private ZdravUstanovaBAL _zdravUstanovaBAL;
+        private ReceptiBAL _receptiBAL;
         private int _djelatniciID;
         private int _ustanovaID;
         #endregion
@@ -26,6 +27,7 @@ namespace HouseMed.Recipes
             InitializeComponent();
             _djelatniciBAL = new DjelatniciBAL();
             _zdravUstanovaBAL = new ZdravUstanovaBAL();
+            _receptiBAL = new ReceptiBAL();
         }
         #endregion
 
@@ -50,6 +52,7 @@ namespace HouseMed.Recipes
         private void btnOk_Click(object sender, EventArgs e)
         {
             SetNewRecipeObject();
+            this.Close();
         }
         /// <summary>
         /// Button[Odustani] event handler: Close the form
@@ -148,6 +151,7 @@ namespace HouseMed.Recipes
                 doziranje = txtDoziranje.Text,
                 slucaj = txtSlucaj.Text
             };
+            _receptiBAL.AddNewRecept(recepti);
         }
         #endregion
     }
