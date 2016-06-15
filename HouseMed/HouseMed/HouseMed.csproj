@@ -85,6 +85,12 @@
     <Compile Include="HospitalDays\frmHospitalDays.Designer.cs">
       <DependentUpon>frmHospitalDays.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patients\frmAddNewPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patients\frmAddNewPatients.Designer.cs">
+      <DependentUpon>frmAddNewPatients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Patients\frmPatients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HospitalDays\frmHospitalDays.resx">
       <DependentUpon>frmHospitalDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patients\frmAddNewPatients.resx">
+      <DependentUpon>frmAddNewPatients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Patients\frmPatients.resx">
       <DependentUpon>frmPatients.cs</DependentUpon>
