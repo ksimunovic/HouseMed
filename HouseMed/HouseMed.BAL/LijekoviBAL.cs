@@ -40,6 +40,15 @@ namespace HouseMed.BAL
         {
             return _lijekoviDAL.GetLijekoviByName(name);
         }
+
+        /// <summary>
+        /// Adds "lijek" object into the DB
+        /// </summary>
+        /// <param name="lijek"></param>
+        public void AddNewLijekoviObject(lijekovi lijek)
+        {
+            _lijekoviDAL.AddNewLijekoviObject(lijek);
+        }
         #endregion
     }
 }

@@ -139,19 +139,22 @@ namespace HouseMed.Recipes
         /// </summary>
         private void SetNewRecipeObject()
         {
-            // TODO: complete INSERT in DB and in OK button
-            recepti recepti = new recepti()
+            using (HouseMedDBEntities db = new HouseMedDBEntities())
             {
-                kolicina = HelpClass.GetValueOrNull<int>(txtKolicina.Text),
-                nadoplata = chckNadoplata.Checked,
-                djelatniciID = _djelatniciID,
-                sifra_zdrv_ustanoveID = _ustanovaID,
-                pacijentiID = ObjectProps.pacijenti != null ? ObjectProps.pacijenti.pacijentiID : (int?)null,
-                lijekoviID = ObjectProps.lijekovi != null? ObjectProps.lijekovi.lijekoviID : (int?)null,
-                doziranje = txtDoziranje.Text,
-                slucaj = txtSlucaj.Text
-            };
-            _receptiBAL.AddNewRecept(recepti);
+                recepti recepti = new recepti()
+                {
+                    kolicina = HelpClass.GetValueOrNull<int>(txtKolicina.Text),
+                    nadoplata = chckNadoplata.Checked,
+                    djelatniciID = _djelatniciID,
+                    sifra_zdrv_ustanoveID = _ustanovaID,
+                    pacijentiID = ObjectProps.pacijenti != null ? ObjectProps.pacijenti.pacijentiID : (int?)null,
+                    lijekoviID = ObjectProps.lijekovi != null ? ObjectProps.lijekovi.lijekoviID : (int?)null,
+                    doziranje = txtDoziranje.Text,
+                    slucaj = txtSlucaj.Text
+                };
+                db.recepti.Add(recepti);
+                db.SaveChanges();
+            }
         }
         #endregion
     }
