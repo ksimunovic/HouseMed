@@ -55,6 +55,15 @@ namespace HouseMed.DAL
                 throw;
             }
         }
+        /// <summary>
+        /// Adds "lijek" object into the DB
+        /// </summary>
+        /// <param name="lijek"></param>
+        public void AddNewLijekoviObject(lijekovi lijek)
+        {
+            context.lijekovi.Add(lijek);
+            context.SaveChanges();
+        }
         #endregion
     }
 }
