@@ -39,15 +39,63 @@ namespace HouseMed.Patients
         }
         #endregion
 
+        #region event handlers
+
+        /// <summary>
+        /// event za load forme puni datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmPatients_Load(object sender, EventArgs e)
         {
-            dgvPatients.DataSource = _pacijentiBAL.GetAllPacijenti();
+            RefreshDatagrid();
         }
-
+        /// <summary>
+        /// klikom na novi pacijent se  otvara nova form i refresh datagrida
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNoviPacijent_Click(object sender, EventArgs e)
         {
             frmAddNewPatients frm = new frmAddNewPatients();
             frm.ShowDialog();
+            RefreshDatagrid();
+
         }
+        /// <summary>
+        /// event za označavanje retka u datagridu zove funkciju
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvPatients_SelectionChanged(object sender, EventArgs e)
+        {
+            GetSelectedPatient();
+        }
+
+        #endregion
+
+
+        #region private methods
+        /// <summary>
+        /// funkcija za refresh podataka u datagridu
+        /// </summary>
+        private void RefreshDatagrid()
+        {
+            dgvPatients.DataSource = _pacijentiBAL.GetAllPacijenti();
+
+        }
+
+        private void GetSelectedPatient()
+        {
+            var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
+            if (selectedItem != null)
+            {
+               //todo
+
+            }
+        }
+        #endregion
+
+
     }
 }

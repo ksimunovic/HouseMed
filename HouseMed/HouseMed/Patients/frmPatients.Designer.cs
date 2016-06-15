@@ -87,8 +87,10 @@
             this.dgvPatients.Location = new System.Drawing.Point(2, 69);
             this.dgvPatients.Name = "dgvPatients";
             this.dgvPatients.RowTemplate.Height = 24;
+            this.dgvPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPatients.Size = new System.Drawing.Size(1042, 274);
             this.dgvPatients.TabIndex = 0;
+            this.dgvPatients.SelectionChanged += new System.EventHandler(this.dgvPatients_SelectionChanged);
             // 
             // btnNoviPacijent
             // 
