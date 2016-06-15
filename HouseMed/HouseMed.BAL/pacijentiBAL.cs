@@ -30,6 +30,12 @@ namespace HouseMed.BAL
         {
             return _pacijentiDAL.GetAllPacijenti();
         }
+
+
+        public void AddNewPacijent(pacijenti pacijent)
+        {
+            _pacijentiDAL.AddNewPacijent(pacijent);
+        }
         #endregion
     }
 }

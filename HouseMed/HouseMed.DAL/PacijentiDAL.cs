@@ -26,6 +26,23 @@ namespace HouseMed.DAL
             BindingList<pacijenti> lista = new BindingList<pacijenti>(pacijenti);
             return lista;
         }
+
+        /// <summary>
+        /// Adds new "Pacijent" u bazu
+        /// </summary>
+        public void AddNewPacijent(pacijenti pacijent)
+        {
+            try
+            {
+                context.pacijenti.Add(pacijent);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         #endregion
     }
 }
