@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using HouseMed.Recipes;
 using HouseMed.HospitalDays;
 using HouseMed.E_Carton;
+using HouseMed.Patients;
 
 namespace HouseMed
 {
@@ -60,6 +61,18 @@ namespace HouseMed
             HospitalDays.frmHospitalDays frm = new frmHospitalDays();
             frm.ShowDialog();
         }
+        /// <summary>
+        /// Buttton[Pacijenti] event handler: open the "frmPatients" form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPatients_Click(object sender, EventArgs e)
+        {
+            frmPatients frm = new frmPatients();
+            frm.ShowDialog();
+        }
         #endregion
+
+
     }
 }
