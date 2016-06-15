@@ -10,7 +10,7 @@ using HouseMed.DAL;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HouseMed.HospitalDays
+namespace HouseMed.HospitalDays 
 {
     public partial class frmHospitalDays : Form
     {
@@ -44,7 +44,7 @@ namespace HouseMed.HospitalDays
         {
             dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(1);
             cbPacijenti.DataSource = _pacijentiBAL.GetAllPacijenti();
-            cbPacijenti.DisplayMember = "ImePrezime";
+            cbPacijenti.DisplayMember = "ime";
             cbPacijenti.ValueMember = "pacijentID";
         }
 
