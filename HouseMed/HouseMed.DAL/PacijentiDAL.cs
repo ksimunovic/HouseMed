@@ -22,24 +22,24 @@ namespace HouseMed.DAL
         public BindingList<pacijenti> GetAllPacijenti()
         {
             var pacijenti = (from a in context.pacijenti
-                         select a).ToList();
+                             select a).ToList();
             BindingList<pacijenti> lista = new BindingList<pacijenti>(pacijenti);
             return lista;
         }
 
-
         /// <summary>
-        /// Method for getting the "pacijenti" by ID patient from the DB
+        /// Remove patient by id
         /// </summary>
-        /// <returns></returns>
-       /* public BindingList<pacijentiCustom> GetAllPacijentiById(int pacijentId)
+        /// <param name="pacijentiID"></param>
+        public void RemovePatientById(int pacijentiID)
         {
-            var pacijenti = (from a in context.pacijenti
-                             where a.pacijentiID == pacijentId
-                             select a).ToList();
-            BindingList<pacijentiCustom> lista = new BindingList<pacijentiCustom>(pacijenti);
-           return lista;
-        }*/
+            var pacijent = (from a in context.pacijenti
+                            where a.pacijentiID == pacijentiID
+                            select a).FirstOrDefault();
+
+            context.pacijenti.Remove(pacijent);
+            context.SaveChanges();
+        }
 
         /// <summary>
         /// Adds new "Pacijent" u bazu
@@ -57,6 +57,17 @@ namespace HouseMed.DAL
             }
         }
 
-        #endregion
+        public void SaveChanges()
+        {
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            #endregion
+        }
     }
 }
