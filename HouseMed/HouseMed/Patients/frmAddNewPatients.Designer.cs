@@ -104,7 +104,7 @@
             // labelSpol
             // 
             this.labelSpol.AutoSize = true;
-            this.labelSpol.Location = new System.Drawing.Point(15, 205);
+            this.labelSpol.Location = new System.Drawing.Point(11, 212);
             this.labelSpol.Name = "labelSpol";
             this.labelSpol.Size = new System.Drawing.Size(36, 17);
             this.labelSpol.TabIndex = 5;
@@ -198,8 +198,8 @@
             // 
             this.comboBoxSpol.FormattingEnabled = true;
             this.comboBoxSpol.Items.AddRange(new object[] {
-            "Musko",
-            "Zensko"});
+            "M",
+            "Ž"});
             this.comboBoxSpol.Location = new System.Drawing.Point(86, 205);
             this.comboBoxSpol.Name = "comboBoxSpol";
             this.comboBoxSpol.Size = new System.Drawing.Size(121, 24);
@@ -254,11 +254,11 @@
             this.comboBoxUstanova.Name = "comboBoxUstanova";
             this.comboBoxUstanova.Size = new System.Drawing.Size(121, 24);
             this.comboBoxUstanova.TabIndex = 23;
-            this.comboBoxUstanova.SelectedIndexChanged += new System.EventHandler(this.comboBoxUstanova_SelectedIndexChanged);
+            this.comboBoxUstanova.SelectedValueChanged += new System.EventHandler(this.comboBoxUstanova_SelectedValueChanged);
             // 
             // btnDodajPacijenta
             // 
-            this.btnDodajPacijenta.Location = new System.Drawing.Point(244, 512);
+            this.btnDodajPacijenta.Location = new System.Drawing.Point(245, 532);
             this.btnDodajPacijenta.Name = "btnDodajPacijenta";
             this.btnDodajPacijenta.Size = new System.Drawing.Size(131, 36);
             this.btnDodajPacijenta.TabIndex = 24;

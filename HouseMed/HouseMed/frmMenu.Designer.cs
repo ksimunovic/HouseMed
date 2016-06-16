@@ -33,12 +33,13 @@
             this.btnRecept = new System.Windows.Forms.Button();
             this.btnBolnica = new System.Windows.Forms.Button();
             this.btnPatients = new System.Windows.Forms.Button();
+            this.btnUputnice = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEkarton
             // 
-            this.btnEkarton.Location = new System.Drawing.Point(321, 364);
-            this.btnEkarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEkarton.Location = new System.Drawing.Point(452, 364);
+            this.btnEkarton.Margin = new System.Windows.Forms.Padding(4);
             this.btnEkarton.Name = "btnEkarton";
             this.btnEkarton.Size = new System.Drawing.Size(111, 46);
             this.btnEkarton.TabIndex = 0;
@@ -48,8 +49,8 @@
             // 
             // btnLijekovi
             // 
-            this.btnLijekovi.Location = new System.Drawing.Point(459, 364);
-            this.btnLijekovi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLijekovi.Location = new System.Drawing.Point(590, 364);
+            this.btnLijekovi.Margin = new System.Windows.Forms.Padding(4);
             this.btnLijekovi.Name = "btnLijekovi";
             this.btnLijekovi.Size = new System.Drawing.Size(111, 46);
             this.btnLijekovi.TabIndex = 1;
@@ -59,8 +60,8 @@
             // 
             // btnRecept
             // 
-            this.btnRecept.Location = new System.Drawing.Point(179, 364);
-            this.btnRecept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRecept.Location = new System.Drawing.Point(172, 364);
+            this.btnRecept.Margin = new System.Windows.Forms.Padding(4);
             this.btnRecept.Name = "btnRecept";
             this.btnRecept.Size = new System.Drawing.Size(111, 46);
             this.btnRecept.TabIndex = 2;
@@ -70,8 +71,8 @@
             // 
             // btnBolnica
             // 
-            this.btnBolnica.Location = new System.Drawing.Point(597, 364);
-            this.btnBolnica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBolnica.Location = new System.Drawing.Point(728, 364);
+            this.btnBolnica.Margin = new System.Windows.Forms.Padding(4);
             this.btnBolnica.Name = "btnBolnica";
             this.btnBolnica.Size = new System.Drawing.Size(111, 46);
             this.btnBolnica.TabIndex = 3;
@@ -90,17 +91,29 @@
             this.btnPatients.UseVisualStyleBackColor = true;
             this.btnPatients.Click += new System.EventHandler(this.btnPatients_Click);
             // 
+            // btnUputnice
+            // 
+            this.btnUputnice.Location = new System.Drawing.Point(312, 364);
+            this.btnUputnice.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUputnice.Name = "btnUputnice";
+            this.btnUputnice.Size = new System.Drawing.Size(111, 46);
+            this.btnUputnice.TabIndex = 5;
+            this.btnUputnice.Text = "Uputnice";
+            this.btnUputnice.UseVisualStyleBackColor = true;
+            this.btnUputnice.Click += new System.EventHandler(this.btnUputnice_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 480);
+            this.Controls.Add(this.btnUputnice);
             this.Controls.Add(this.btnPatients);
             this.Controls.Add(this.btnBolnica);
             this.Controls.Add(this.btnRecept);
             this.Controls.Add(this.btnLijekovi);
             this.Controls.Add(this.btnEkarton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Funkcionalnosti";
@@ -115,5 +128,6 @@
         private System.Windows.Forms.Button btnRecept;
         private System.Windows.Forms.Button btnBolnica;
         private System.Windows.Forms.Button btnPatients;
+        private System.Windows.Forms.Button btnUputnice;
     }
 }

@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="cijepljenjeCustom.cs" />
     <Compile Include="CijepljenjeDAL.cs" />
+    <Compile Include="pacijentiCustom.cs" />
     <Compile Include="djelatnici.cs">
       <DependentUpon>HouseMedModel.tt</DependentUpon>
     </Compile>

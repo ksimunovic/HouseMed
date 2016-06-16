@@ -35,20 +35,22 @@ namespace HouseMed.Patients
 
         #endregion
 
-       
+
 
 
         #region event handler
         /// <summary>
-        /// primanje vrijednosti iz comboboxa
+        /// Dobivanje vrijednosti iz Comboboxa Ustanove
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBoxUstanova_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxUstanova_SelectedValueChanged(object sender, EventArgs e)
         {
             var selectedItem = comboBoxUstanova.SelectedItem as sifra_zdrv_ustanove;
             _ustanovaID = selectedItem.sifra_zdrv_ustanoveID;
+
         }
+
         /// <summary>
         /// punjenjeComboboxa Ustanove
         /// </summary>
@@ -116,15 +118,16 @@ namespace HouseMed.Patients
             _pacijentiBAL.AddNewPacijent(pacijenti);
         }
 
+
+
+
+
+
+
+
+
         #endregion
 
-
-
-
-
-
-
-
-
+        
     }
 }
