@@ -62,6 +62,7 @@ namespace HouseMed.Uputnice
         {
             var selectedItem = comboBoxUstanovaID.SelectedItem as sifra_zdrv_ustanove;
             _ustanovaID = selectedItem.sifra_zdrv_ustanoveID;
+
         }
         /// <summary>
         /// Dobivanje vrijednosti iz comboboxa PacijentiID
@@ -119,6 +120,7 @@ namespace HouseMed.Uputnice
             comboBoxUstanovaID.ValueMember = "sifra_zdrv_ustanoveID";
 
             //set pacijenti
+
             comboBoxPacijentiID.DataSource = listaPacijenti;
             comboBoxPacijentiID.DisplayMember = "ImePrezime";
             comboBoxPacijentiID.ValueMember = "pacijentiID";

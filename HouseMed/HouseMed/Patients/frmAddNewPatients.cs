@@ -115,6 +115,7 @@ namespace HouseMed.Patients
                 mobitel = textBoxMobitel.Text,
                 email = textBoxEmail.Text,
                 sifra_zdrv_ustanoveID = _ustanovaID
+
             };
             
             _pacijentiBAL.AddNewPacijent(pacijenti);
