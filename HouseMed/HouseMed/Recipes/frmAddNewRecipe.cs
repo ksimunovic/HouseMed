@@ -17,6 +17,7 @@ namespace HouseMed.Recipes
         private DjelatniciBAL _djelatniciBAL;
         private ZdravUstanovaBAL _zdravUstanovaBAL;
         private ReceptiBAL _receptiBAL;
+        private int _lijekoviID;
         private int _djelatniciID;
         private int _ustanovaID;
         #endregion

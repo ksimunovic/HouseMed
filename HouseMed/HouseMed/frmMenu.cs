@@ -4,6 +4,7 @@ using HouseMed.Recipes;
 using HouseMed.HospitalDays;
 using HouseMed.E_Carton;
 using HouseMed.Patients;
+using HouseMed.Uputnice;
 
 namespace HouseMed
 {
@@ -71,6 +72,17 @@ namespace HouseMed
             frmPatients frm = new frmPatients();
             frm.ShowDialog();
         }
+        /// <summary>
+        /// Buttton[Pacijenti] event handler: open the "frmUputnice" form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUputnice_Click(object sender, EventArgs e)
+        {
+            frmUputnice frm = new frmUputnice();
+            frm.ShowDialog();
+        }
+
         #endregion
 
 
