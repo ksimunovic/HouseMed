@@ -68,6 +68,24 @@ namespace HouseMed.DAL
                 throw;
             }
         }
+
+
+
+        /// <summary>
+        /// Adds new "Uputnica" u bazu
+        /// </summary>
+        public void AddNewUputnica(uputnica uputnica)
+        {
+            try
+            {
+                context.uputnica.Add(uputnica);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }

@@ -38,6 +38,13 @@ namespace HouseMed.BAL
         {
             return _uputnicaDAL.GetAllUputnicaPropsNameById(pacijentId);
         }
+
+
+        public void AddNewUputnica(uputnica uputnica)
+        {
+            _uputnicaDAL.AddNewUputnica(uputnica);
+        }
+
         #endregion
     }
 }
