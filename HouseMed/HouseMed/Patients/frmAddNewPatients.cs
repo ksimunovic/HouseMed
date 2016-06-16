@@ -62,9 +62,10 @@ namespace HouseMed.Patients
         {
             SetComboBox();
 
+
         }
         /// <summary>
-        /// Dodavanje novog pacijenta u bazu
+        /// Dodavanje novog pacijenta u bazu brzo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -72,6 +73,7 @@ namespace HouseMed.Patients
         private void btnDodajPacijenta_Click(object sender, EventArgs e)
         {
             SetNewPatientsObject();
+
             this.Close();
         }
 
@@ -113,6 +115,7 @@ namespace HouseMed.Patients
                 mobitel = textBoxMobitel.Text,
                 email = textBoxEmail.Text,
                 sifra_zdrv_ustanoveID = _ustanovaID
+
             };
             
             _pacijentiBAL.AddNewPacijent(pacijenti);
