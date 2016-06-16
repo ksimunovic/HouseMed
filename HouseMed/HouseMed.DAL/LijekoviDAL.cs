@@ -51,7 +51,6 @@ namespace HouseMed.DAL
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

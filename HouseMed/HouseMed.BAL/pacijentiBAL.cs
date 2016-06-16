@@ -45,6 +45,23 @@ namespace HouseMed.BAL
         {
             _pacijentiDAL.AddNewPacijent(pacijent);
         }
+
+        /// <summary>
+        /// Remove patient by id
+        /// </summary>
+        /// <param name="pacijentiID"></param>
+        public void RemovePatientById(int pacijentiID)
+        {
+            _pacijentiDAL.RemovePatientById(pacijentiID);
+        }
+
+        /// <summary>
+        /// update pacijenta
+        /// </summary>
+        public void SaveChanges()
+        {
+            _pacijentiDAL.SaveChanges();
+        }
         #endregion
     }
 }

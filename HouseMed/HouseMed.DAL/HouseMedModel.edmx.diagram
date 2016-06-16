@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5e76c46a9e364ebd8e4f6b1154746286" Name="Diagram1" ZoomLevel="64">
-        <EntityTypeShape EntityType="HouseMedDBModel.cijepljenje" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseMedDBModel.cijepljenje" Width="1.5" PointX="5.75" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseMedDBModel.djelatnici" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseMedDBModel.evidencija_hospitalizacije" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseMedDBModel.lijekovi" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
