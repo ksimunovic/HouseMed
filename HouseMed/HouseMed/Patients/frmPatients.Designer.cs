@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.dgvPatients = new System.Windows.Forms.DataGridView();
             this.btnNoviPacijent = new System.Windows.Forms.Button();
+            this.btnObrisi = new System.Windows.Forms.Button();
             this.pacijentiIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mBODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oIBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +54,7 @@
             this.receptiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imePrezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacijentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnUredi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -84,11 +86,11 @@
             this.receptiDataGridViewTextBoxColumn,
             this.imePrezimeDataGridViewTextBoxColumn});
             this.dgvPatients.DataSource = this.pacijentiBindingSource;
-            this.dgvPatients.Location = new System.Drawing.Point(2, 69);
+            this.dgvPatients.Location = new System.Drawing.Point(3, 74);
             this.dgvPatients.Name = "dgvPatients";
             this.dgvPatients.RowTemplate.Height = 24;
             this.dgvPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPatients.Size = new System.Drawing.Size(1042, 274);
+            this.dgvPatients.Size = new System.Drawing.Size(1009, 216);
             this.dgvPatients.TabIndex = 0;
             this.dgvPatients.SelectionChanged += new System.EventHandler(this.dgvPatients_SelectionChanged);
             // 
@@ -101,6 +103,16 @@
             this.btnNoviPacijent.Text = "Novi pacijent";
             this.btnNoviPacijent.UseVisualStyleBackColor = true;
             this.btnNoviPacijent.Click += new System.EventHandler(this.btnNoviPacijent_Click);
+            // 
+            // btnObrisi
+            // 
+            this.btnObrisi.Location = new System.Drawing.Point(789, 313);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(75, 23);
+            this.btnObrisi.TabIndex = 2;
+            this.btnObrisi.Text = "Obriši";
+            this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
             // pacijentiIDDataGridViewTextBoxColumn
             // 
@@ -240,11 +252,23 @@
             // 
             this.pacijentiBindingSource.DataSource = typeof(HouseMed.DAL.pacijenti);
             // 
+            // btnUredi
+            // 
+            this.btnUredi.Location = new System.Drawing.Point(898, 312);
+            this.btnUredi.Name = "btnUredi";
+            this.btnUredi.Size = new System.Drawing.Size(75, 23);
+            this.btnUredi.TabIndex = 3;
+            this.btnUredi.Text = "Uredi";
+            this.btnUredi.UseVisualStyleBackColor = true;
+            this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
+            // 
             // frmPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 377);
+            this.ClientSize = new System.Drawing.Size(1012, 377);
+            this.Controls.Add(this.btnUredi);
+            this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.btnNoviPacijent);
             this.Controls.Add(this.dgvPatients);
             this.Name = "frmPatients";
@@ -282,5 +306,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn receptiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imePrezimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnNoviPacijent;
+        private System.Windows.Forms.Button btnObrisi;
+        private System.Windows.Forms.Button btnUredi;
     }
 }

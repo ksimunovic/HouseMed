@@ -21,6 +21,7 @@ namespace HouseMed.Patients
         private ReceptiBAL _receptiBAL;
         private PacijentiBAL _pacijentiBAL;
         private int _ustanovaID;
+        private pacijenti _selectedPacijent;
         #endregion
 
         #region constructor
@@ -31,6 +32,13 @@ namespace HouseMed.Patients
             _zdravUstanovaBAL = new ZdravUstanovaBAL();
             _pacijentiBAL = new PacijentiBAL();
             _receptiBAL = new ReceptiBAL();
+        }
+
+        public frmAddNewPatients(pacijenti selectedPacijent)
+        {
+            InitializeComponent();
+            _selectedPacijent = selectedPacijent;
+            _pacijentiBAL = new PacijentiBAL();
         }
 
         #endregion
@@ -60,9 +68,15 @@ namespace HouseMed.Patients
 
         private void frmAddNewPatients_Load(object sender, EventArgs e)
         {
-            SetComboBox();
-
-
+            if(_selectedPacijent != null)
+            {
+                LoadSelectedPatient();
+                SetComboBox();
+            }
+            else
+            {
+                SetComboBox();
+            }
         }
         /// <summary>
         /// Dodavanje novog pacijenta u bazu brzo
@@ -72,7 +86,15 @@ namespace HouseMed.Patients
 
         private void btnDodajPacijenta_Click(object sender, EventArgs e)
         {
-            SetNewPatientsObject();
+            if(_selectedPacijent != null)
+            {
+                EditPatient();
+            }
+            else
+            {
+                SetNewPatientsObject();
+            }
+            
 
             this.Close();
         }
@@ -121,7 +143,18 @@ namespace HouseMed.Patients
             _pacijentiBAL.AddNewPacijent(pacijenti);
         }
 
+        private void LoadSelectedPatient()
+        {
+            textBoxAdresa.Text = _selectedPacijent.adresa;
+            textBoxDrzava.Text = _selectedPacijent.drzava;
+        }
 
+        private void EditPatient()
+        {
+            _selectedPacijent.adresa = textBoxAdresa.Text;
+            _selectedPacijent.drzava = textBoxDrzava.Text;
+            _pacijentiBAL.SaveChanges();
+        }
 
 
 
