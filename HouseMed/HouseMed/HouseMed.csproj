@@ -123,6 +123,18 @@
     <Compile Include="Recipes\frmRecipe.Designer.cs">
       <DependentUpon>frmRecipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uputnice\frmAddNewUputnice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uputnice\frmAddNewUputnice.Designer.cs">
+      <DependentUpon>frmAddNewUputnice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uputnice\frmUputnice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uputnice\frmUputnice.Designer.cs">
+      <DependentUpon>frmUputnice.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="E-Carton\frmECarton.resx">
       <DependentUpon>frmECarton.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recipes\frmRecipe.resx">
       <DependentUpon>frmRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uputnice\frmAddNewUputnice.resx">
+      <DependentUpon>frmAddNewUputnice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uputnice\frmUputnice.resx">
+      <DependentUpon>frmUputnice.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\HouseMed.DAL.djelatnici.datasource" />

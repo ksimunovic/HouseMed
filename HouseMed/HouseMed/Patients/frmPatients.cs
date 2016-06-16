@@ -84,13 +84,17 @@ namespace HouseMed.Patients
             dgvPatients.DataSource = _pacijentiBAL.GetAllPacijenti();
 
         }
-
+        /// <summary>
+        /// dobivanje pacijenta po selected id
+        /// </summary>
         private void GetSelectedPatient()
         {
             var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
+           
             if (selectedItem != null)
             {
-               //todo
+
+               // dgvPatients.DataSource = _pacijentiBAL.GetAllPacijentiById(selectedItem.pacijentiID);
 
             }
         }

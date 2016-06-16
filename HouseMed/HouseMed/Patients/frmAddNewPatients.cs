@@ -35,20 +35,22 @@ namespace HouseMed.Patients
 
         #endregion
 
-       
+
 
 
         #region event handler
         /// <summary>
-        /// primanje vrijednosti iz comboboxa
+        /// Dobivanje vrijednosti iz Comboboxa Ustanove
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBoxUstanova_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxUstanova_SelectedValueChanged(object sender, EventArgs e)
         {
             var selectedItem = comboBoxUstanova.SelectedItem as sifra_zdrv_ustanove;
             _ustanovaID = selectedItem.sifra_zdrv_ustanoveID;
+
         }
+
         /// <summary>
         /// punjenjeComboboxa Ustanove
         /// </summary>
@@ -60,9 +62,10 @@ namespace HouseMed.Patients
         {
             SetComboBox();
 
+
         }
         /// <summary>
-        /// Dodavanje novog pacijenta u bazu
+        /// Dodavanje novog pacijenta u bazu brzo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -70,6 +73,7 @@ namespace HouseMed.Patients
         private void btnDodajPacijenta_Click(object sender, EventArgs e)
         {
             SetNewPatientsObject();
+
             this.Close();
         }
 
@@ -111,20 +115,22 @@ namespace HouseMed.Patients
                 mobitel = textBoxMobitel.Text,
                 email = textBoxEmail.Text,
                 sifra_zdrv_ustanoveID = _ustanovaID
+
             };
             
             _pacijentiBAL.AddNewPacijent(pacijenti);
         }
 
+
+
+
+
+
+
+
+
         #endregion
 
-
-
-
-
-
-
-
-
+        
     }
 }
