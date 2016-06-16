@@ -90,8 +90,10 @@ namespace HouseMed.Patients
         private void GetSelectedPatient()
         {
             var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
+           
             if (selectedItem != null)
             {
+
                // dgvPatients.DataSource = _pacijentiBAL.GetAllPacijentiById(selectedItem.pacijentiID);
 
             }
