@@ -29,6 +29,7 @@ namespace HouseMed.Uputnice
 
 
         #region constructor
+
         public frmAddNewUputnice()
         {
             InitializeComponent();
