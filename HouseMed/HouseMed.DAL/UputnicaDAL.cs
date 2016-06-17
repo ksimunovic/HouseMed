@@ -35,7 +35,7 @@ namespace HouseMed.DAL
             }
         }
         /// <summary>
-        /// Method for getting all the Recipes from the DB with full names
+        /// Method for getting all the Recipes from the DB with full names by ID
         /// </summary>
         /// <returns></returns>
         public BindingList<uputnicaCustom> GetAllUputnicaPropsNameById(int pacijentId)
@@ -118,6 +118,36 @@ namespace HouseMed.DAL
                 throw;
             }
         }
-        #endregion
+
+        /// <summary>
+        /// Remove Uputnica by id
+        /// </summary>
+        /// <param name="uputnicaID"></param>
+        public void RemoveUputnicaById(int uputnicaID)
+        {
+            var uputnica = (from a in context.uputnica
+                            where a.uputnicaID == uputnicaID
+                            select a).FirstOrDefault();
+
+            context.uputnica.Remove(uputnica);
+            context.SaveChanges();
+        }
+
+        /// <summary>
+        /// funkcija za update uputnice u bazi
+        /// </summary>
+        public void SaveChanges()
+        {
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            #endregion
+        }
+
     }
 }
