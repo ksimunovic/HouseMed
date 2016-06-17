@@ -72,5 +72,25 @@ namespace HouseMed.DAL
             }
             #endregion
         }
+        /// <summary>
+        /// dobivanje pacijenata po trazenom textu
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public BindingList<pacijenti> GetAllPacijentiBy(string name)
+        {
+            try
+            {
+                var pacijenti = (from a in context.pacijenti
+                                where a.OIB.ToString().Contains(name) || a.ime.Contains(name) || a.prezime.Contains(name) || a.mjesto.Contains(name) || a.adresa.Contains(name) || a.drzava.Contains(name) || a.email.Contains(name) || a.mobitel.Contains(name) || a.spol.Contains(name)
+                                select a).ToList();
+                BindingList<pacijenti> lista = new BindingList<DAL.pacijenti>(pacijenti);
+                return lista;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
