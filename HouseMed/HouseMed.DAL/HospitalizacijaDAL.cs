@@ -36,6 +36,21 @@ namespace HouseMed.DAL
             BindingList<hospitalizacijaCustom> lista = new BindingList<hospitalizacijaCustom>(hospitalizacija);
             return lista;
         }
+        /// <summary>
+        /// Adds new "Nalog" u bazu
+        /// </summary>
+        public void AddNewNalog(evidencija_hospitalizacije nalog)
+        {
+            try
+            {
+                context.evidencija_hospitalizacije.Add(nalog);
+                context.SaveChanges();
+            }
+            catch 
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }

@@ -31,6 +31,15 @@ namespace HouseMed.BAL
         {
             return _hospitalizacijaDAL.GetAllHospitalizacijaPropNamesById(pacijentId);
         }
+
+        /// <summary>
+        /// dodavanje nove uputnice
+        /// </summary>
+        /// <param name="nalog"></param>
+        public void AddNewNalog(evidencija_hospitalizacije nalog)
+        {
+            _hospitalizacijaDAL.AddNewNalog(nalog);
+        }
         #endregion
     }
 }
