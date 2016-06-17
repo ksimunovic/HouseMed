@@ -49,6 +49,8 @@ namespace HouseMed.Patients
         private void frmPatients_Load(object sender, EventArgs e)
         {
             RefreshDatagrid();
+            btnObrisi.Enabled = false;
+            btnUredi.Enabled = false;
         }
         /// <summary>
         /// klikom na novi pacijent se  otvara nova form i refresh datagrida
@@ -62,16 +64,36 @@ namespace HouseMed.Patients
             RefreshDatagrid();
 
         }
+        
         /// <summary>
-        /// event za označavanje retka u datagridu zove funkciju
+        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dgvPatients_SelectionChanged(object sender, EventArgs e)
+        private void btnObrisi_Click(object sender, EventArgs e)
         {
             GetSelectedPatient();
+            RefreshDatagrid();
+        }
+        /// <summary>
+        /// uredi gumb
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUredi_Click(object sender, EventArgs e)
+        {
+            var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
+            frmAddNewPatients frm = new frmAddNewPatients(selectedItem);
+            frm.ShowDialog();
+            RefreshDatagrid();
         }
 
+
+        private void dgvPatients_SelectionChanged(object sender, EventArgs e)
+        {
+            btnObrisi.Enabled = true;
+            btnUredi.Enabled = true;
+        }
         #endregion
 
 
@@ -93,13 +115,17 @@ namespace HouseMed.Patients
            
             if (selectedItem != null)
             {
+                
+                _pacijentiBAL.RemovePatientById(selectedItem.pacijentiID);
 
-               // dgvPatients.DataSource = _pacijentiBAL.GetAllPacijentiById(selectedItem.pacijentiID);
 
             }
         }
+
+
+
         #endregion
 
-
+       
     }
 }

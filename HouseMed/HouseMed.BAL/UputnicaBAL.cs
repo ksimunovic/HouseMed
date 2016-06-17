@@ -39,12 +39,23 @@ namespace HouseMed.BAL
             return _uputnicaDAL.GetAllUputnicaPropsNameById(pacijentId);
         }
 
-
+        /// <summary>
+        /// dodavanje nove uputnice
+        /// </summary>
+        /// <param name="uputnica"></param>
         public void AddNewUputnica(uputnica uputnica)
         {
             _uputnicaDAL.AddNewUputnica(uputnica);
         }
 
+        /// <summary>
+        /// Method for getting all the Recipes from the DB with full names
+        /// </summary>
+        /// <returns></returns>
+        public BindingList<uputnicaCustom> GetAllUputnicaPropsName()
+        {
+            return _uputnicaDAL.GetAllUputnicaPropsName();
+        }
         #endregion
     }
 }

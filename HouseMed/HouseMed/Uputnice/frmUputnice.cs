@@ -13,7 +13,7 @@ using HouseMed.Uputnice;
 
 namespace HouseMed.Uputnice
 {
-    public partial class frmUputnice : Form //temp komentar
+    public partial class frmUputnice : Form 
     {
         #region private variables
         private PacijentiBAL _pacijentiBAL;
@@ -55,11 +55,7 @@ namespace HouseMed.Uputnice
         private void btnNovaUputnica_Click(object sender, EventArgs e)
         {
             frmAddNewUputnice frm = new frmAddNewUputnice();
-           //afasfsa
             frm.ShowDialog();
-            int a;
-            int b;
-            int c;
             RefreshDatagrid();
         }
 
@@ -68,7 +64,7 @@ namespace HouseMed.Uputnice
         #region private methods
         private void RefreshDatagrid()
         {
-            dgvUputnice.DataSource = _uputnicaBAL.GetAllUputnica();
+            dgvUputnice.DataSource = _uputnicaBAL.GetAllUputnicaPropsName();
 
         }
 
