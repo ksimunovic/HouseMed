@@ -57,6 +57,9 @@ namespace HouseMed.DAL
             }
         }
 
+        /// <summary>
+        /// funkcija za update pacijenta u bazi
+        /// </summary>
         public void SaveChanges()
         {
             try
