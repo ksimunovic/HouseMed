@@ -25,6 +25,7 @@ namespace HouseMed.Uputnice
         private int _ustanovaID;
         private int _djelatniciID;
         private int _pacijentiID;
+        private uputnica _selectedUputnica;
         #endregion
 
 
@@ -33,6 +34,18 @@ namespace HouseMed.Uputnice
         public frmAddNewUputnice()
         {
             InitializeComponent();
+            _lijekoviBAL = new LijekoviBAL();
+            _djelatniciBAL = new DjelatniciBAL();
+            _zdravUstanovaBAL = new ZdravUstanovaBAL();
+            _pacijentiBAL = new PacijentiBAL();
+            _receptiBAL = new ReceptiBAL();
+            _uputnicaBAL = new UputnicaBAL();
+        }
+
+        public frmAddNewUputnice(uputnica selectedUputnica)
+        {
+            InitializeComponent();
+            _selectedUputnica = selectedUputnica;
             _lijekoviBAL = new LijekoviBAL();
             _djelatniciBAL = new DjelatniciBAL();
             _zdravUstanovaBAL = new ZdravUstanovaBAL();
@@ -51,7 +64,16 @@ namespace HouseMed.Uputnice
         /// <param name="e"></param>
         private void frmAddNewUputnice_Load(object sender, EventArgs e)
         {
+            if (_selectedUputnica != null)
+            {
+                LoadSelectedUputnica();
+                SetComboBox();
+            } else
+
+            {
             SetComboBox();
+            }
+            
         }
 
         /// <summary>
@@ -94,7 +116,14 @@ namespace HouseMed.Uputnice
         /// <param name="e"></param>
         private void btnDodajUputnicu_Click(object sender, EventArgs e)
         {
-            SetNewUputniceObject();
+            if (_selectedUputnica != null)
+            {
+                EditUputnica();
+            } else
+            {
+                SetNewUputniceObject();
+            }
+
             this.Close();
         }
 
@@ -150,11 +179,44 @@ namespace HouseMed.Uputnice
             _uputnicaBAL.AddNewUputnica(uputnica);
         }
 
+        /// <summary>
+        /// učitavanje u form obrazac podataka s datagrid viewa
+        /// </summary>
+        private void LoadSelectedUputnica()
+        {
+            textBoxUputnicaID.Text = _selectedUputnica.uputnicaID.ToString();
+            comboBoxPacijentiID.Text = _selectedUputnica.pacijentID.ToString();
+            comboBoxUstanovaID.Text = _selectedUputnica.sifra_zdrv_ustanoveID.ToString();
+            textBoxUpucuje_se.Text = _selectedUputnica.upucuje_se;
+            textBoxDijagnoza.Text = _selectedUputnica.dijagnoza;
+            textBoxTrazi_se.Text = _selectedUputnica.trazi_se;
+            textBoxNapomena.Text = _selectedUputnica.napomena;
+            dateTimePickerDatum.Text = _selectedUputnica.datum.ToString();
+            comboBoxDjelatniciID.Text = _selectedUputnica.djelatniciID.ToString();
+
+        }
+
+        /// <summary>
+        /// punjenje objekta vrijednostima iz textboxa
+        /// </summary>
+        private void EditUputnica()
+        {
+            _selectedUputnica.uputnicaID = int.Parse(textBoxUputnicaID.Text);
+            _selectedUputnica.pacijentID = _pacijentiID;
+            _selectedUputnica.sifra_zdrv_ustanoveID = _ustanovaID;
+            _selectedUputnica.upucuje_se = textBoxUpucuje_se.Text;
+            _selectedUputnica.dijagnoza = textBoxDijagnoza.Text;
+            _selectedUputnica.trazi_se = textBoxTrazi_se.Text;
+            _selectedUputnica.napomena = textBoxNapomena.Text;
+            _selectedUputnica.datum = dateTimePickerDatum.Value;
+            _selectedUputnica.djelatniciID = _djelatniciID;
+            _uputnicaBAL.SaveChanges();
+        }
 
 
 
         #endregion
 
-        
+
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace HouseMed.DAL
 {
     public class LijekoviDAL
@@ -44,7 +45,7 @@ namespace HouseMed.DAL
             try
             {
                 var lijekovi = (from a in context.lijekovi
-                                where a.naziv.Contains(name)
+                                where a.naziv.Contains(name) || a.kolicina.ToString().Contains(name) 
                                 select a).ToList();
                 BindingList<lijekovi> lista = new BindingList<DAL.lijekovi>(lijekovi);
                 return lista;
