@@ -87,8 +87,22 @@ namespace HouseMed.Patients
             frm.ShowDialog();
             RefreshDatagrid();
         }
+        /// <summary>
+        /// event za pisanje u textBoxPretrazi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxPretrazi_TextChanged(object sender, EventArgs e)
+        {
+            dgvPatients.DataSource = _pacijentiBAL.GetAllPacijentiBy(textBoxPretrazi.Text);
+            pacijentiBindingSource.DataSource = _pacijentiBAL.GetAllPacijentiBy(textBoxPretrazi.Text);
+        }
 
-
+        /// <summary>
+        /// event za klik na data grid aktivira gumbe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvPatients_SelectionChanged(object sender, EventArgs e)
         {
             btnObrisi.Enabled = true;
@@ -124,8 +138,9 @@ namespace HouseMed.Patients
 
 
 
+
         #endregion
 
-       
+        
     }
 }

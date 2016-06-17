@@ -55,6 +55,8 @@
             this.btnNoviPacijent = new System.Windows.Forms.Button();
             this.btnObrisi = new System.Windows.Forms.Button();
             this.btnUredi = new System.Windows.Forms.Button();
+            this.textBoxPretrazi = new System.Windows.Forms.TextBox();
+            this.labelPretrazi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -262,11 +264,30 @@
             this.btnUredi.UseVisualStyleBackColor = true;
             this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
             // 
+            // textBoxPretrazi
+            // 
+            this.textBoxPretrazi.Location = new System.Drawing.Point(275, 19);
+            this.textBoxPretrazi.Name = "textBoxPretrazi";
+            this.textBoxPretrazi.Size = new System.Drawing.Size(100, 22);
+            this.textBoxPretrazi.TabIndex = 4;
+            this.textBoxPretrazi.TextChanged += new System.EventHandler(this.textBoxPretrazi_TextChanged);
+            // 
+            // labelPretrazi
+            // 
+            this.labelPretrazi.AutoSize = true;
+            this.labelPretrazi.Location = new System.Drawing.Point(200, 22);
+            this.labelPretrazi.Name = "labelPretrazi";
+            this.labelPretrazi.Size = new System.Drawing.Size(57, 17);
+            this.labelPretrazi.TabIndex = 5;
+            this.labelPretrazi.Text = "Pretraži";
+            // 
             // frmPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 377);
+            this.Controls.Add(this.labelPretrazi);
+            this.Controls.Add(this.textBoxPretrazi);
             this.Controls.Add(this.btnUredi);
             this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.btnNoviPacijent);
@@ -277,6 +298,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -308,5 +330,7 @@
         private System.Windows.Forms.Button btnNoviPacijent;
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnUredi;
+        private System.Windows.Forms.TextBox textBoxPretrazi;
+        private System.Windows.Forms.Label labelPretrazi;
     }
 }

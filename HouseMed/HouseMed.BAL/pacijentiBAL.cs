@@ -31,14 +31,14 @@ namespace HouseMed.BAL
             return _pacijentiDAL.GetAllPacijenti();
         }
         /// <summary>
-        /// method for getting the "pacijenti" by Id from the DB
+        /// metoda za dobivanje svih pacijenta po pretrazenom tekstu
         /// </summary>
-        /// <param name="pacijentId"></param>
+        /// <param name="name"></param>
         /// <returns></returns>
-        /*public BindingList<pacijentiCustom> GetAllPacijentiById(int pacijentId)
+        public BindingList<pacijenti> GetAllPacijentiBy(string name)
         {
-            return _pacijentiDAL.GetAllPacijentiById(pacijentId);
-        }*/
+            return _pacijentiDAL.GetAllPacijentiBy(name);
+        }
 
 
         public void AddNewPacijent(pacijenti pacijent)
