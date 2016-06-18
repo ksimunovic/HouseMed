@@ -31,6 +31,27 @@ namespace HouseMed.BAL
         {
             return _rasporedDAL.GetAllRasporedPropNamesById(pacijentId);
         }
+
+        public BindingList<rasporedCustom> GetAllRasporedPropNamesByDate(DateTime datum)
+        {
+            return _rasporedDAL.GetAllRasporedPropNamesByDate(datum);
+        }
+        /// <summary>
+        /// pozivanje funkcije na DAL za dodavanje Pregleda
+        /// </summary>
+        /// <param name="pacijent"></param>
+        public void AddNewRaspored(raspored pregled)
+        {
+            _rasporedDAL.AddNewRaspored(pregled);
+        }
+        /// <summary>
+        /// pozivanje funckije na DALU za zbroj redaka
+        /// </summary>
+        /// <returns></returns>
+        public int broj()
+        {
+            return _rasporedDAL.broj();
+        }
         #endregion
     }
 }

@@ -37,6 +37,47 @@ namespace HouseMed.DAL
             BindingList<rasporedCustom> lista = new BindingList<rasporedCustom>(raspored);
             return lista;
         }
+
+        public BindingList<rasporedCustom> GetAllRasporedPropNamesByDate(DateTime datum)
+        {
+            var raspored = (from a in context.raspored
+                            join b in context.sifra_zdrv_ustanove on a.sifra_zdrv_ustanoveID equals b.sifra_zdrv_ustanoveID
+                            join c in context.pacijenti on a.pacijentiID equals c.pacijentiID
+                            where a.datum == datum
+                            select new rasporedCustom()
+                            {
+                                RaposredId = a.rasporedID,
+                                Datum = a.datum,
+                                Vrijeme = a.vrijeme,
+                                Ustanova = b.naziv,
+                                Pacijent = string.Concat(c.ime, " ", c.prezime),
+                                Opis = a.opis
+                            }).ToList();
+            BindingList<rasporedCustom> lista = new BindingList<rasporedCustom>(raspored);
+            return lista;
+        }
+        public int broj() {
+            var raspored = (from u in context.raspored select u).Count();
+            
+
+            return raspored+1;
+            }
+
+        /// <summary>
+        /// Adds new "Raspored" u bazu
+        /// </summary>
+        public void AddNewRaspored(raspored pregled)
+        {
+            try
+            {
+                context.raspored.Add(pregled);
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }
