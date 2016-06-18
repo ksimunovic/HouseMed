@@ -34,6 +34,7 @@
             this.btnBolnica = new System.Windows.Forms.Button();
             this.btnPatients = new System.Windows.Forms.Button();
             this.btnUputnice = new System.Windows.Forms.Button();
+            this.btnKalendar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEkarton
@@ -102,11 +103,23 @@
             this.btnUputnice.UseVisualStyleBackColor = true;
             this.btnUputnice.Click += new System.EventHandler(this.btnUputnice_Click);
             // 
+            // btnKalendar
+            // 
+            this.btnKalendar.Location = new System.Drawing.Point(868, 364);
+            this.btnKalendar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKalendar.Name = "btnKalendar";
+            this.btnKalendar.Size = new System.Drawing.Size(111, 46);
+            this.btnKalendar.TabIndex = 6;
+            this.btnKalendar.Text = "Kalendar";
+            this.btnKalendar.UseVisualStyleBackColor = true;
+            this.btnKalendar.Click += new System.EventHandler(this.btnKalendar_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 480);
+            this.ClientSize = new System.Drawing.Size(1077, 480);
+            this.Controls.Add(this.btnKalendar);
             this.Controls.Add(this.btnUputnice);
             this.Controls.Add(this.btnPatients);
             this.Controls.Add(this.btnBolnica);
@@ -129,5 +142,6 @@
         private System.Windows.Forms.Button btnBolnica;
         private System.Windows.Forms.Button btnPatients;
         private System.Windows.Forms.Button btnUputnice;
+        private System.Windows.Forms.Button btnKalendar;
     }
 }
