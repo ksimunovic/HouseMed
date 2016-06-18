@@ -5,6 +5,7 @@ using HouseMed.HospitalDays;
 using HouseMed.E_Carton;
 using HouseMed.Patients;
 using HouseMed.Uputnice;
+using HouseMed.Raspored;
 
 namespace HouseMed
 {
@@ -80,6 +81,17 @@ namespace HouseMed
         private void btnUputnice_Click(object sender, EventArgs e)
         {
             frmUputnice frm = new frmUputnice();
+            frm.ShowDialog();
+        }
+
+        /// <summary>
+        ///  Buttton[Kalendar] event handler: open the "frmKalendar" form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnKalendar_Click(object sender, EventArgs e)
+        {
+            frmRaspored frm = new frmRaspored();
             frm.ShowDialog();
         }
 
