@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvPatients = new System.Windows.Forms.DataGridView();
-            this.btnNoviPacijent = new System.Windows.Forms.Button();
-            this.btnObrisi = new System.Windows.Forms.Button();
             this.pacijentiIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mBODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oIBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +52,11 @@
             this.receptiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imePrezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacijentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnNoviPacijent = new System.Windows.Forms.Button();
+            this.btnObrisi = new System.Windows.Forms.Button();
             this.btnUredi = new System.Windows.Forms.Button();
+            this.textBoxPretrazi = new System.Windows.Forms.TextBox();
+            this.labelPretrazi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -93,26 +95,6 @@
             this.dgvPatients.Size = new System.Drawing.Size(1009, 216);
             this.dgvPatients.TabIndex = 0;
             this.dgvPatients.SelectionChanged += new System.EventHandler(this.dgvPatients_SelectionChanged);
-            // 
-            // btnNoviPacijent
-            // 
-            this.btnNoviPacijent.Location = new System.Drawing.Point(12, 12);
-            this.btnNoviPacijent.Name = "btnNoviPacijent";
-            this.btnNoviPacijent.Size = new System.Drawing.Size(109, 36);
-            this.btnNoviPacijent.TabIndex = 1;
-            this.btnNoviPacijent.Text = "Novi pacijent";
-            this.btnNoviPacijent.UseVisualStyleBackColor = true;
-            this.btnNoviPacijent.Click += new System.EventHandler(this.btnNoviPacijent_Click);
-            // 
-            // btnObrisi
-            // 
-            this.btnObrisi.Location = new System.Drawing.Point(789, 313);
-            this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.Size = new System.Drawing.Size(75, 23);
-            this.btnObrisi.TabIndex = 2;
-            this.btnObrisi.Text = "Obriši";
-            this.btnObrisi.UseVisualStyleBackColor = true;
-            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
             // pacijentiIDDataGridViewTextBoxColumn
             // 
@@ -252,21 +234,60 @@
             // 
             this.pacijentiBindingSource.DataSource = typeof(HouseMed.DAL.pacijenti);
             // 
+            // btnNoviPacijent
+            // 
+            this.btnNoviPacijent.Location = new System.Drawing.Point(12, 12);
+            this.btnNoviPacijent.Name = "btnNoviPacijent";
+            this.btnNoviPacijent.Size = new System.Drawing.Size(109, 36);
+            this.btnNoviPacijent.TabIndex = 1;
+            this.btnNoviPacijent.Text = "Novi pacijent";
+            this.btnNoviPacijent.UseVisualStyleBackColor = true;
+            this.btnNoviPacijent.Click += new System.EventHandler(this.btnNoviPacijent_Click);
+            // 
+            // btnObrisi
+            // 
+            this.btnObrisi.Location = new System.Drawing.Point(895, 320);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(87, 31);
+            this.btnObrisi.TabIndex = 2;
+            this.btnObrisi.Text = "Obriši";
+            this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
+            // 
             // btnUredi
             // 
-            this.btnUredi.Location = new System.Drawing.Point(898, 312);
+            this.btnUredi.Location = new System.Drawing.Point(781, 320);
             this.btnUredi.Name = "btnUredi";
-            this.btnUredi.Size = new System.Drawing.Size(75, 23);
+            this.btnUredi.Size = new System.Drawing.Size(89, 31);
             this.btnUredi.TabIndex = 3;
             this.btnUredi.Text = "Uredi";
             this.btnUredi.UseVisualStyleBackColor = true;
             this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
+            // 
+            // textBoxPretrazi
+            // 
+            this.textBoxPretrazi.Location = new System.Drawing.Point(275, 19);
+            this.textBoxPretrazi.Name = "textBoxPretrazi";
+            this.textBoxPretrazi.Size = new System.Drawing.Size(100, 22);
+            this.textBoxPretrazi.TabIndex = 4;
+            this.textBoxPretrazi.TextChanged += new System.EventHandler(this.textBoxPretrazi_TextChanged);
+            // 
+            // labelPretrazi
+            // 
+            this.labelPretrazi.AutoSize = true;
+            this.labelPretrazi.Location = new System.Drawing.Point(200, 22);
+            this.labelPretrazi.Name = "labelPretrazi";
+            this.labelPretrazi.Size = new System.Drawing.Size(57, 17);
+            this.labelPretrazi.TabIndex = 5;
+            this.labelPretrazi.Text = "Pretraži";
             // 
             // frmPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 377);
+            this.Controls.Add(this.labelPretrazi);
+            this.Controls.Add(this.textBoxPretrazi);
             this.Controls.Add(this.btnUredi);
             this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.btnNoviPacijent);
@@ -277,6 +298,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -308,5 +330,7 @@
         private System.Windows.Forms.Button btnNoviPacijent;
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnUredi;
+        private System.Windows.Forms.TextBox textBoxPretrazi;
+        private System.Windows.Forms.Label labelPretrazi;
     }
 }

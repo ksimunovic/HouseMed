@@ -32,9 +32,10 @@
             this.dgvHospitalDays = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cbPacijenti = new System.Windows.Forms.ComboBox();
+            this.lblTest = new System.Windows.Forms.Label();
+            this.btnNoviNalog = new System.Windows.Forms.Button();
             this.pacijentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.djelatniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblTest = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHospitalDays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.djelatniciBindingSource)).BeginInit();
@@ -42,11 +43,12 @@
             // 
             // dgvHospitalDays
             // 
-            this.dgvHospitalDays.BackgroundColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dgvHospitalDays.AllowUserToAddRows = false;
+            this.dgvHospitalDays.AllowUserToDeleteRows = false;
             this.dgvHospitalDays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHospitalDays.Location = new System.Drawing.Point(22, 69);
             this.dgvHospitalDays.Name = "dgvHospitalDays";
-            this.dgvHospitalDays.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvHospitalDays.ReadOnly = true;
             this.dgvHospitalDays.Size = new System.Drawing.Size(646, 150);
             this.dgvHospitalDays.TabIndex = 0;
             // 
@@ -68,14 +70,6 @@
             this.cbPacijenti.TabIndex = 2;
             this.cbPacijenti.SelectedValueChanged += new System.EventHandler(this.cbPacijenti_SelectedValueChanged);
             // 
-            // pacijentiBindingSource
-            // 
-            this.pacijentiBindingSource.DataSource = typeof(HouseMed.DAL.pacijenti);
-            // 
-            // djelatniciBindingSource
-            // 
-            this.djelatniciBindingSource.DataSource = typeof(HouseMed.DAL.djelatnici);
-            // 
             // lblTest
             // 
             this.lblTest.AutoSize = true;
@@ -85,11 +79,30 @@
             this.lblTest.TabIndex = 3;
             this.lblTest.Text = "label2";
             // 
+            // btnNoviNalog
+            // 
+            this.btnNoviNalog.Location = new System.Drawing.Point(593, 22);
+            this.btnNoviNalog.Name = "btnNoviNalog";
+            this.btnNoviNalog.Size = new System.Drawing.Size(75, 23);
+            this.btnNoviNalog.TabIndex = 4;
+            this.btnNoviNalog.Text = "Novi nalog";
+            this.btnNoviNalog.UseVisualStyleBackColor = true;
+            this.btnNoviNalog.Click += new System.EventHandler(this.btnNoviNalog_Click);
+            // 
+            // pacijentiBindingSource
+            // 
+            this.pacijentiBindingSource.DataSource = typeof(HouseMed.DAL.pacijenti);
+            // 
+            // djelatniciBindingSource
+            // 
+            this.djelatniciBindingSource.DataSource = typeof(HouseMed.DAL.djelatnici);
+            // 
             // frmHospitalDays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 262);
+            this.Controls.Add(this.btnNoviNalog);
             this.Controls.Add(this.lblTest);
             this.Controls.Add(this.cbPacijenti);
             this.Controls.Add(this.label1);
@@ -113,5 +126,6 @@
         private System.Windows.Forms.BindingSource pacijentiBindingSource;
         private System.Windows.Forms.BindingSource djelatniciBindingSource;
         private System.Windows.Forms.Label lblTest;
+        private System.Windows.Forms.Button btnNoviNalog;
     }
 }

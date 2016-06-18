@@ -50,8 +50,14 @@ namespace HouseMed.Uputnice
         private void frmUputnice_Load(object sender, EventArgs e)
         {
             RefreshDatagrid();
+            btnObrisi.Enabled = false;
+            btnUredi.Enabled = false;
         }
-
+        /// <summary>
+        /// Click Event za gumb te otvaranje nove forme i osvjezavanje podataka na datagridu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNovaUputnica_Click(object sender, EventArgs e)
         {
             frmAddNewUputnice frm = new frmAddNewUputnice();
@@ -59,17 +65,68 @@ namespace HouseMed.Uputnice
             RefreshDatagrid();
         }
 
-        #endregion
+        /// <summary>
+        /// event handler za btnObrisi te pozivanje funkcije za brisanje i osvjezavanje podataka u datagridu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnObrisi_Click(object sender, EventArgs e)
+        {
+            deleteUputnica();
+            RefreshDatagrid();
+        }
 
+        /// <summary>
+        /// event handler za klik reda na datagridu koji dopusta guma uredi i obrisi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvUputnice_SelectionChanged(object sender, EventArgs e)
+        {
+            btnObrisi.Enabled = true;
+            btnUredi.Enabled = true;
+        }
+
+
+        #endregion
+        /// <summary>
+        /// funkcija za punjenje datagrida s podacima
+        /// </summary>
         #region private methods
         private void RefreshDatagrid()
         {
             dgvUputnice.DataSource = _uputnicaBAL.GetAllUputnicaPropsName();
+            
 
         }
 
+
+        /// <summary>
+        /// dobivanje uputnice po selected id i poziv funkcije za brisanje odabranog reda
+        /// </summary>
+        private void deleteUputnica()
+        {
+            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnica;
+
+            if (selectedItem != null)
+            {
+
+               _uputnicaBAL.RemoveUputnicaById(selectedItem.uputnicaID);
+
+
+            }
+        }
+
+
+
         #endregion
 
-      
+        private void btnUredi_Click(object sender, EventArgs e)
+        {
+            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnica;
+            frmAddNewUputnice frm = new frmAddNewUputnice(selectedItem);
+            frm.ShowDialog();
+            RefreshDatagrid();
+        }
     }
 }

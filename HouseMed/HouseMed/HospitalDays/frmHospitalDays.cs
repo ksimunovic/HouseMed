@@ -54,7 +54,13 @@ namespace HouseMed.HospitalDays
             lblTest.Text = selectedItem.pacijentiID.ToString();
             dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(selectedItem.pacijentiID);
         }
-        #endregion  
+        #endregion
 
+        private void btnNoviNalog_Click(object sender, EventArgs e)
+        {
+            frmAddNewHospitalDay frm = new frmAddNewHospitalDay(dgvHospitalDays.Rows.Count);
+            frm.ShowDialog();
+            dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(1);
+        }
     }
 }
