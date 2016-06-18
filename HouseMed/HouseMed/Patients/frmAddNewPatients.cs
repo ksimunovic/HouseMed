@@ -32,6 +32,7 @@ namespace HouseMed.Patients
             _zdravUstanovaBAL = new ZdravUstanovaBAL();
             _pacijentiBAL = new PacijentiBAL();
             _receptiBAL = new ReceptiBAL();
+            
         }
 
         public frmAddNewPatients(pacijenti selectedPacijent)
@@ -40,6 +41,7 @@ namespace HouseMed.Patients
             _selectedPacijent = selectedPacijent;
             _pacijentiBAL = new PacijentiBAL();
             _zdravUstanovaBAL = new ZdravUstanovaBAL();
+
         }
 
         #endregion
@@ -169,8 +171,8 @@ namespace HouseMed.Patients
         private void EditPatient()
         {
             _selectedPacijent.pacijentiID = int.Parse(textBoxId.Text);
-            _selectedPacijent.OIB = int.Parse(textBoxOib.Text);
-            _selectedPacijent.MBO = int.Parse(textBoxMbo.Text);
+            _selectedPacijent.OIB = HelpClass.GetValueOrNull<int>(textBoxOib.Text);
+            _selectedPacijent.MBO = HelpClass.GetValueOrNull<int>(textBoxMbo.Text);
             _selectedPacijent.ime = textBoxIme.Text;
             _selectedPacijent.prezime = textBoxPrezime.Text;
             _selectedPacijent.spol = comboBoxSpol.Text;

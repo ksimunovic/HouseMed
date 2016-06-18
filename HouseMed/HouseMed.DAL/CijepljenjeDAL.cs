@@ -49,6 +49,66 @@ namespace HouseMed.DAL
                 throw;
             }
         }
+
+
+        public BindingList<cijepljenjeCustom> GetAllRasporedPropNamesByDate(DateTime datum)
+        {
+            try
+            {
+                var cijepljenje = (from a in context.cijepljenje
+                                   join b in context.djelatnici on a.djelatniciID equals b.djelatniciID
+                                   join c in context.pacijenti on a.pacijentiID equals c.pacijentiID
+                                   where a.datume == datum
+                                   select new cijepljenjeCustom()
+                                   {
+                                       BrojDoze = a.broj_doze,
+                                       CijepljenjeId = a.cijepljenjeID,
+                                       Slucaj = a.slucaj,
+                                       Datum = a.datume,
+                                       VrstaCijepljenja = a.vrsta_cijepljenja,
+                                       PripravaCjepiva = a.prirava_cjepiva,
+                                       Kolicina = a.kolicina,
+                                       Djelatnik = string.Concat(b.ime, " ", b.prezime),
+                                       Pacijent = string.Concat(c.ime, " ", c.prezime)
+                                   }).ToList();
+                BindingList<cijepljenjeCustom> lista = new BindingList<cijepljenjeCustom>(cijepljenje);
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        /// <summary>
+        /// funkcija za zbroj redaka u tablici cijepljenje
+        /// </summary>
+        /// <returns></returns>
+        public int broj()
+        {
+            var cijepljenje = (from u in context.cijepljenje select u).Count();
+
+
+            return cijepljenje + 1;
+        }
+
+        /// <summary>
+        /// Adds new "Cijepljenje" u bazu
+        /// </summary>
+        public void AddNewCijepljenje(cijepljenje cijep)
+        {
+            try
+            {
+                context.cijepljenje.Add(cijep);
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
         #endregion
     }
 }
