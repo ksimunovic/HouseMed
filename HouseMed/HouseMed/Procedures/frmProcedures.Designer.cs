@@ -151,6 +151,7 @@
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Terapija:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -191,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 380);
+            this.ClientSize = new System.Drawing.Size(369, 380);
             this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.tbPreporuka);
             this.Controls.Add(this.tbTerapija);

@@ -109,6 +109,12 @@
     <Compile Include="Procedures\frmProcedures.Designer.cs">
       <DependentUpon>frmProcedures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procedures\frmProceduresControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procedures\frmProceduresControl.Designer.cs">
+      <DependentUpon>frmProceduresControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Certificates\frmCertificates.cs">
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Procedures\frmProcedures.resx">
       <DependentUpon>frmProcedures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procedures\frmProceduresControl.resx">
+      <DependentUpon>frmProceduresControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

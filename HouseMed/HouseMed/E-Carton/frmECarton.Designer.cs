@@ -32,21 +32,9 @@ namespace HouseMed.E_Carton
         {
             this.components = new System.ComponentModel.Container();
             this.dgvPatients = new System.Windows.Forms.DataGridView();
-            this.lblPatient = new System.Windows.Forms.Label();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnChoosePatient = new System.Windows.Forms.Button();
-            this.btnEditPatient = new System.Windows.Forms.Button();
-            this.dgvUputnica = new System.Windows.Forms.DataGridView();
-            this.dgvRecipe = new System.Windows.Forms.DataGridView();
-            this.btnEditUputnica = new System.Windows.Forms.Button();
-            this.btnEditRecept = new System.Windows.Forms.Button();
-            this.dgvCijepljenje = new System.Windows.Forms.DataGridView();
             this.dgvHostpitalizacija = new System.Windows.Forms.DataGridView();
             this.dgvPostupci = new System.Windows.Forms.DataGridView();
-            this.lblRecipe = new System.Windows.Forms.Label();
-            this.lblUputnica = new System.Windows.Forms.Label();
-            this.lblCijepljenje = new System.Windows.Forms.Label();
+            this.lblPreview = new System.Windows.Forms.Label();
             this.btnEditCijepljenje = new System.Windows.Forms.Button();
             this.lblHospitalizacija = new System.Windows.Forms.Label();
             this.btnEditHospitalizacija = new System.Windows.Forms.Button();
@@ -55,6 +43,9 @@ namespace HouseMed.E_Carton
             this.btnEditPostupci = new System.Windows.Forms.Button();
             this.lblRaspored = new System.Windows.Forms.Label();
             this.btnEditRaspored = new System.Windows.Forms.Button();
+            this.menuStripECarton = new System.Windows.Forms.MenuStrip();
+            this.natragToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.odaberiPacijentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pacijentiIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mBODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oIBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,14 +67,24 @@ namespace HouseMed.E_Carton
             this.uputnicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receptiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacijentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.odaberiPrikazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboPrikaz = new System.Windows.Forms.ToolStripComboBox();
+            this.pretražiPacijenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dgvPreview = new System.Windows.Forms.DataGridView();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUputnica)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCijepljenje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHostpitalizacija)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPostupci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaspored)).BeginInit();
+            this.menuStripECarton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPreview)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPatients
@@ -113,109 +114,14 @@ namespace HouseMed.E_Carton
             this.uputnicaDataGridViewTextBoxColumn,
             this.receptiDataGridViewTextBoxColumn});
             this.dgvPatients.DataSource = this.pacijentiBindingSource;
-            this.dgvPatients.Location = new System.Drawing.Point(3, 58);
+            this.dgvPatients.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPatients.Location = new System.Drawing.Point(0, 0);
             this.dgvPatients.Name = "dgvPatients";
             this.dgvPatients.ReadOnly = true;
             this.dgvPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPatients.Size = new System.Drawing.Size(1021, 217);
+            this.dgvPatients.Size = new System.Drawing.Size(1026, 319);
             this.dgvPatients.TabIndex = 0;
             this.dgvPatients.SelectionChanged += new System.EventHandler(this.dgvPatients_SelectionChanged);
-            // 
-            // lblPatient
-            // 
-            this.lblPatient.AutoSize = true;
-            this.lblPatient.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
-            this.lblPatient.Location = new System.Drawing.Point(5, 6);
-            this.lblPatient.Name = "lblPatient";
-            this.lblPatient.Size = new System.Drawing.Size(184, 24);
-            this.lblPatient.TabIndex = 1;
-            this.lblPatient.Text = "Pregled pacijenata";
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(15, 35);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(45, 13);
-            this.lblSearch.TabIndex = 2;
-            this.lblSearch.Text = "Pretraži:";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(66, 32);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(128, 20);
-            this.txtSearch.TabIndex = 3;
-            // 
-            // btnChoosePatient
-            // 
-            this.btnChoosePatient.Location = new System.Drawing.Point(856, 281);
-            this.btnChoosePatient.Name = "btnChoosePatient";
-            this.btnChoosePatient.Size = new System.Drawing.Size(75, 23);
-            this.btnChoosePatient.TabIndex = 4;
-            this.btnChoosePatient.Text = "Odaberi";
-            this.btnChoosePatient.UseVisualStyleBackColor = true;
-            this.btnChoosePatient.Click += new System.EventHandler(this.btnChoose_Click);
-            // 
-            // btnEditPatient
-            // 
-            this.btnEditPatient.Location = new System.Drawing.Point(937, 281);
-            this.btnEditPatient.Name = "btnEditPatient";
-            this.btnEditPatient.Size = new System.Drawing.Size(75, 23);
-            this.btnEditPatient.TabIndex = 5;
-            this.btnEditPatient.Text = "Uredi";
-            this.btnEditPatient.UseVisualStyleBackColor = true;
-            // 
-            // dgvUputnica
-            // 
-            this.dgvUputnica.AllowUserToAddRows = false;
-            this.dgvUputnica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUputnica.Location = new System.Drawing.Point(3, 330);
-            this.dgvUputnica.Name = "dgvUputnica";
-            this.dgvUputnica.ReadOnly = true;
-            this.dgvUputnica.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUputnica.Size = new System.Drawing.Size(1021, 204);
-            this.dgvUputnica.TabIndex = 6;
-            // 
-            // dgvRecipe
-            // 
-            this.dgvRecipe.AllowUserToAddRows = false;
-            this.dgvRecipe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecipe.Location = new System.Drawing.Point(3, 589);
-            this.dgvRecipe.Name = "dgvRecipe";
-            this.dgvRecipe.ReadOnly = true;
-            this.dgvRecipe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecipe.Size = new System.Drawing.Size(1021, 204);
-            this.dgvRecipe.TabIndex = 7;
-            // 
-            // btnEditUputnica
-            // 
-            this.btnEditUputnica.Location = new System.Drawing.Point(937, 540);
-            this.btnEditUputnica.Name = "btnEditUputnica";
-            this.btnEditUputnica.Size = new System.Drawing.Size(75, 23);
-            this.btnEditUputnica.TabIndex = 8;
-            this.btnEditUputnica.Text = "Uredi";
-            this.btnEditUputnica.UseVisualStyleBackColor = true;
-            // 
-            // btnEditRecept
-            // 
-            this.btnEditRecept.Location = new System.Drawing.Point(937, 799);
-            this.btnEditRecept.Name = "btnEditRecept";
-            this.btnEditRecept.Size = new System.Drawing.Size(75, 23);
-            this.btnEditRecept.TabIndex = 9;
-            this.btnEditRecept.Text = "Uredi";
-            this.btnEditRecept.UseVisualStyleBackColor = true;
-            // 
-            // dgvCijepljenje
-            // 
-            this.dgvCijepljenje.AllowUserToAddRows = false;
-            this.dgvCijepljenje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCijepljenje.Location = new System.Drawing.Point(3, 849);
-            this.dgvCijepljenje.Name = "dgvCijepljenje";
-            this.dgvCijepljenje.ReadOnly = true;
-            this.dgvCijepljenje.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCijepljenje.Size = new System.Drawing.Size(1021, 204);
-            this.dgvCijepljenje.TabIndex = 10;
             // 
             // dgvHostpitalizacija
             // 
@@ -239,35 +145,15 @@ namespace HouseMed.E_Carton
             this.dgvPostupci.Size = new System.Drawing.Size(1021, 240);
             this.dgvPostupci.TabIndex = 12;
             // 
-            // lblRecipe
+            // lblPreview
             // 
-            this.lblRecipe.AutoSize = true;
-            this.lblRecipe.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
-            this.lblRecipe.Location = new System.Drawing.Point(5, 558);
-            this.lblRecipe.Name = "lblRecipe";
-            this.lblRecipe.Size = new System.Drawing.Size(81, 24);
-            this.lblRecipe.TabIndex = 13;
-            this.lblRecipe.Text = "Recepti";
-            // 
-            // lblUputnica
-            // 
-            this.lblUputnica.AutoSize = true;
-            this.lblUputnica.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
-            this.lblUputnica.Location = new System.Drawing.Point(9, 300);
-            this.lblUputnica.Name = "lblUputnica";
-            this.lblUputnica.Size = new System.Drawing.Size(94, 24);
-            this.lblUputnica.TabIndex = 14;
-            this.lblUputnica.Text = "Uputnice";
-            // 
-            // lblCijepljenje
-            // 
-            this.lblCijepljenje.AutoSize = true;
-            this.lblCijepljenje.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
-            this.lblCijepljenje.Location = new System.Drawing.Point(5, 820);
-            this.lblCijepljenje.Name = "lblCijepljenje";
-            this.lblCijepljenje.Size = new System.Drawing.Size(106, 24);
-            this.lblCijepljenje.TabIndex = 15;
-            this.lblCijepljenje.Text = "Cijepljenje";
+            this.lblPreview.AutoSize = true;
+            this.lblPreview.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.lblPreview.Location = new System.Drawing.Point(3, 0);
+            this.lblPreview.Name = "lblPreview";
+            this.lblPreview.Size = new System.Drawing.Size(94, 24);
+            this.lblPreview.TabIndex = 14;
+            this.lblPreview.Text = "Uputnice";
             // 
             // btnEditCijepljenje
             // 
@@ -345,6 +231,35 @@ namespace HouseMed.E_Carton
             this.btnEditRaspored.TabIndex = 23;
             this.btnEditRaspored.Text = "Uredi";
             this.btnEditRaspored.UseVisualStyleBackColor = true;
+            // 
+            // menuStripECarton
+            // 
+            this.menuStripECarton.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.natragToolStripMenuItem,
+            this.odaberiPacijentaToolStripMenuItem,
+            this.odaberiPrikazToolStripMenuItem,
+            this.comboPrikaz,
+            this.pretražiPacijenteToolStripMenuItem,
+            this.txtSearch});
+            this.menuStripECarton.Location = new System.Drawing.Point(0, 0);
+            this.menuStripECarton.Name = "menuStripECarton";
+            this.menuStripECarton.Size = new System.Drawing.Size(1026, 27);
+            this.menuStripECarton.TabIndex = 24;
+            this.menuStripECarton.Text = "menuStrip1";
+            // 
+            // natragToolStripMenuItem
+            // 
+            this.natragToolStripMenuItem.Name = "natragToolStripMenuItem";
+            this.natragToolStripMenuItem.Size = new System.Drawing.Size(55, 23);
+            this.natragToolStripMenuItem.Text = "Natrag";
+            this.natragToolStripMenuItem.Click += new System.EventHandler(this.natragToolStripMenuItem_Click);
+            // 
+            // odaberiPacijentaToolStripMenuItem
+            // 
+            this.odaberiPacijentaToolStripMenuItem.Name = "odaberiPacijentaToolStripMenuItem";
+            this.odaberiPacijentaToolStripMenuItem.Size = new System.Drawing.Size(112, 23);
+            this.odaberiPacijentaToolStripMenuItem.Text = "Odaberi pacijenta";
+            this.odaberiPacijentaToolStripMenuItem.Click += new System.EventHandler(this.odaberiPacijentaToolStripMenuItem_Click);
             // 
             // pacijentiIDDataGridViewTextBoxColumn
             // 
@@ -497,12 +412,75 @@ namespace HouseMed.E_Carton
             // 
             this.pacijentiBindingSource.DataSource = typeof(HouseMed.DAL.pacijenti);
             // 
+            // odaberiPrikazToolStripMenuItem
+            // 
+            this.odaberiPrikazToolStripMenuItem.Name = "odaberiPrikazToolStripMenuItem";
+            this.odaberiPrikazToolStripMenuItem.Size = new System.Drawing.Size(98, 23);
+            this.odaberiPrikazToolStripMenuItem.Text = "Odaberi prikaz:";
+            // 
+            // comboPrikaz
+            // 
+            this.comboPrikaz.Name = "comboPrikaz";
+            this.comboPrikaz.Size = new System.Drawing.Size(121, 23);
+            this.comboPrikaz.SelectedIndexChanged += new System.EventHandler(this.comboPrikaz_SelectedIndexChanged);
+            // 
+            // pretražiPacijenteToolStripMenuItem
+            // 
+            this.pretražiPacijenteToolStripMenuItem.Name = "pretražiPacijenteToolStripMenuItem";
+            this.pretražiPacijenteToolStripMenuItem.Size = new System.Drawing.Size(112, 23);
+            this.pretražiPacijenteToolStripMenuItem.Text = "Pretraži pacijente:";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(100, 23);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 27);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.dgvPatients);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.splitter1);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvPreview);
+            this.splitContainer1.Panel2.Controls.Add(this.lblPreview);
+            this.splitContainer1.Size = new System.Drawing.Size(1026, 651);
+            this.splitContainer1.SplitterDistance = 319;
+            this.splitContainer1.TabIndex = 26;
+            // 
+            // dgvPreview
+            // 
+            this.dgvPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPreview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPreview.Location = new System.Drawing.Point(0, 27);
+            this.dgvPreview.Name = "dgvPreview";
+            this.dgvPreview.Size = new System.Drawing.Size(1026, 301);
+            this.dgvPreview.TabIndex = 0;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 328);
+            this.splitter1.TabIndex = 15;
+            this.splitter1.TabStop = false;
+            // 
             // frmECarton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1026, 991);
+            this.ClientSize = new System.Drawing.Size(1026, 678);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btnEditRaspored);
             this.Controls.Add(this.lblRaspored);
             this.Controls.Add(this.btnEditPostupci);
@@ -511,34 +489,28 @@ namespace HouseMed.E_Carton
             this.Controls.Add(this.btnEditHospitalizacija);
             this.Controls.Add(this.lblHospitalizacija);
             this.Controls.Add(this.btnEditCijepljenje);
-            this.Controls.Add(this.lblCijepljenje);
-            this.Controls.Add(this.lblUputnica);
-            this.Controls.Add(this.lblRecipe);
             this.Controls.Add(this.dgvPostupci);
             this.Controls.Add(this.dgvHostpitalizacija);
-            this.Controls.Add(this.dgvCijepljenje);
-            this.Controls.Add(this.btnEditRecept);
-            this.Controls.Add(this.btnEditUputnica);
-            this.Controls.Add(this.dgvRecipe);
-            this.Controls.Add(this.dgvUputnica);
-            this.Controls.Add(this.btnEditPatient);
-            this.Controls.Add(this.btnChoosePatient);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.lblSearch);
-            this.Controls.Add(this.lblPatient);
-            this.Controls.Add(this.dgvPatients);
+            this.Controls.Add(this.menuStripECarton);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStripECarton;
             this.Name = "frmECarton";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "E-Karton";
             this.Load += new System.EventHandler(this.frmECarton_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUputnica)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCijepljenje)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHostpitalizacija)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPostupci)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaspored)).EndInit();
+            this.menuStripECarton.ResumeLayout(false);
+            this.menuStripECarton.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -547,22 +519,10 @@ namespace HouseMed.E_Carton
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPatients;
-        private System.Windows.Forms.Label lblPatient;
         private System.Windows.Forms.BindingSource pacijentiBindingSource;
-        private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnChoosePatient;
-        private System.Windows.Forms.Button btnEditPatient;
-        private System.Windows.Forms.DataGridView dgvUputnica;
-        private System.Windows.Forms.DataGridView dgvRecipe;
-        private System.Windows.Forms.Button btnEditUputnica;
-        private System.Windows.Forms.Button btnEditRecept;
-        private System.Windows.Forms.DataGridView dgvCijepljenje;
         private System.Windows.Forms.DataGridView dgvHostpitalizacija;
         private System.Windows.Forms.DataGridView dgvPostupci;
-        private System.Windows.Forms.Label lblRecipe;
-        private System.Windows.Forms.Label lblUputnica;
-        private System.Windows.Forms.Label lblCijepljenje;
+        private System.Windows.Forms.Label lblPreview;
         private System.Windows.Forms.Button btnEditCijepljenje;
         private System.Windows.Forms.Label lblHospitalizacija;
         private System.Windows.Forms.Button btnEditHospitalizacija;
@@ -591,5 +551,15 @@ namespace HouseMed.E_Carton
         private System.Windows.Forms.DataGridViewTextBoxColumn rasporedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uputnicaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn receptiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.MenuStrip menuStripECarton;
+        private System.Windows.Forms.ToolStripMenuItem natragToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem odaberiPacijentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem odaberiPrikazToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox comboPrikaz;
+        private System.Windows.Forms.ToolStripMenuItem pretražiPacijenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox txtSearch;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView dgvPreview;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }

@@ -15,6 +15,9 @@ namespace HouseMed.E_Carton
 {
     public partial class frmECarton : Form
     {
+        #region public variables
+        public bool recipeSelection = false;
+        #endregion
         #region private variables
         private PacijentiBAL _pacijentiBAL;
         private ReceptiBAL _receptiBAL;
@@ -41,25 +44,39 @@ namespace HouseMed.E_Carton
 
         #region form methods
         /// <summary>
-        /// Event for loadind the data in the datagrids
+        /// Event for loading the data in the datagrids
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void frmECarton_Load(object sender, EventArgs e)
         {
+            if (!recipeSelection)
+            {
+                odaberiPacijentaToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.None;
+            }
             dgvPatients.DataSource = _pacijentiBAL.GetAllPacijenti();
-            SetCoulumnHeaders();
+            comboPrikaz.ComboBox.DataSource = Enum.GetValues(typeof(HelpClass.Ecarton));
             GetSelectedPatient();
+            dgvPatients.Select();
         }
         #endregion
 
         #region event handlers
         /// <summary>
-        /// Button[Odaberi] event handler: pass the chosen object to the form
+        /// MenuStrip[Natrag] event: Closes the current form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnChoose_Click(object sender, EventArgs e)
+        private void natragToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        /// <summary>
+        /// MenuStrip[Odaberi pacijenta] event: pass the chosen object to the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void odaberiPacijentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
             if (selectedItem != null)
@@ -69,6 +86,15 @@ namespace HouseMed.E_Carton
             this.Close();
         }
         /// <summary>
+        /// MenuStrip[ComboBox] event: getting the selected patient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboPrikaz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetSelectedPatient();
+        }
+        /// <summary>
         /// DataGrid[Pacijent] event handler: get the selected patient and execute query
         /// </summary>
         /// <param name="sender"></param>
@@ -76,6 +102,15 @@ namespace HouseMed.E_Carton
         private void dgvPatients_SelectionChanged(object sender, EventArgs e)
         {
             GetSelectedPatient();
+        }
+        /// <summary>
+        /// MenuStrip[TextBox] event handler: filter the patients
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgvPatients.DataSource = _pacijentiBAL.GetAllPacijentiBy(txtSearch.Text);
         }
         #endregion
 
@@ -87,58 +122,62 @@ namespace HouseMed.E_Carton
         private void GetSelectedPatient()
         {
             var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
-            if (selectedItem != null)
+            if(selectedItem != null && comboPrikaz.ComboBox.DataSource != null)
             {
-                dgvRecipe.DataSource = _receptiBAL.GetAllReceptiNamedPropsById(selectedItem.pacijentiID);
-                dgvUputnica.DataSource = _uputnicaBAL.GetAllUputnicaPropsNameById(selectedItem.pacijentiID);
-                dgvCijepljenje.DataSource = _cijepljenjeBAL.GetAllCijepPropNamesById(selectedItem.pacijentiID);
-                dgvPostupci.DataSource = _postupciBAL.GetAllPostupciPropNamesById(selectedItem.pacijentiID);
-                dgvHostpitalizacija.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(selectedItem.pacijentiID);
-                dgvRaspored.DataSource = _rasporedBAL.GetAllRasporedPropNamesById(selectedItem.pacijentiID);
-                
+                switch ((HelpClass.Ecarton)comboPrikaz.ComboBox.SelectedValue)
+                {
+                    case HelpClass.Ecarton.Uputnica:
+                        lblPreview.Text = "Uputnica";
+                        dgvPreview.DataSource = _uputnicaBAL.GetAllUputnicaPropsNameById(selectedItem.pacijentiID);
+                        dgvPreview.Columns[0].HeaderCell.Value = "Br. Uputnice";
+                        dgvPreview.Columns[3].HeaderCell.Value = "Upućuje se";
+                        dgvPreview.Columns[5].HeaderCell.Value = "Traži se";
+                        break;
+                    case HelpClass.Ecarton.Recept:
+                        lblPreview.Text = "Recept";
+                        dgvPreview.DataSource = _receptiBAL.GetAllReceptiNamedPropsById(selectedItem.pacijentiID);
+                        dgvPreview.Columns[0].HeaderCell.Value = "Br. Recepta";
+                        dgvPreview.Columns[1].HeaderCell.Value = "Slučaj";
+                        dgvPreview.Columns[2].HeaderCell.Value = "Količina";
+                        dgvPreview.Columns[5].HeaderCell.Value = "Lijek";
+                        dgvPreview.Columns[6].HeaderCell.Value = "Pacijent";
+                        dgvPreview.Columns[7].HeaderCell.Value = "Djelatnik";
+                        dgvPreview.Columns[8].HeaderCell.Value = "Ustanova";
+                        break;
+                    case HelpClass.Ecarton.Cijepljenje:
+                        lblPreview.Text = "Cijepljenje";
+                        dgvPreview.DataSource = _cijepljenjeBAL.GetAllCijepPropNamesById(selectedItem.pacijentiID);
+                        dgvPreview.Columns[0].HeaderCell.Value = "Br. Cijepljenja";
+                        dgvPreview.Columns[1].HeaderCell.Value = "Slučaj";
+                        dgvPreview.Columns[3].HeaderCell.Value = "Vrsta cijepljenja";
+                        dgvPreview.Columns[4].HeaderCell.Value = "Priprava cjepiva";
+                        dgvPreview.Columns[5].HeaderCell.Value = "Broj doze";
+                        dgvPreview.Columns[6].HeaderCell.Value = "Količina";
+                        break;
+                    case HelpClass.Ecarton.Hospitalizacija:
+                        lblPreview.Text = "Hospitalizacija";
+                        dgvPreview.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(selectedItem.pacijentiID);
+                        dgvPreview.Columns[0].HeaderCell.Value = "Br. Hospitalizacije";
+                        dgvPreview.Columns[1].HeaderCell.Value = "Boravio od datuma";
+                        dgvPreview.Columns[2].HeaderCell.Value = "Boravio do datuma";
+                        dgvPreview.Columns[3].HeaderCell.Value = "Naziv bolnice";
+                        break;
+                    case HelpClass.Ecarton.Postupci:
+                        lblPreview.Text = "Postupci";
+                        dgvPreview.DataSource = _postupciBAL.GetAllPostupciPropNamesById(selectedItem.pacijentiID);
+                        dgvPreview.Columns[0].HeaderCell.Value = "Br. Postupaka";
+                        break;
+                    case HelpClass.Ecarton.Raspored:
+                        lblPreview.Text = "Raspored";
+                        dgvPreview.DataSource = _rasporedBAL.GetAllRasporedPropNamesById(selectedItem.pacijentiID);
+                        dgvPreview.Columns[0].HeaderCell.Value = "Br. Raporeda";
+                        break;
+                    default:
+                        break;
+
+                }
             }
         }
-        /// <summary>
-        /// Method for setting the Column Headers in data grid views
-        /// </summary>
-        private void SetCoulumnHeaders()
-        {
-            // "Uputnica"
-            dgvUputnica.Columns[0].HeaderCell.Value = "Br. Uputnice";
-            dgvUputnica.Columns[3].HeaderCell.Value = "Upućuje se";
-            dgvUputnica.Columns[5].HeaderCell.Value = "Traži se";
-
-            // "Recept"
-            dgvRecipe.Columns[0].HeaderCell.Value = "Br. Recepta";
-            dgvRecipe.Columns[1].HeaderCell.Value = "Slučaj";
-            dgvRecipe.Columns[2].HeaderCell.Value = "Količina";
-            dgvRecipe.Columns[5].HeaderCell.Value = "Lijek";
-            dgvRecipe.Columns[6].HeaderCell.Value = "Pacijent";
-            dgvRecipe.Columns[7].HeaderCell.Value = "Djelatnik";
-            dgvRecipe.Columns[8].HeaderCell.Value = "Ustanova";
-
-            // "Cijepljenje"
-            dgvCijepljenje.Columns[0].HeaderCell.Value = "Br. Cijepljenja";
-            dgvCijepljenje.Columns[1].HeaderCell.Value = "Slučaj";
-            dgvCijepljenje.Columns[3].HeaderCell.Value = "Vrsta cijepljenja";
-            dgvCijepljenje.Columns[4].HeaderCell.Value = "Priprava cjepiva";
-            dgvCijepljenje.Columns[5].HeaderCell.Value = "Broj doze";
-            dgvCijepljenje.Columns[6].HeaderCell.Value = "Količina";
-
-            // "Hospitalizacija"
-            dgvHostpitalizacija.Columns[0].HeaderCell.Value = "Br. Hospitalizacije";
-            dgvHostpitalizacija.Columns[1].HeaderCell.Value = "Boravio od datuma";
-            dgvHostpitalizacija.Columns[2].HeaderCell.Value = "Boravio do datuma";
-            dgvHostpitalizacija.Columns[3].HeaderCell.Value = "Naziv bolnice";
-
-            // "Postupci"
-            dgvPostupci.Columns[0].HeaderCell.Value = "Br. Postupaka";
-
-            // "Raspored
-            dgvRaspored.Columns[0].HeaderCell.Value = "Br. Raporeda";
-
-        }
         #endregion
-
     }
 }

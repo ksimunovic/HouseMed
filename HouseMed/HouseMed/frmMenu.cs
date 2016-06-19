@@ -134,5 +134,9 @@ namespace HouseMed
 
         #endregion
 
+        private void labelOdabraniPacijent_Click(object sender, EventArgs e)
+        {
+            // TODO: Stavit da piše trenutno odabrani pacijent
+        }
     }
 }
