@@ -112,6 +112,7 @@ namespace HouseMed.Recipes
         private void btnChoosePatient_Click(object sender, EventArgs e)
         {
             E_Carton.frmECarton frm = new E_Carton.frmECarton();
+            frm.recipeSelection = true;
             frm.ShowDialog();
             if(ObjectProps.pacijenti != null)
             {

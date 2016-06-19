@@ -38,5 +38,15 @@ namespace HouseMed.BAL
             }
             
         }
+
+        public enum Ecarton
+        {
+            Uputnica = 1,
+            Recept,
+            Cijepljenje,
+            Hospitalizacija,
+            Postupci,
+            Raspored
+        }
     }
 }
