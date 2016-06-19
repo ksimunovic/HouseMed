@@ -67,8 +67,12 @@ namespace HouseMed.Recipes
             if (MessageBox.Show("Jeste li sigurni da želite obrisati","Upozorenje!", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 var selectedReceptCustom = dgvRecipe.CurrentRow.DataBoundItem as receptiCustom;
-                _receptiBAL.DeleteRecept(selectedReceptCustom.ReceptID);
-                RefreshRecipeDatagrid();
+                if (_receptiBAL.DeleteRecept(selectedReceptCustom.ReceptID))
+                {
+                    RefreshRecipeDatagrid();
+                    MessageBox.Show(string.Format("Recept pacijenta '{0}' je obrisan", selectedReceptCustom.PacijentiIDName), "Obavijest!");
+                }
+                
             }
             
         }
@@ -110,9 +114,9 @@ namespace HouseMed.Recipes
             dgvRecipe.Columns[12].Visible = false;
         }
 
-        #endregion
 
-        
-        
+
+        #endregion
+       
     }
 }

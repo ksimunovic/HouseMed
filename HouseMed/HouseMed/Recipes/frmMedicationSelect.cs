@@ -89,7 +89,6 @@ namespace HouseMed.Recipes
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dgvMedication.DataSource = _lijekoviBAL.GetLijekoviByName(txtSearch.Text);
-            lijekoviBindingSource.DataSource = _lijekoviBAL.GetLijekoviByName(txtSearch.Text);
         }
         /// <summary>
         /// MenuStrip[Uredi odabrani lijek] event: opens the form "frmAddNewMedicine" with the selecet objects values

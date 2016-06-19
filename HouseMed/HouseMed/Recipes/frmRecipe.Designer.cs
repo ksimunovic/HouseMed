@@ -30,10 +30,10 @@
         {
             this.dgvRecipe = new System.Windows.Forms.DataGridView();
             this.menuStripRecipe = new System.Windows.Forms.MenuStrip();
+            this.natragToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noviReceptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.akcijeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.obrišiOdabraniReceptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.natragToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).BeginInit();
             this.menuStripRecipe.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,13 @@
             this.menuStripRecipe.TabIndex = 4;
             this.menuStripRecipe.Text = "File";
             // 
+            // natragToolStripMenuItem
+            // 
+            this.natragToolStripMenuItem.Name = "natragToolStripMenuItem";
+            this.natragToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.natragToolStripMenuItem.Text = "Natrag";
+            this.natragToolStripMenuItem.Click += new System.EventHandler(this.natragToolStripMenuItem_Click);
+            // 
             // noviReceptToolStripMenuItem
             // 
             this.noviReceptToolStripMenuItem.Name = "noviReceptToolStripMenuItem";
@@ -83,13 +90,6 @@
             this.obrišiOdabraniReceptToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
             this.obrišiOdabraniReceptToolStripMenuItem.Text = "Obriši odabrani recept";
             this.obrišiOdabraniReceptToolStripMenuItem.Click += new System.EventHandler(this.obrišiOdabraniReceptToolStripMenuItem_Click);
-            // 
-            // natragToolStripMenuItem
-            // 
-            this.natragToolStripMenuItem.Name = "natragToolStripMenuItem";
-            this.natragToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.natragToolStripMenuItem.Text = "Natrag";
-            this.natragToolStripMenuItem.Click += new System.EventHandler(this.natragToolStripMenuItem_Click);
             // 
             // frmRecipe
             // 
