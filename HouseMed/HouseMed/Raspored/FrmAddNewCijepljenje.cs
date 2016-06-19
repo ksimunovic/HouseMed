@@ -22,7 +22,7 @@ namespace HouseMed.Raspored
         private ReceptiBAL _receptiBAL;
         private PacijentiBAL _pacijentiBAL;
         private CijepljenjeBAL _cijepljenjeBAL;
-        private int _ustanovaID;
+        //private int _ustanovaID;
         private int _pacijentiID;
         private int _djelatniciID;
         private RasporedBAL _rasporedBAL;
@@ -74,7 +74,7 @@ namespace HouseMed.Raspored
             var selectedItem = comboBoxDjelatnik.SelectedItem as djelatnici;
             _djelatniciID = selectedItem.djelatniciID;
         }
-        
+
         /// <summary>
         /// klik event za poziv funkcije koja instancira objekt
         /// </summary>

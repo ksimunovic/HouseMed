@@ -37,6 +37,7 @@
             this.btnKalendar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnZaprimi = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -135,11 +136,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pacijent";
             // 
+            // btnZaprimi
+            // 
+            this.btnZaprimi.Location = new System.Drawing.Point(343, 126);
+            this.btnZaprimi.Name = "btnZaprimi";
+            this.btnZaprimi.Size = new System.Drawing.Size(83, 37);
+            this.btnZaprimi.TabIndex = 9;
+            this.btnZaprimi.Text = "Zaprimi pacijenta";
+            this.btnZaprimi.UseVisualStyleBackColor = true;
+            this.btnZaprimi.Click += new System.EventHandler(this.btnZaprimi_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 235);
+            this.Controls.Add(this.btnZaprimi);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEkarton);
@@ -163,5 +175,6 @@
         private System.Windows.Forms.Button btnKalendar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnZaprimi;
     }
 }

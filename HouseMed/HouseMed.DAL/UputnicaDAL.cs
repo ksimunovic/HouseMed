@@ -43,22 +43,22 @@ namespace HouseMed.DAL
             try
             {
                 var uputnica = (from a in context.uputnica
-                               join b in context.pacijenti on a.pacijentID equals b.pacijentiID
-                               join c in context.djelatnici on a.djelatniciID equals c.djelatniciID
-                               join d in context.sifra_zdrv_ustanove on a.sifra_zdrv_ustanoveID equals d.sifra_zdrv_ustanoveID
-                               where a.pacijentID == pacijentId
-                               select new uputnicaCustom()
-                               {
-                                   UputnicaId = a.uputnicaID,
-                                   Pacijent = string.Concat(b.ime, " ", b.prezime),
-                                   Ustanova = d.naziv,
-                                   UpucujeSe = a.upucuje_se,
-                                   Dijagnoza = a.dijagnoza,
-                                   TraziSe = a.trazi_se,
-                                   Napomena = a.napomena,
-                                   Datum = a.datum,
-                                   Djelatnik = string.Concat(c.ime, " ", c.prezime)
-                               }).ToList();
+                                join b in context.pacijenti on a.pacijentID equals b.pacijentiID
+                                join c in context.djelatnici on a.djelatniciID equals c.djelatniciID
+                                join d in context.sifra_zdrv_ustanove on a.sifra_zdrv_ustanoveID equals d.sifra_zdrv_ustanoveID
+                                where a.pacijentID == pacijentId
+                                select new uputnicaCustom()
+                                {
+                                    UputnicaId = a.uputnicaID,
+                                    Pacijent = string.Concat(b.ime, " ", b.prezime),
+                                    Ustanova = d.naziv,
+                                    UpucujeSe = a.upucuje_se,
+                                    Dijagnoza = a.dijagnoza,
+                                    TraziSe = a.trazi_se,
+                                    Napomena = a.napomena,
+                                    Datum = a.datum,
+                                    Djelatnik = string.Concat(c.ime, " ", c.prezime)
+                                }).ToList();
                 BindingList<uputnicaCustom> lista = new BindingList<uputnicaCustom>(uputnica);
                 return lista;
             }
@@ -158,8 +158,8 @@ namespace HouseMed.DAL
             {
                 throw;
             }
-            #endregion
-        }
 
+        }
+        #endregion
     }
 }

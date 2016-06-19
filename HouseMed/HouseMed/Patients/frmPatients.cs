@@ -64,7 +64,7 @@ namespace HouseMed.Patients
             RefreshDatagrid();
 
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -126,10 +126,10 @@ namespace HouseMed.Patients
         private void GetSelectedPatient()
         {
             var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
-           
+
             if (selectedItem != null)
             {
-                
+
                 _pacijentiBAL.RemovePatientById(selectedItem.pacijentiID);
 
 
@@ -139,8 +139,26 @@ namespace HouseMed.Patients
 
 
 
+        /// <summary>
+        /// Sprema trenutno odabranog pacijenta u frmMenu.cs -> trenutni_pacijent
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPostavi_Click(object sender, EventArgs e)
+        {
+            var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
+            if (selectedItem != null)
+            {
+                frmMenu.trenutniPacijent = selectedItem;
+            }
+            else
+            {
+                frmMenu.trenutniPacijent = null;
+            }
+            this.Close();
+        }
         #endregion
 
-        
+
     }
 }

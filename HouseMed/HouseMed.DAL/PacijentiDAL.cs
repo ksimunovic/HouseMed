@@ -51,7 +51,7 @@ namespace HouseMed.DAL
                 context.pacijenti.Add(pacijent);
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -66,7 +66,7 @@ namespace HouseMed.DAL
             {
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
