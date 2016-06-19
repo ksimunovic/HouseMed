@@ -57,6 +57,11 @@ namespace HouseMed.BAL
             return _uputnicaDAL.GetAllUputnicaPropsName();
         }
 
+        public uputnica GetUputnicaByID(int IdUputnice)
+        {
+            return _uputnicaDAL.GetUputnicaByID(IdUputnice);
+        }
+
         /// <summary>
         /// Remove Uputnica by id
         /// </summary>

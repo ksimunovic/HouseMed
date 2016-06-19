@@ -25,7 +25,7 @@ namespace HouseMed.Uputnice
         private int _ustanovaID;
         private int _djelatniciID;
         private int _pacijentiID;
-        private uputnica _selectedUputnica;
+        private uputnicaCustom _selectedUputnica;
         #endregion
 
 
@@ -42,7 +42,7 @@ namespace HouseMed.Uputnice
             _uputnicaBAL = new UputnicaBAL();
         }
 
-        public frmAddNewUputnice(uputnica selectedUputnica)
+        public frmAddNewUputnice(uputnicaCustom selectedUputnica)
         {
             InitializeComponent();
             _selectedUputnica = selectedUputnica;
@@ -184,15 +184,15 @@ namespace HouseMed.Uputnice
         /// </summary>
         private void LoadSelectedUputnica()
         {
-            textBoxUputnicaID.Text = _selectedUputnica.uputnicaID.ToString();
-            comboBoxPacijentiID.Text = _selectedUputnica.pacijentID.ToString();
-            comboBoxUstanovaID.Text = _selectedUputnica.sifra_zdrv_ustanoveID.ToString();
-            textBoxUpucuje_se.Text = _selectedUputnica.upucuje_se;
-            textBoxDijagnoza.Text = _selectedUputnica.dijagnoza;
-            textBoxTrazi_se.Text = _selectedUputnica.trazi_se;
-            textBoxNapomena.Text = _selectedUputnica.napomena;
-            dateTimePickerDatum.Text = _selectedUputnica.datum.ToString();
-            comboBoxDjelatniciID.Text = _selectedUputnica.djelatniciID.ToString();
+            textBoxUputnicaID.Text = _selectedUputnica.UputnicaId.ToString();
+            comboBoxPacijentiID.Text = _selectedUputnica.Pacijent.ToString();
+            comboBoxUstanovaID.Text = _selectedUputnica.Ustanova.ToString();
+            textBoxUpucuje_se.Text = _selectedUputnica.UpucujeSe;
+            textBoxDijagnoza.Text = _selectedUputnica.Dijagnoza;
+            textBoxTrazi_se.Text = _selectedUputnica.TraziSe;
+            textBoxNapomena.Text = _selectedUputnica.Napomena;
+            dateTimePickerDatum.Text = _selectedUputnica.Datum.ToString();
+            comboBoxDjelatniciID.Text = _selectedUputnica.Djelatnik.ToString();
 
         }
 
@@ -201,7 +201,22 @@ namespace HouseMed.Uputnice
         /// </summary>
         private void EditUputnica()
         {
+
+            
+            uputnica uputnicaEdit = _uputnicaBAL.GetUputnicaByID(_selectedUputnica.UputnicaId);
             DateTime d1 = dateTimePickerDatum.Value;
+            DateTime d2 = d1.Date;
+            uputnicaEdit.datum = d2;
+            uputnicaEdit.pacijentID = HelpClass.GetValueOrNull<int>(comboBoxPacijentiID.SelectedValue.ToString());
+            uputnicaEdit.sifra_zdrv_ustanoveID = HelpClass.GetValueOrNull<int>(comboBoxUstanovaID.SelectedValue.ToString());
+            uputnicaEdit.upucuje_se = textBoxUpucuje_se.Text;
+            uputnicaEdit.dijagnoza = textBoxDijagnoza.Text;
+            uputnicaEdit.trazi_se = textBoxTrazi_se.Text;
+            uputnicaEdit.napomena = textBoxNapomena.Text;
+            uputnicaEdit.djelatniciID = HelpClass.GetValueOrNull<int>(comboBoxDjelatniciID.SelectedValue.ToString());
+            _uputnicaBAL.SaveChanges();
+             
+           /* DateTime d1 = dateTimePickerDatum.Value;
             DateTime d2 = d1.Date;
             _selectedUputnica.uputnicaID = int.Parse(textBoxUputnicaID.Text);
             _selectedUputnica.pacijentID = _pacijentiID;
@@ -212,7 +227,7 @@ namespace HouseMed.Uputnice
             _selectedUputnica.napomena = textBoxNapomena.Text;
             _selectedUputnica.datum = d2;
             _selectedUputnica.djelatniciID = _djelatniciID;
-            _uputnicaBAL.SaveChanges();
+            _uputnicaBAL.SaveChanges();*/
         }
 
 
