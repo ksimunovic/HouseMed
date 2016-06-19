@@ -6,11 +6,17 @@ using HouseMed.E_Carton;
 using HouseMed.Patients;
 using HouseMed.Uputnice;
 using HouseMed.Raspored;
+using HouseMed.Procedures;
+using HouseMed.DAL;
 
 namespace HouseMed
 {
     public partial class frmMenu : Form
     {
+        /// <summary>
+        /// Trenutno postavljeni pacijent putam frmPatients
+        /// </summary>
+        public static pacijenti trenutniPacijent = null;
         #region constructor
         public frmMenu()
         {
@@ -95,7 +101,18 @@ namespace HouseMed
             frm.ShowDialog();
         }
 
-
+        /// <summary>
+        /// Otvara formu za zaprimanje novog pacijenta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnZaprimi_Click(object sender, EventArgs e)
+        {
+            frmProcedures frm = new frmProcedures();
+            frm.ShowDialog();
+        }
         #endregion
+
+
     }
 }
