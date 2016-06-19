@@ -40,6 +40,34 @@ namespace HouseMed.BAL
         {
             _hospitalizacijaDAL.AddNewNalog(nalog);
         }
+
+        /// <summary>
+        /// Funkcija koja vraća novi id naloga
+        /// </summary>
+        /// <returns></returns>
+        public int getNewID()
+        {
+            return _hospitalizacijaDAL.getNewID();
+        }
+
+        public void RemoveNalogByID(string evidencija_hospitalizacijeID)
+        {
+            _hospitalizacijaDAL.RemoveNalogByID(evidencija_hospitalizacijeID);
+        }
+
+        // <summary>
+        /// update hospitalizacija
+        /// </summary>
+        public void SaveChanges()
+        {
+            _hospitalizacijaDAL.SaveChanges();
+        }
+
+        //getNalogbyID
+        public evidencija_hospitalizacije GetNalogByID(string IDnaloga)
+        {
+            return _hospitalizacijaDAL.GetNalogByID(IDnaloga);
+        }
         #endregion
     }
 }

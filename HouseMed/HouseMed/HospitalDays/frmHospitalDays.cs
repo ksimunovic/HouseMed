@@ -22,6 +22,7 @@ namespace HouseMed.HospitalDays
         private PostupciBAL _postupciBAL;
         private HospitalizacijaBAL _hospitalizacijaBAL;
         private RasporedBAL _rasporedBAL;
+        int _workingPatient = 1;
         #endregion
 
 
@@ -42,7 +43,9 @@ namespace HouseMed.HospitalDays
         #region private methods
         private void frmHospitalDays_Load(object sender, EventArgs e)
         {
-            dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(1);
+            DataGridRefresh();
+            btnBrisiBoravak.Enabled = false;// TODO: ne radi iz nekog razloga?
+            btnUrediBoravak.Enabled = false;
             cbPacijenti.DataSource = _pacijentiBAL.GetAllPacijenti();
             cbPacijenti.DisplayMember = "ime";
             cbPacijenti.ValueMember = "pacijentID";
@@ -51,16 +54,73 @@ namespace HouseMed.HospitalDays
         private void cbPacijenti_SelectedValueChanged(object sender, EventArgs e)
         {
             var selectedItem = cbPacijenti.SelectedValue as pacijenti;
-            lblTest.Text = selectedItem.pacijentiID.ToString();
-            dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(selectedItem.pacijentiID);
+            lblTest.Text =  selectedItem.pacijentiID.ToString();
+            _workingPatient = selectedItem.pacijentiID;
+            dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(_workingPatient);
         }
-        #endregion
 
+        /// <summary>
+        /// Otvara formu za dodavanje novog naloga
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNoviNalog_Click(object sender, EventArgs e)
         {
-            frmAddNewHospitalDay frm = new frmAddNewHospitalDay(dgvHospitalDays.Rows.Count);
+            frmAddNewHospitalDay frm = new frmAddNewHospitalDay(_workingPatient);
             frm.ShowDialog();
-            dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(1);
+            DataGridRefresh();
+        }
+
+        /// <summary>
+        /// dobivanje naloga po selected id-u
+        /// </summary>
+        private void DeleteSelectedNalog()
+        {
+            var selectedItem = dgvHospitalDays.CurrentRow.DataBoundItem as hospitalizacijaCustom;
+
+            if (selectedItem != null)
+            {
+                _hospitalizacijaBAL.RemoveNalogByID(selectedItem.HospitalizacijaId);
+            }
+        }
+
+        /// <summary>
+        /// Na klik gumba Brisi se poziva funkcija za brisanje selektiranog naloga
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBrisiBoravak_Click(object sender, EventArgs e)
+        {
+            DeleteSelectedNalog();
+            DataGridRefresh();
+        }
+
+
+        private void DataGridRefresh()
+        {
+            // TODO: Stavit da učitava selektiranog pacijenta umjesto "fiksne" 1 jedinice
+            dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(_workingPatient);
+        }
+
+        /// <summary>
+        /// Otkljucava gumbe za kontrolu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvHospitalDays_SelectionChanged(object sender, EventArgs e)
+        {
+            btnBrisiBoravak.Enabled = true;
+            btnUrediBoravak.Enabled = true;
+        }
+
+        #endregion
+
+        private void btnUrediBoravak_Click(object sender, EventArgs e)
+        {
+            var selectedItem = dgvHospitalDays.CurrentRow.DataBoundItem as hospitalizacijaCustom;
+            frmAddNewHospitalDay frm = new frmAddNewHospitalDay(selectedItem, _workingPatient);
+            frm.ShowDialog();
+            DataGridRefresh();
         }
     }
 }

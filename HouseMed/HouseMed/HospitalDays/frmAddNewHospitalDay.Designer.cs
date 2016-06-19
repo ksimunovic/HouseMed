@@ -162,6 +162,7 @@
             this.Controls.Add(this.labelBoravioOd);
             this.Name = "frmAddNewHospitalDay";
             this.Text = "frmAddNewHospitalDay";
+            this.Load += new System.EventHandler(this.frmAddNewHospitalDay_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
