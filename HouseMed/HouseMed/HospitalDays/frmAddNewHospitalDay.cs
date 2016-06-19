@@ -16,59 +16,53 @@ namespace HouseMed.HospitalDays
     {
         #region private variables
         private PacijentiBAL _pacijentiBAL;
-        private ReceptiBAL _receptiBAL;
-        private UputnicaBAL _uputnicaBAL;
-        private CijepljenjeBAL _cijepljenjeBAL;
-        private PostupciBAL _postupciBAL;
+        //private ReceptiBAL _receptiBAL;
+        //private UputnicaBAL _uputnicaBAL;
+        //private CijepljenjeBAL _cijepljenjeBAL;
+        //private PostupciBAL _postupciBAL;
         private HospitalizacijaBAL _hospitalizacijaBAL;
-        private RasporedBAL _rasporedBAL;
+        //private RasporedBAL _rasporedBAL;
+        private hospitalizacijaCustom selectedNalog;
+        int _workingPatient = 0;
+
         #endregion
 
         #region constructor
-        public frmAddNewHospitalDay(int newID)
+        public frmAddNewHospitalDay(int workingPatient)
         {
             InitializeComponent();
             _pacijentiBAL = new PacijentiBAL();
-            _receptiBAL = new ReceptiBAL();
-            _uputnicaBAL = new UputnicaBAL();
-            _cijepljenjeBAL = new CijepljenjeBAL();
-            _postupciBAL = new PostupciBAL();
             _hospitalizacijaBAL = new HospitalizacijaBAL();
-            _rasporedBAL = new RasporedBAL();
-            SetComboBox();
-            labelTest.Text = newID.ToString();
+            _workingPatient = workingPatient;
+
+        }
+
+        public frmAddNewHospitalDay(hospitalizacijaCustom selectedItem, int workingPatient)
+        {
+            this.selectedNalog = selectedItem;
+            InitializeComponent();
+            _pacijentiBAL = new PacijentiBAL();
+            _hospitalizacijaBAL = new HospitalizacijaBAL();
+            _workingPatient = workingPatient;
         }
 
         #endregion
 
         #region form methods
-        /// <summary>
-        /// punjenje i prikaz comboboxa
-        /// </summary>
-        private void SetComboBox()
-        {
-            
-            // set pacijenti
-            cbPacijentBoravak.DataSource = _pacijentiBAL.GetAllPacijenti();
-            cbPacijentBoravak.DisplayMember = "ime";
-            cbPacijentBoravak.ValueMember = "pacijentiID";
-
-        }
 
         /// <summary>
         /// Instancing a new Evidencija object
         /// </summary>
         private void SetNewEvidencijaObject()
         {
-            var _pacijentiID = cbPacijentBoravak.SelectedItem as pacijenti;
             evidencija_hospitalizacije nalog = new evidencija_hospitalizacije()
             {
-                evidencija_hospitalizacijeID = labelTest.Text,
+                evidencija_hospitalizacijeID = _hospitalizacijaBAL.getNewID().ToString(),
                 boravio_od_datuma = HelpClass.GetValueOrNull<DateTime>(dtpBoravioOd.Text),
                 boravio_do_datuma = HelpClass.GetValueOrNull<DateTime>(dtpBoravioDo.Text),
                 naziv_bolnice = tbBolnica.Text,
                 razlog = tbRazlogBoravka.Text,
-                pacijentiID = _pacijentiID.pacijentiID
+                pacijentiID = _workingPatient
             };
 
             _hospitalizacijaBAL.AddNewNalog(nalog);
@@ -77,8 +71,50 @@ namespace HouseMed.HospitalDays
 
         private void btnDodajBoravak_Click(object sender, EventArgs e)
         {
-            SetNewEvidencijaObject();
+            if (selectedNalog != null)
+            {
+                EditNalog();
+            }
+            else
+            {
+                SetNewEvidencijaObject();
+            }
+
             this.Close();
         }
+
+        private void EditNalog()
+        {
+            evidencija_hospitalizacije editableNalog = _hospitalizacijaBAL.GetNalogByID(selectedNalog.HospitalizacijaId);
+            editableNalog.boravio_od_datuma = HelpClass.GetValueOrNull<DateTime>(dtpBoravioOd.Text);
+            editableNalog.boravio_do_datuma = HelpClass.GetValueOrNull<DateTime>(dtpBoravioDo.Text);
+            editableNalog.naziv_bolnice = tbBolnica.Text;
+            editableNalog.razlog = tbRazlogBoravka.Text;
+            _hospitalizacijaBAL.SaveChanges();
+        }
+
+        private void frmAddNewHospitalDay_Load(object sender, EventArgs e)
+        {
+            if (selectedNalog != null)
+            {
+                LoadSelectedNalog();
+                btnDodajBoravak.Text = "Spremi";
+            }
+            else
+            {
+                btnDodajBoravak.Text = "Dodaj";
+            }
+
+        }
+
+        private void LoadSelectedNalog()
+        {
+            tbBolnica.Text = selectedNalog.NazivBolnice;
+            dtpBoravioOd.Text = selectedNalog.BoravioOdDatuma.ToString();
+            dtpBoravioOd.Text = selectedNalog.BoravioDoDatuma.ToString();
+            tbRazlogBoravka.Text = selectedNalog.Razlog;
+        }
     }
+
+
 }

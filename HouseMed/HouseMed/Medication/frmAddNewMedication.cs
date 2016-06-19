@@ -17,6 +17,7 @@ namespace HouseMed.Medication
         #region private variables
         private ZdravUstanovaBAL _zdravUstanovaBAL;
         private LijekoviBAL _lijekoviBAL;
+        private lijekovi _selectedLijek;
         private int _ustanovaId;
         #endregion
 
@@ -26,6 +27,14 @@ namespace HouseMed.Medication
             InitializeComponent();
             _zdravUstanovaBAL = new ZdravUstanovaBAL();
             _lijekoviBAL = new LijekoviBAL();
+        }
+
+        public frmAddNewMedication(lijekovi selectedLijek)
+        {
+            InitializeComponent();
+            _zdravUstanovaBAL = new ZdravUstanovaBAL();
+            _lijekoviBAL = new LijekoviBAL();
+            _selectedLijek = selectedLijek;
         }
         #endregion
 
@@ -37,8 +46,17 @@ namespace HouseMed.Medication
         /// <param name="e"></param>
         private void frmAddNewMedication_Load(object sender, EventArgs e)
         {
-            SetComboBox();
-            this.ActiveControl = txtNaziv;
+            if (_selectedLijek != null)
+            {
+                LoadComboBox();
+                LoadTextBox();
+                this.ActiveControl = txtNaziv;
+            }
+            else
+            {
+                LoadComboBox();
+                this.ActiveControl = txtNaziv;
+            }
         }
         #endregion
 
@@ -69,7 +87,15 @@ namespace HouseMed.Medication
         /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
-            SetNewLijekoviObject();
+            if (_selectedLijek != null)
+            {
+                UpdateExistingLijekoviObject();
+            }
+            else
+            {
+                SetNewLijekoviObject();
+            }
+            this.Close();
         }
         #endregion
 
@@ -77,7 +103,7 @@ namespace HouseMed.Medication
         /// <summary>
         /// Setting the combobox Djelatnici and Ustanova with values
         /// </summary>
-        private void SetComboBox()
+        private void LoadComboBox()
         {
             var listaZdravUstanova = _zdravUstanovaBAL.GetAllUstanove();
 
@@ -103,6 +129,31 @@ namespace HouseMed.Medication
             };
             _lijekoviBAL.AddNewLijekoviObject(lijekovi);
         }
+        /// <summary>
+        /// Set the textbox values with the selected object
+        /// </summary>
+        private void LoadTextBox()
+        {
+            txtCijena.Text = _selectedLijek.cijena.ToString();
+            txtId.Text = _selectedLijek.lijekoviID.ToString();
+            txtKolicina.Text = _selectedLijek.kolicina.ToString();
+            txtNaziv.Text = _selectedLijek.naziv;
+        }
+        /// <summary>
+        /// Updating the existing "lijekovi" object in the DB
+        /// </summary>
+        private void UpdateExistingLijekoviObject()
+        {
+            _selectedLijek.cijena = HelpClass.GetValueOrNull<decimal>(txtCijena.Text);
+            _selectedLijek.datum_vrijeme_kontrole = dtpDatumKontrole.Value.Date;
+            _selectedLijek.kolicina = HelpClass.GetValueOrNull<int>(txtKolicina.Text);
+            _selectedLijek.naziv = txtNaziv.Text;
+            _selectedLijek.rok_trajanja = dtpRokTrajanja.Value.Date;
+            _selectedLijek.sifra_zdrv_ustanoveID = _ustanovaId;
+
+            _lijekoviBAL.SaveChanges();
+        }
         #endregion
+
     }
 }

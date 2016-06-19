@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HouseMed.DAL;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace HouseMed.BAL
 {
@@ -39,6 +40,39 @@ namespace HouseMed.BAL
         public void AddNewNalog(evidencija_hospitalizacije nalog)
         {
             _hospitalizacijaDAL.AddNewNalog(nalog);
+        }
+
+        /// <summary>
+        /// Funkcija koja vraća novi id naloga
+        /// </summary>
+        /// <returns></returns>
+        public int getNewID()
+        {
+            return _hospitalizacijaDAL.getNewID();
+        }
+
+        public void RemoveNalogByID(string evidencija_hospitalizacijeID)
+        {
+            _hospitalizacijaDAL.RemoveNalogByID(evidencija_hospitalizacijeID);
+        }
+
+        // <summary>
+        /// update hospitalizacija
+        /// </summary>
+        public void SaveChanges()
+        {
+            _hospitalizacijaDAL.SaveChanges();
+        }
+
+        //getNalogbyID
+        public evidencija_hospitalizacije GetNalogByID(string IDnaloga)
+        {
+            return _hospitalizacijaDAL.GetNalogByID(IDnaloga);
+        }
+
+        public BindingList<hospitalizacijaCustom> SearchHospitalizacija(string name)
+        {
+            return _hospitalizacijaDAL.SearchHospitalizacija(name);
         }
         #endregion
     }

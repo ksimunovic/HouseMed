@@ -12,6 +12,10 @@ namespace HouseMed.DAL
     public class receptiCustom
     {
         private int receptID;
+        private int? djelatniciID;
+        private int? ustanovaID;
+        private int? pacijentID;
+        private int? lijekoviID;
         private string slucaj;
         private int? kolicina;
         private string doziranje;
@@ -135,6 +139,58 @@ namespace HouseMed.DAL
             set
             {
                 sifraZdrvUstanoveIDName = value;
+            }
+        }
+
+        public int? DjelatniciID
+        {
+            get
+            {
+                return djelatniciID;
+            }
+
+            set
+            {
+                djelatniciID = value;
+            }
+        }
+
+        public int? UstanovaID
+        {
+            get
+            {
+                return ustanovaID;
+            }
+
+            set
+            {
+                ustanovaID = value;
+            }
+        }
+
+        public int? PacijentID
+        {
+            get
+            {
+                return pacijentID;
+            }
+
+            set
+            {
+                pacijentID = value;
+            }
+        }
+
+        public int? LijekoviID
+        {
+            get
+            {
+                return lijekoviID;
+            }
+
+            set
+            {
+                lijekoviID = value;
             }
         }
     }
