@@ -40,6 +40,23 @@ namespace HouseMed.DAL
             BindingList<postupciCustom> lista = new BindingList<postupciCustom>(postupci);
             return lista;
         }
+
+        /// <summary>
+        /// Dodaje novi postupak u bazu
+        /// </summary>
+        /// <param name="postupak"></param>
+        public void AddNewPostupak(postupci postupak)
+        {
+            try
+            {
+                context.postupci.Add(postupak);
+                context.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }

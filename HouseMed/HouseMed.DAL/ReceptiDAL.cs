@@ -154,7 +154,7 @@ namespace HouseMed.DAL
             {
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

@@ -31,6 +31,11 @@ namespace HouseMed.BAL
         {
             return _postupciDAL.GetAllPostupciPropNamesById(pacijentId);
         }
+
+        public void AddNewPostupak(postupci postupak)
+        {
+            _postupciDAL.AddNewPostupak(postupak);
+        }
         #endregion
     }
 }
