@@ -16,25 +16,29 @@ namespace HouseMed.Procedures
     public partial class frmProcedures : Form
     {
         private PostupciBAL _postupciBAL;
+        private DjelatniciBAL _djelatniciBAL;
+        private pacijenti trenutniPacijent;
         public frmProcedures()
         {
             _postupciBAL = new PostupciBAL();
+            _djelatniciBAL = new DjelatniciBAL();
             InitializeComponent();
             OdabraniPacijentRefresh();
             labelDatum.Text = DateTime.Today.ToString("dd/MM/yyyy");
-
         }
 
         private void OdabraniPacijentRefresh()
         {
-            pacijenti trenutniPacijent = frmMenu.trenutniPacijent;
+            trenutniPacijent = frmMenu.trenutniPacijent;
             if (trenutniPacijent != null)
             {
                 labelPacijentIspis.Text = trenutniPacijent.ImePrezime;
+                btnSpremi.Enabled = true;
             }
             else
             {
                 labelPacijentIspis.Text = "----->";
+                btnSpremi.Enabled = false;
             }
         }
         private void btnOdaberi_Click(object sender, EventArgs e)
@@ -56,8 +60,9 @@ namespace HouseMed.Procedures
         {
             postupci postupak = new postupci()
             {
+                pacijentiID = trenutniPacijent.pacijentiID,
                 datum = HelpClass.GetValueOrNull<DateTime>(labelDatum.Text),
-                ljecnikID = 1,
+                ljecnikID = 2,
                 anamneza = tbAnamneza.Text,
                 status = tbStatus.Text,
                 dijagnoza = tbDijagnoza.Text,
@@ -66,6 +71,16 @@ namespace HouseMed.Procedures
             };
 
             _postupciBAL.AddNewPostupak(postupak);
+            this.Close();
+            frmProceduresControl frm = new frmProceduresControl();
+            frm.ShowDialog();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmProceduresControl frm = new frmProceduresControl();
+            frm.ShowDialog();
         }
     }
 }

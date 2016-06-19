@@ -33,12 +33,25 @@ namespace HouseMed.Raspored
             _pacijentiBAL = new PacijentiBAL();
             _receptiBAL = new ReceptiBAL();
             _rasporedBAL = new RasporedBAL();
+            SetComboBox();
         }
 
+        public frmAddNewPregled(pacijenti trenutniPacijent)
+        {
+            InitializeComponent();
+            _djelatniciBAL = new DjelatniciBAL();
+            _zdravUstanovaBAL = new ZdravUstanovaBAL();
+            _pacijentiBAL = new PacijentiBAL();
+            _receptiBAL = new ReceptiBAL();
+            _rasporedBAL = new RasporedBAL();
+            SetComboBox();
+            comboBoxPacijent.Text = trenutniPacijent.ImePrezime;
+        }
         #endregion
 
         #region event handler
 
+        /* ----->Prebacio sam ovo u konstruktor forme radi lakšeg prilagodjavanja za frmProceduresControl
         /// <summary>
         /// load forme postavlja comboboxove
         /// </summary>
@@ -46,8 +59,8 @@ namespace HouseMed.Raspored
         /// <param name="e"></param>
         private void frmAddNewPregled_Load(object sender, EventArgs e)
         {
-            SetComboBox();
-        }
+            //SetComboBox();
+        }*/
 
         /// <summary>
         /// dohvacanje vrijednosti iz comboboxa pacijenti
