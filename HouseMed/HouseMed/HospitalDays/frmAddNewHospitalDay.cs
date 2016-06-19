@@ -16,14 +16,13 @@ namespace HouseMed.HospitalDays
     {
         #region private variables
         private PacijentiBAL _pacijentiBAL;
-        private ReceptiBAL _receptiBAL;
-        private UputnicaBAL _uputnicaBAL;
-        private CijepljenjeBAL _cijepljenjeBAL;
-        private PostupciBAL _postupciBAL;
+        //private ReceptiBAL _receptiBAL;
+        //private UputnicaBAL _uputnicaBAL;
+        //private CijepljenjeBAL _cijepljenjeBAL;
+        //private PostupciBAL _postupciBAL;
         private HospitalizacijaBAL _hospitalizacijaBAL;
-        private RasporedBAL _rasporedBAL;
+        //private RasporedBAL _rasporedBAL;
         private hospitalizacijaCustom selectedNalog;
-        private evidencija_hospitalizacije proba;/// brisi mee <-
         int _workingPatient = 0;
 
         #endregion
@@ -34,9 +33,7 @@ namespace HouseMed.HospitalDays
             InitializeComponent();
             _pacijentiBAL = new PacijentiBAL();
             _hospitalizacijaBAL = new HospitalizacijaBAL();
-            labelTest.Text = _hospitalizacijaBAL.getNewID().ToString();
             _workingPatient = workingPatient;
-            SetComboBox();
 
         }
 
@@ -47,31 +44,17 @@ namespace HouseMed.HospitalDays
             _pacijentiBAL = new PacijentiBAL();
             _hospitalizacijaBAL = new HospitalizacijaBAL();
             _workingPatient = workingPatient;
-            SetComboBox();
         }
 
         #endregion
 
         #region form methods
-        /// <summary>
-        /// punjenje i prikaz comboboxa
-        /// </summary>
-        private void SetComboBox()
-        {
-
-            // set PacijentiBoravak
-            /* cbPacijentBoravak.DataSource = _pacijentiBAL.GetAllPacijenti();
-             cbPacijentBoravak.DisplayMember = "ime";
-             cbPacijentBoravak.ValueMember = "pacijentiID";*/
-
-        }
 
         /// <summary>
         /// Instancing a new Evidencija object
         /// </summary>
         private void SetNewEvidencijaObject()
         {
-            var _pacijentiID = cbPacijentBoravak.SelectedItem as pacijenti;
             evidencija_hospitalizacije nalog = new evidencija_hospitalizacije()
             {
                 evidencija_hospitalizacijeID = _hospitalizacijaBAL.getNewID().ToString(),
@@ -96,13 +79,13 @@ namespace HouseMed.HospitalDays
             {
                 SetNewEvidencijaObject();
             }
-            
+
             this.Close();
         }
 
         private void EditNalog()
         {
-            evidencija_hospitalizacije editableNalog = _hospitalizacijaBAL.GetNalogByID("11");
+            evidencija_hospitalizacije editableNalog = _hospitalizacijaBAL.GetNalogByID(selectedNalog.HospitalizacijaId);
             editableNalog.boravio_od_datuma = HelpClass.GetValueOrNull<DateTime>(dtpBoravioOd.Text);
             editableNalog.boravio_do_datuma = HelpClass.GetValueOrNull<DateTime>(dtpBoravioDo.Text);
             editableNalog.naziv_bolnice = tbBolnica.Text;
@@ -114,14 +97,14 @@ namespace HouseMed.HospitalDays
         {
             if (selectedNalog != null)
             {
-                //SetComboBox();
                 LoadSelectedNalog();
-
+                btnDodajBoravak.Text = "Spremi";
             }
             else
             {
-                SetComboBox();
+                btnDodajBoravak.Text = "Dodaj";
             }
+
         }
 
         private void LoadSelectedNalog()

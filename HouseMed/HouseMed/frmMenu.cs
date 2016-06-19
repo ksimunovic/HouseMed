@@ -95,8 +95,7 @@ namespace HouseMed
             frm.ShowDialog();
         }
 
+
         #endregion
-
-
     }
 }

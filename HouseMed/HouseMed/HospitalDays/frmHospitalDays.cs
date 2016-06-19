@@ -122,5 +122,10 @@ namespace HouseMed.HospitalDays
             frm.ShowDialog();
             DataGridRefresh();
         }
+
+        private void tbPretrazi_TextChanged(object sender, EventArgs e)
+        {
+            dgvHospitalDays.DataSource = _hospitalizacijaBAL.SearchHospitalizacija(tbPretrazi.Text);
+        }
     }
 }

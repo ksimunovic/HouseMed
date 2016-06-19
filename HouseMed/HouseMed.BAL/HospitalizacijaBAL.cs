@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HouseMed.DAL;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace HouseMed.BAL
 {
@@ -67,6 +68,11 @@ namespace HouseMed.BAL
         public evidencija_hospitalizacije GetNalogByID(string IDnaloga)
         {
             return _hospitalizacijaDAL.GetNalogByID(IDnaloga);
+        }
+
+        public BindingList<hospitalizacijaCustom> SearchHospitalizacija(string name)
+        {
+            return _hospitalizacijaDAL.SearchHospitalizacija(name);
         }
         #endregion
     }
