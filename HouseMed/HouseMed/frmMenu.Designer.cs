@@ -44,9 +44,10 @@
             // 
             // btnEkarton
             // 
-            this.btnEkarton.Location = new System.Drawing.Point(343, 62);
+            this.btnEkarton.Location = new System.Drawing.Point(457, 76);
+            this.btnEkarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEkarton.Name = "btnEkarton";
-            this.btnEkarton.Size = new System.Drawing.Size(83, 37);
+            this.btnEkarton.Size = new System.Drawing.Size(111, 46);
             this.btnEkarton.TabIndex = 0;
             this.btnEkarton.Text = "E - karton";
             this.btnEkarton.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             // 
             // btnLijekovi
             // 
-            this.btnLijekovi.Location = new System.Drawing.Point(131, 30);
+            this.btnLijekovi.Location = new System.Drawing.Point(175, 37);
+            this.btnLijekovi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLijekovi.Name = "btnLijekovi";
-            this.btnLijekovi.Size = new System.Drawing.Size(83, 37);
+            this.btnLijekovi.Size = new System.Drawing.Size(111, 46);
             this.btnLijekovi.TabIndex = 1;
             this.btnLijekovi.Text = "Lijekovi";
             this.btnLijekovi.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // 
             // btnRecept
             // 
-            this.btnRecept.Location = new System.Drawing.Point(26, 30);
+            this.btnRecept.Location = new System.Drawing.Point(35, 37);
+            this.btnRecept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRecept.Name = "btnRecept";
-            this.btnRecept.Size = new System.Drawing.Size(83, 37);
+            this.btnRecept.Size = new System.Drawing.Size(111, 46);
             this.btnRecept.TabIndex = 2;
             this.btnRecept.Text = "Recepti";
             this.btnRecept.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             // btnBolnica
             // 
-            this.btnBolnica.Location = new System.Drawing.Point(154, 30);
+            this.btnBolnica.Location = new System.Drawing.Point(205, 37);
+            this.btnBolnica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBolnica.Name = "btnBolnica";
-            this.btnBolnica.Size = new System.Drawing.Size(83, 37);
+            this.btnBolnica.Size = new System.Drawing.Size(111, 46);
             this.btnBolnica.TabIndex = 3;
             this.btnBolnica.Text = "Boravak u bolnici";
             this.btnBolnica.UseVisualStyleBackColor = true;
@@ -84,9 +88,10 @@
             // 
             // btnPatients
             // 
-            this.btnPatients.Location = new System.Drawing.Point(22, 30);
+            this.btnPatients.Location = new System.Drawing.Point(29, 37);
+            this.btnPatients.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPatients.Name = "btnPatients";
-            this.btnPatients.Size = new System.Drawing.Size(83, 37);
+            this.btnPatients.Size = new System.Drawing.Size(111, 46);
             this.btnPatients.TabIndex = 4;
             this.btnPatients.Text = "Pacijenti";
             this.btnPatients.UseVisualStyleBackColor = true;
@@ -94,9 +99,10 @@
             // 
             // btnUputnice
             // 
-            this.btnUputnice.Location = new System.Drawing.Point(26, 94);
+            this.btnUputnice.Location = new System.Drawing.Point(35, 116);
+            this.btnUputnice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUputnice.Name = "btnUputnice";
-            this.btnUputnice.Size = new System.Drawing.Size(83, 37);
+            this.btnUputnice.Size = new System.Drawing.Size(111, 46);
             this.btnUputnice.TabIndex = 5;
             this.btnUputnice.Text = "Uputnice";
             this.btnUputnice.UseVisualStyleBackColor = true;
@@ -104,9 +110,10 @@
             // 
             // btnKalendar
             // 
-            this.btnKalendar.Location = new System.Drawing.Point(154, 94);
+            this.btnKalendar.Location = new System.Drawing.Point(205, 116);
+            this.btnKalendar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnKalendar.Name = "btnKalendar";
-            this.btnKalendar.Size = new System.Drawing.Size(83, 37);
+            this.btnKalendar.Size = new System.Drawing.Size(111, 46);
             this.btnKalendar.TabIndex = 6;
             this.btnKalendar.Text = "Kalendar";
             this.btnKalendar.UseVisualStyleBackColor = true;
@@ -116,9 +123,11 @@
             // 
             this.groupBox1.Controls.Add(this.btnPatients);
             this.groupBox1.Controls.Add(this.btnLijekovi);
-            this.groupBox1.Location = new System.Drawing.Point(23, 32);
+            this.groupBox1.Location = new System.Drawing.Point(31, 39);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 92);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(371, 113);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Baza";
@@ -129,18 +138,21 @@
             this.groupBox2.Controls.Add(this.btnRecept);
             this.groupBox2.Controls.Add(this.btnKalendar);
             this.groupBox2.Controls.Add(this.btnUputnice);
-            this.groupBox2.Location = new System.Drawing.Point(464, 32);
+            this.groupBox2.Location = new System.Drawing.Point(619, 39);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 166);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(360, 204);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pacijent";
             // 
             // btnZaprimi
             // 
-            this.btnZaprimi.Location = new System.Drawing.Point(343, 126);
+            this.btnZaprimi.Location = new System.Drawing.Point(457, 155);
+            this.btnZaprimi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnZaprimi.Name = "btnZaprimi";
-            this.btnZaprimi.Size = new System.Drawing.Size(83, 37);
+            this.btnZaprimi.Size = new System.Drawing.Size(111, 46);
             this.btnZaprimi.TabIndex = 9;
             this.btnZaprimi.Text = "Zaprimi pacijenta";
             this.btnZaprimi.UseVisualStyleBackColor = true;
@@ -148,16 +160,18 @@
             // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 235);
+            this.ClientSize = new System.Drawing.Size(1077, 289);
             this.Controls.Add(this.btnZaprimi);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEkarton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Funkcionalnosti";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMenu_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
