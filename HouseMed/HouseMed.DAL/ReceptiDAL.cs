@@ -17,16 +17,35 @@ namespace HouseMed.DAL
 
         #region public methods
         /// <summary>
-        /// Method for getting ALL the recipes from the DB
+        /// Method for getting all the Recipes from the DB with full FK names
         /// </summary>
         /// <returns></returns>
-        public BindingList<recepti> GetAllRecepti()
+        public BindingList<receptiCustom> GetAllReceptiNamedProps()
         {
             try
             {
                 var recepti = (from a in context.recepti
-                               select a).ToList();
-                BindingList<recepti> lista = new BindingList<recepti>(recepti);
+                               join b in context.lijekovi on a.lijekoviID equals b.lijekoviID
+                               join c in context.pacijenti on a.pacijentiID equals c.pacijentiID
+                               join d in context.djelatnici on a.djelatniciID equals d.djelatniciID
+                               join e in context.sifra_zdrv_ustanove on a.sifra_zdrv_ustanoveID equals e.sifra_zdrv_ustanoveID
+                               select new receptiCustom()
+                               {
+                                   ReceptID = a.receptID,
+                                   PacijentiIDName = string.Concat(c.ime, " ", c.prezime),
+                                   LijekoviIDName = b.naziv,
+                                   Slucaj = a.slucaj,
+                                   Kolicina = a.kolicina,
+                                   Doziranje = a.doziranje,
+                                   Nadoplata = a.nadoplata,
+                                   DjelatniciIDName = string.Concat(d.ime, " ", d.prezime),
+                                   SifraZdrvUstanoveIDName = e.naziv,
+                                   DjelatniciID = d.djelatniciID,
+                                   LijekoviID = b.lijekoviID,
+                                   PacijentID = c.pacijentiID,
+                                   UstanovaID = e.sifra_zdrv_ustanoveID
+                               }).ToList();
+                BindingList<receptiCustom> lista = new BindingList<receptiCustom>(recepti);
                 return lista;
             }
             catch (Exception)
@@ -34,10 +53,9 @@ namespace HouseMed.DAL
 
                 throw;
             }
-
         }
         /// <summary>
-        /// Method for getting all the Recipes from the DB with full names
+        /// Method for getting all the Recipes from the DB with full FK names by pacijentId
         /// </summary>
         /// <returns></returns>
         public BindingList<receptiCustom> GetAllReceptiNamedPropsById(int PacijentId)
@@ -71,6 +89,47 @@ namespace HouseMed.DAL
                 throw;
             }
         }
+
+        /// <summary>
+        /// Gets a single "recepti" object from the database
+        /// </summary>
+        public recepti GetReceptObjectById(int receptId)
+        {
+            try
+            {
+                var recept = (from a in context.recepti
+                              where a.receptID == receptId
+                              select a).FirstOrDefault();
+                return recept;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        /// <summary>
+        /// Bool method for deleting the recept object from the database
+        /// </summary>
+        /// <param name="recept"></param>
+        /// <returns></returns>
+        public bool DeleteReceptById(int receptId)
+        {
+            try
+            {
+                var recept = (from a in context.recepti
+                              where a.receptID == receptId
+                              select a).FirstOrDefault();
+
+                context.recepti.Remove(recept);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         /// <summary>
         /// Adds new "Recept" into the DB
         /// </summary>
@@ -79,6 +138,20 @@ namespace HouseMed.DAL
             try
             {
                 context.recepti.Add(recept);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// Method for saving the current context (used for updating)
+        /// </summary>
+        public void SaveChanges()
+        {
+            try
+            {
                 context.SaveChanges();
             }
             catch (Exception ex)

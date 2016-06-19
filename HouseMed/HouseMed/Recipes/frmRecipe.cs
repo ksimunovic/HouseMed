@@ -1,4 +1,5 @@
 ﻿using HouseMed.BAL;
+using HouseMed.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,17 +33,53 @@ namespace HouseMed.Recipes
         }
         #endregion
 
-        #region button event handlers
+        #region event handlers
         /// <summary>
-        /// ButtonEvent open "Izradi novi recept" form
+        /// MenuStripEvent[Novi recept]: open the "frmAddNewRecipe" form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnNewRecipe_Click(object sender, EventArgs e)
+        private void noviReceptToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddNewRecipe frm = new frmAddNewRecipe();
             frm.ShowDialog();
             RefreshRecipeDatagrid();
+        }
+        /// <summary>
+        /// MenuStripEvent[Uredi odabrani recept]: opent form "frmAddNewRecipe" for editing the selected object
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void akcijeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectedReceptiCustom = dgvRecipe.CurrentRow.DataBoundItem as receptiCustom;
+            frmAddNewRecipe frm = new frmAddNewRecipe(selectedReceptiCustom);
+            frm.ShowDialog();
+            RefreshRecipeDatagrid();
+        }
+        /// <summary>
+        /// MenuStripEvent[Obriši odabrani recept]: Delete the selected item from the db
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void obrišiOdabraniReceptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Jeste li sigurni da želite obrisati","Upozorenje!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var selectedReceptCustom = dgvRecipe.CurrentRow.DataBoundItem as receptiCustom;
+                _receptiBAL.DeleteRecept(selectedReceptCustom.ReceptID);
+                RefreshRecipeDatagrid();
+            }
+            
+        }
+        /// <summary>
+        /// MenuStripEvent[Natrag]: Close the current form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void natragToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         #endregion
 
@@ -52,8 +89,30 @@ namespace HouseMed.Recipes
         /// </summary>
         private void RefreshRecipeDatagrid()
         {
-            dgvRecipe.DataSource = _receptiBAL.GetALLRecepti();
+            dgvRecipe.DataSource = _receptiBAL.GetAllReceptiNamedProps();
+
+            // "Recept"
+            dgvRecipe.Columns[0].HeaderCell.Value = "Br. Recepta";
+            dgvRecipe.Columns[1].HeaderCell.Value = "Slučaj";
+            dgvRecipe.Columns[2].HeaderCell.Value = "Količina lijeka";
+            dgvRecipe.Columns[5].HeaderCell.Value = "Lijek";
+            dgvRecipe.Columns[6].HeaderCell.Value = "Pacijent";
+            dgvRecipe.Columns[7].HeaderCell.Value = "Djelatnik";
+            dgvRecipe.Columns[8].HeaderCell.Value = "Ustanova";
+
+            dgvRecipe.Columns[6].DisplayIndex = 1;
+            dgvRecipe.Columns[7].DisplayIndex = 2;
+            dgvRecipe.Columns[5].DisplayIndex = 3;
+
+            dgvRecipe.Columns[9].Visible = false;
+            dgvRecipe.Columns[10].Visible = false;
+            dgvRecipe.Columns[11].Visible = false;
+            dgvRecipe.Columns[12].Visible = false;
         }
+
         #endregion
+
+        
+        
     }
 }

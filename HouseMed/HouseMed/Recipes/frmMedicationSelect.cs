@@ -14,6 +14,10 @@ namespace HouseMed.Recipes
 {
     public partial class frmMedicationSelect : Form
     {
+        #region public variables
+        public bool recipeSelection = false;
+        #endregion
+
         #region private variables
         private LijekoviBAL _lijekoviBAL;
         #endregion
@@ -34,37 +38,41 @@ namespace HouseMed.Recipes
         /// <param name="e"></param>
         private void frmMedicationSelect_Load(object sender, EventArgs e)
         {
-            dgvMedication.DataSource = _lijekoviBAL.GetAllLijekovi();
-            lijekoviBindingSource.DataSource = _lijekoviBAL.GetAllLijekovi();
+            if (!recipeSelection)
+            {
+                odaberiLijekToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.None;
+            }
+            RefreshDatagrid();
         }
         #endregion
 
         #region event handlers
         /// <summary>
-        /// Search event handler for filtering the medication
+        /// MenuStripEvent[Natrag]: Close the current form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            dgvMedication.DataSource = _lijekoviBAL.GetLijekoviByName(txtSearch.Text);
-            lijekoviBindingSource.DataSource = _lijekoviBAL.GetLijekoviByName(txtSearch.Text);
-        }
-        /// <summary>
-        /// Button[Odustani] event handler: closes this form 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnClose_Click(object sender, EventArgs e)
+        private void natragToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         /// <summary>
-        /// Button[Odaberi] event handler: closes the form and passes the selected object
+        /// MenuStripEvent[Dodaj novi lijek]: Opens the new form for adding a new "lijekovi" object into the DB
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnOdaberi_Click(object sender, EventArgs e)
+        private void dodajNoviLijekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HouseMed.Medication.frmAddNewMedication frm = new Medication.frmAddNewMedication();
+            frm.ShowDialog();
+            RefreshDatagrid();
+        }
+        /// <summary>
+        /// MenuStripEvent[Odaberi lijek]: Closes the form and passes the selected object
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void odaberiLijekToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var selectedItem = dgvMedication.CurrentRow.DataBoundItem as lijekovi;
             if (selectedItem != null)
@@ -74,15 +82,55 @@ namespace HouseMed.Recipes
             this.Close();
         }
         /// <summary>
-        /// Button[Dodaj] event handler: opens the new form for adding a new "lijekovi" object into the DB
+        ///  Search event handler for filtering the medication
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnNewLijek_Click(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            HouseMed.Medication.frmAddNewMedication frm = new Medication.frmAddNewMedication();
+            dgvMedication.DataSource = _lijekoviBAL.GetLijekoviByName(txtSearch.Text);
+            lijekoviBindingSource.DataSource = _lijekoviBAL.GetLijekoviByName(txtSearch.Text);
+        }
+        /// <summary>
+        /// MenuStrip[Uredi odabrani lijek] event: opens the form "frmAddNewMedicine" with the selecet objects values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void urediOdabraniLijekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectedItem = dgvMedication.CurrentRow.DataBoundItem as lijekovi;
+            Medication.frmAddNewMedication frm = new Medication.frmAddNewMedication(selectedItem);
             frm.ShowDialog();
+            RefreshDatagrid();
+        }
+        #endregion
+
+        #region private methods
+        /// <summary>
+        /// Refresh the datagrid with data
+        /// </summary>
+        private void RefreshDatagrid()
+        {
+            dgvMedication.DataSource = _lijekoviBAL.GetAllLijekovi();
+            lijekoviBindingSource.DataSource = _lijekoviBAL.GetAllLijekovi();
+        }
+        #endregion
+        /// <summary>
+        /// MenuSelect[Obriši odabrani lijek] event: Remove the selected object from the DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void obrišiOdabraniLijekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Jeste li sigurni da želite obrisati odabrani lijek?","Upozorenje", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var selectedItem = dgvMedication.CurrentRow.DataBoundItem as lijekovi;
+                if (_lijekoviBAL.DeleteLijek(selectedItem))
+                {
+                    RefreshDatagrid();
+                    MessageBox.Show(string.Format("Lijek '{0}' je obrisan.", selectedItem.naziv), "Obavijest!");
+                }
+            }
         }
     }
-    #endregion
 }

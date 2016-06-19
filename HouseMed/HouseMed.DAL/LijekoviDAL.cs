@@ -56,6 +56,25 @@ namespace HouseMed.DAL
             }
         }
         /// <summary>
+        /// Deleting the lijekovi object from the DB
+        /// </summary>
+        /// <param name="selectedLijek"></param>
+        /// <returns></returns>
+        public bool DeleteLijek(lijekovi selectedLijek)
+        {
+            try
+            {
+                context.lijekovi.Remove(selectedLijek);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        /// <summary>
         /// Adds "lijek" object into the DB
         /// </summary>
         /// <param name="lijek"></param>
@@ -63,6 +82,21 @@ namespace HouseMed.DAL
         {
             context.lijekovi.Add(lijek);
             context.SaveChanges();
+        }
+        /// <summary>
+        /// Saving the changes in the database
+        /// </summary>
+        public void SaveChanges()
+        {
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         #endregion
     }
