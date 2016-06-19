@@ -36,6 +36,39 @@ namespace HouseMed.DAL
             BindingList<hospitalizacijaCustom> lista = new BindingList<hospitalizacijaCustom>(hospitalizacija);
             return lista;
         }
+
+        public void RemoveNalogByID(string evidencija_hospitalizacijeID)
+        {
+            var nalog = (from a in context.evidencija_hospitalizacije
+                         where a.evidencija_hospitalizacijeID == evidencija_hospitalizacijeID
+                         select a).FirstOrDefault();
+            context.evidencija_hospitalizacije.Remove(nalog);
+            context.SaveChanges();
+        }
+
+        public evidencija_hospitalizacije GetNalogByID(string IDnaloga)
+        {
+            var nalog = (from a in context.evidencija_hospitalizacije
+                         where a.evidencija_hospitalizacijeID == IDnaloga
+                         select a).FirstOrDefault();
+            return nalog;
+        }
+
+        /// <summary>
+        /// funkcija za update naloga u bazi
+        /// </summary>
+        public void SaveChanges()
+        {
+            try
+            {
+                context.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
         /// <summary>
         /// Adds new "Nalog" u bazu
         /// </summary>
@@ -46,10 +79,19 @@ namespace HouseMed.DAL
                 context.evidencija_hospitalizacije.Add(nalog);
                 context.SaveChanges();
             }
-            catch 
+            catch
             {
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Funkcija koja vraća novi id naloga
+        /// </summary>
+        /// <returns></returns>
+        public int getNewID()
+        {
+            return (from u in context.evidencija_hospitalizacije select u).Count();
         }
         #endregion
     }
