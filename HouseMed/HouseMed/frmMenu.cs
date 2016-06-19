@@ -111,8 +111,12 @@ namespace HouseMed
             frmProcedures frm = new frmProcedures();
             frm.ShowDialog();
         }
+
         #endregion
 
-
+        private void labelOdabraniPacijent_Click(object sender, EventArgs e)
+        {
+            // TODO: Stavit da piše trenutno odabrani pacijent
+        }
     }
 }

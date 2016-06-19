@@ -38,6 +38,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnZaprimi = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelOdabraniPacijent = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -125,13 +127,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labelOdabraniPacijent);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnBolnica);
             this.groupBox2.Controls.Add(this.btnRecept);
             this.groupBox2.Controls.Add(this.btnKalendar);
             this.groupBox2.Controls.Add(this.btnUputnice);
             this.groupBox2.Location = new System.Drawing.Point(464, 32);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 166);
+            this.groupBox2.Size = new System.Drawing.Size(270, 170);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pacijent";
@@ -145,6 +149,25 @@
             this.btnZaprimi.Text = "Zaprimi pacijenta";
             this.btnZaprimi.UseVisualStyleBackColor = true;
             this.btnZaprimi.Click += new System.EventHandler(this.btnZaprimi_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Odabrani pacijent:";
+            // 
+            // labelOdabraniPacijent
+            // 
+            this.labelOdabraniPacijent.AutoSize = true;
+            this.labelOdabraniPacijent.Location = new System.Drawing.Point(105, 154);
+            this.labelOdabraniPacijent.Name = "labelOdabraniPacijent";
+            this.labelOdabraniPacijent.Size = new System.Drawing.Size(35, 13);
+            this.labelOdabraniPacijent.TabIndex = 8;
+            this.labelOdabraniPacijent.Text = "label2";
+            this.labelOdabraniPacijent.Click += new System.EventHandler(this.labelOdabraniPacijent_Click);
             // 
             // frmMenu
             // 
@@ -160,6 +183,7 @@
             this.Text = "Funkcionalnosti";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -176,5 +200,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnZaprimi;
+        private System.Windows.Forms.Label labelOdabraniPacijent;
+        private System.Windows.Forms.Label label1;
     }
 }
