@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvUputnice = new System.Windows.Forms.DataGridView();
             this.btnNovaUputnica = new System.Windows.Forms.Button();
             this.btnObrisi = new System.Windows.Forms.Button();
             this.btnUredi = new System.Windows.Forms.Button();
+            this.uputnicaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUputnice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uputnicaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvUputnice
@@ -76,6 +79,10 @@
             this.btnUredi.UseVisualStyleBackColor = true;
             this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
             // 
+            // uputnicaBindingSource
+            // 
+            this.uputnicaBindingSource.DataSource = typeof(HouseMed.DAL.uputnica);
+            // 
             // frmUputnice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -89,6 +96,7 @@
             this.Text = "Uputnice";
             this.Load += new System.EventHandler(this.frmUputnice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUputnice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uputnicaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -99,5 +107,6 @@
         private System.Windows.Forms.Button btnNovaUputnica;
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnUredi;
+        private System.Windows.Forms.BindingSource uputnicaBindingSource;
     }
 }

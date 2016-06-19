@@ -201,6 +201,8 @@ namespace HouseMed.Uputnice
         /// </summary>
         private void EditUputnica()
         {
+            DateTime d1 = dateTimePickerDatum.Value;
+            DateTime d2 = d1.Date;
             _selectedUputnica.uputnicaID = int.Parse(textBoxUputnicaID.Text);
             _selectedUputnica.pacijentID = _pacijentiID;
             _selectedUputnica.sifra_zdrv_ustanoveID = _ustanovaID;
@@ -208,7 +210,7 @@ namespace HouseMed.Uputnice
             _selectedUputnica.dijagnoza = textBoxDijagnoza.Text;
             _selectedUputnica.trazi_se = textBoxTrazi_se.Text;
             _selectedUputnica.napomena = textBoxNapomena.Text;
-            _selectedUputnica.datum = dateTimePickerDatum.Value;
+            _selectedUputnica.datum = d2;
             _selectedUputnica.djelatniciID = _djelatniciID;
             _uputnicaBAL.SaveChanges();
         }

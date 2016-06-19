@@ -88,7 +88,9 @@ namespace HouseMed.Raspored
         #endregion
 
         #region private methods
-
+        /// <summary>
+        /// funkcija za prikaz vrijednosti umjesto vanjskih kljuceva u comobobxu
+        /// </summary>
         private void SetComboBox()
         {
 

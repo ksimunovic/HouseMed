@@ -113,7 +113,7 @@ namespace HouseMed.DAL
                 context.uputnica.Add(uputnica);
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -142,7 +142,7 @@ namespace HouseMed.DAL
             {
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
