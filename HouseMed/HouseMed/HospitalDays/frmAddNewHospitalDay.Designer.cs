@@ -35,17 +35,14 @@
             this.labelBolnica = new System.Windows.Forms.Label();
             this.tbRazlogBoravka = new System.Windows.Forms.TextBox();
             this.labelRazlogBoravka = new System.Windows.Forms.Label();
-            this.labelPacijentBoravak = new System.Windows.Forms.Label();
-            this.cbPacijentBoravak = new System.Windows.Forms.ComboBox();
             this.tbBolnica = new System.Windows.Forms.TextBox();
             this.btnDodajBoravak = new System.Windows.Forms.Button();
-            this.labelTest = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelBoravioOd
             // 
             this.labelBoravioOd.AutoSize = true;
-            this.labelBoravioOd.Location = new System.Drawing.Point(30, 47);
+            this.labelBoravioOd.Location = new System.Drawing.Point(30, 27);
             this.labelBoravioOd.Name = "labelBoravioOd";
             this.labelBoravioOd.Size = new System.Drawing.Size(61, 13);
             this.labelBoravioOd.TabIndex = 2;
@@ -53,7 +50,7 @@
             // 
             // dtpBoravioOd
             // 
-            this.dtpBoravioOd.Location = new System.Drawing.Point(108, 44);
+            this.dtpBoravioOd.Location = new System.Drawing.Point(108, 24);
             this.dtpBoravioOd.Name = "dtpBoravioOd";
             this.dtpBoravioOd.Size = new System.Drawing.Size(166, 20);
             this.dtpBoravioOd.TabIndex = 3;
@@ -61,7 +58,7 @@
             // labelBoravioDo
             // 
             this.labelBoravioDo.AutoSize = true;
-            this.labelBoravioDo.Location = new System.Drawing.Point(30, 78);
+            this.labelBoravioDo.Location = new System.Drawing.Point(30, 58);
             this.labelBoravioDo.Name = "labelBoravioDo";
             this.labelBoravioDo.Size = new System.Drawing.Size(64, 13);
             this.labelBoravioDo.TabIndex = 4;
@@ -69,7 +66,7 @@
             // 
             // dtpBoravioDo
             // 
-            this.dtpBoravioDo.Location = new System.Drawing.Point(108, 76);
+            this.dtpBoravioDo.Location = new System.Drawing.Point(108, 56);
             this.dtpBoravioDo.Name = "dtpBoravioDo";
             this.dtpBoravioDo.Size = new System.Drawing.Size(166, 20);
             this.dtpBoravioDo.TabIndex = 5;
@@ -77,7 +74,7 @@
             // labelBolnica
             // 
             this.labelBolnica.AutoSize = true;
-            this.labelBolnica.Location = new System.Drawing.Point(43, 114);
+            this.labelBolnica.Location = new System.Drawing.Point(43, 94);
             this.labelBolnica.Name = "labelBolnica";
             this.labelBolnica.Size = new System.Drawing.Size(48, 13);
             this.labelBolnica.TabIndex = 6;
@@ -85,7 +82,7 @@
             // 
             // tbRazlogBoravka
             // 
-            this.tbRazlogBoravka.Location = new System.Drawing.Point(108, 147);
+            this.tbRazlogBoravka.Location = new System.Drawing.Point(108, 127);
             this.tbRazlogBoravka.Multiline = true;
             this.tbRazlogBoravka.Name = "tbRazlogBoravka";
             this.tbRazlogBoravka.Size = new System.Drawing.Size(166, 106);
@@ -94,39 +91,22 @@
             // labelRazlogBoravka
             // 
             this.labelRazlogBoravka.AutoSize = true;
-            this.labelRazlogBoravka.Location = new System.Drawing.Point(9, 150);
+            this.labelRazlogBoravka.Location = new System.Drawing.Point(9, 130);
             this.labelRazlogBoravka.Name = "labelRazlogBoravka";
             this.labelRazlogBoravka.Size = new System.Drawing.Size(85, 13);
             this.labelRazlogBoravka.TabIndex = 9;
             this.labelRazlogBoravka.Text = "Razlog boravka:";
             // 
-            // labelPacijentBoravak
-            // 
-            this.labelPacijentBoravak.AutoSize = true;
-            this.labelPacijentBoravak.Location = new System.Drawing.Point(43, 271);
-            this.labelPacijentBoravak.Name = "labelPacijentBoravak";
-            this.labelPacijentBoravak.Size = new System.Drawing.Size(48, 13);
-            this.labelPacijentBoravak.TabIndex = 10;
-            this.labelPacijentBoravak.Text = "Pacijent:";
-            // 
-            // cbPacijentBoravak
-            // 
-            this.cbPacijentBoravak.FormattingEnabled = true;
-            this.cbPacijentBoravak.Location = new System.Drawing.Point(108, 268);
-            this.cbPacijentBoravak.Name = "cbPacijentBoravak";
-            this.cbPacijentBoravak.Size = new System.Drawing.Size(166, 21);
-            this.cbPacijentBoravak.TabIndex = 11;
-            // 
             // tbBolnica
             // 
-            this.tbBolnica.Location = new System.Drawing.Point(108, 111);
+            this.tbBolnica.Location = new System.Drawing.Point(108, 91);
             this.tbBolnica.Name = "tbBolnica";
             this.tbBolnica.Size = new System.Drawing.Size(166, 20);
             this.tbBolnica.TabIndex = 12;
             // 
             // btnDodajBoravak
             // 
-            this.btnDodajBoravak.Location = new System.Drawing.Point(33, 297);
+            this.btnDodajBoravak.Location = new System.Drawing.Point(33, 270);
             this.btnDodajBoravak.Name = "btnDodajBoravak";
             this.btnDodajBoravak.Size = new System.Drawing.Size(241, 23);
             this.btnDodajBoravak.TabIndex = 13;
@@ -134,25 +114,13 @@
             this.btnDodajBoravak.UseVisualStyleBackColor = true;
             this.btnDodajBoravak.Click += new System.EventHandler(this.btnDodajBoravak_Click);
             // 
-            // labelTest
-            // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(55, 13);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(35, 13);
-            this.labelTest.TabIndex = 14;
-            this.labelTest.Text = "label1";
-            // 
             // frmAddNewHospitalDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 337);
-            this.Controls.Add(this.labelTest);
+            this.ClientSize = new System.Drawing.Size(310, 316);
             this.Controls.Add(this.btnDodajBoravak);
             this.Controls.Add(this.tbBolnica);
-            this.Controls.Add(this.cbPacijentBoravak);
-            this.Controls.Add(this.labelPacijentBoravak);
             this.Controls.Add(this.labelRazlogBoravka);
             this.Controls.Add(this.tbRazlogBoravka);
             this.Controls.Add(this.labelBolnica);
@@ -176,10 +144,7 @@
         private System.Windows.Forms.Label labelBolnica;
         private System.Windows.Forms.TextBox tbRazlogBoravka;
         private System.Windows.Forms.Label labelRazlogBoravka;
-        private System.Windows.Forms.Label labelPacijentBoravak;
-        private System.Windows.Forms.ComboBox cbPacijentBoravak;
         private System.Windows.Forms.TextBox tbBolnica;
         private System.Windows.Forms.Button btnDodajBoravak;
-        private System.Windows.Forms.Label labelTest;
     }
 }

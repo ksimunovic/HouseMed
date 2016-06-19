@@ -38,6 +38,8 @@
             this.djelatniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnBrisiBoravak = new System.Windows.Forms.Button();
             this.btnUrediBoravak = new System.Windows.Forms.Button();
+            this.labelPretrazi = new System.Windows.Forms.Label();
+            this.tbPretrazi = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHospitalDays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.djelatniciBindingSource)).BeginInit();
@@ -119,11 +121,30 @@
             this.btnUrediBoravak.UseVisualStyleBackColor = true;
             this.btnUrediBoravak.Click += new System.EventHandler(this.btnUrediBoravak_Click);
             // 
+            // labelPretrazi
+            // 
+            this.labelPretrazi.AutoSize = true;
+            this.labelPretrazi.Location = new System.Drawing.Point(296, 27);
+            this.labelPretrazi.Name = "labelPretrazi";
+            this.labelPretrazi.Size = new System.Drawing.Size(48, 13);
+            this.labelPretrazi.TabIndex = 7;
+            this.labelPretrazi.Text = "Pretraži: ";
+            // 
+            // tbPretrazi
+            // 
+            this.tbPretrazi.Location = new System.Drawing.Point(350, 22);
+            this.tbPretrazi.Name = "tbPretrazi";
+            this.tbPretrazi.Size = new System.Drawing.Size(100, 20);
+            this.tbPretrazi.TabIndex = 8;
+            this.tbPretrazi.TextChanged += new System.EventHandler(this.tbPretrazi_TextChanged);
+            // 
             // frmHospitalDays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 262);
+            this.Controls.Add(this.tbPretrazi);
+            this.Controls.Add(this.labelPretrazi);
             this.Controls.Add(this.btnUrediBoravak);
             this.Controls.Add(this.btnBrisiBoravak);
             this.Controls.Add(this.btnNoviNalog);
@@ -153,5 +174,7 @@
         private System.Windows.Forms.Button btnNoviNalog;
         private System.Windows.Forms.Button btnBrisiBoravak;
         private System.Windows.Forms.Button btnUrediBoravak;
+        private System.Windows.Forms.Label labelPretrazi;
+        private System.Windows.Forms.TextBox tbPretrazi;
     }
 }

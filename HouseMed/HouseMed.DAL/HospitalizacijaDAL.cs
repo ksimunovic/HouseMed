@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HouseMed.DAL
 {
@@ -52,6 +53,32 @@ namespace HouseMed.DAL
                          where a.evidencija_hospitalizacijeID == IDnaloga
                          select a).FirstOrDefault();
             return nalog;
+        }
+
+        public BindingList<hospitalizacijaCustom> SearchHospitalizacija(string name)
+        {
+            try
+            {
+                
+                var hospitalizacija = (from a in context.evidencija_hospitalizacije
+                                       join b in context.pacijenti on a.pacijentiID equals b.pacijentiID
+                                       where a.naziv_bolnice.ToString().Contains(name) || a.razlog.Contains(name) || a.boravio_do_datuma.ToString().Contains(name) || b.ime.Contains(name) || b.prezime.Contains(name)
+                                       select new hospitalizacijaCustom()
+                                       {
+                                           HospitalizacijaId = a.evidencija_hospitalizacijeID,
+                                           BoravioOdDatuma = a.boravio_od_datuma,
+                                           BoravioDoDatuma = a.boravio_do_datuma,
+                                           NazivBolnice = a.naziv_bolnice,
+                                           Razlog = a.razlog,
+                                           Pacijent = string.Concat(b.ime, " ", b.prezime)
+                                       }).ToList();
+                BindingList<hospitalizacijaCustom> lista = new BindingList<hospitalizacijaCustom>(hospitalizacija);
+                return lista;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
