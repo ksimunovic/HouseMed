@@ -111,6 +111,24 @@
     <Compile Include="Certificates\frmCertificates.Designer.cs">
       <DependentUpon>frmCertificates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Raspored\FrmAddNewCijepljenje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored\FrmAddNewCijepljenje.Designer.cs">
+      <DependentUpon>FrmAddNewCijepljenje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored\frmAddNewPregled.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored\frmAddNewPregled.Designer.cs">
+      <DependentUpon>frmAddNewPregled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored\frmRaspored.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored\frmRaspored.Designer.cs">
+      <DependentUpon>frmRaspored.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recipes\frmAddNewRecipe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +192,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Raspored\FrmAddNewCijepljenje.resx">
+      <DependentUpon>FrmAddNewCijepljenje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored\frmAddNewPregled.resx">
+      <DependentUpon>frmAddNewPregled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored\frmRaspored.resx">
+      <DependentUpon>frmRaspored.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recipes\frmAddNewRecipe.resx">
       <DependentUpon>frmAddNewRecipe.cs</DependentUpon>
     </EmbeddedResource>

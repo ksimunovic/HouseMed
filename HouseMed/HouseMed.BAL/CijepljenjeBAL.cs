@@ -31,6 +31,28 @@ namespace HouseMed.BAL
         {
             return _cijepljenjeDAL.GetAllCijepPropNamesById(pacijentId);
         }
+        public BindingList<cijepljenjeCustom> GetAllRasporedPropNamesByDate(DateTime datum)
+        {
+            return _cijepljenjeDAL.GetAllRasporedPropNamesByDate(datum);
+        }
+
+        /// <summary>
+        /// funkcija za DAL koja zbraja broj redaka u tablici
+        /// </summary>
+        /// <returns></returns>
+        public int broj()
+        {
+            return _cijepljenjeDAL.broj();
+        }
+
+        /// <summary>
+        /// funkcija koja poziva DAL za unos novog cijepljenja
+        /// </summary>
+        /// <param name="pregled"></param>
+        public void AddNewCijepljenje(cijepljenje cijep)
+        {
+            _cijepljenjeDAL.AddNewCijepljenje(cijep);
+        }
         #endregion
     }
 }

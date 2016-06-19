@@ -140,7 +140,7 @@ namespace HouseMed.DAL
                 context.recepti.Add(recept);
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
