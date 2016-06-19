@@ -118,12 +118,15 @@ namespace HouseMed.Raspored
         private void SetNewPregledObject(DateTime d2)
         {
            int broj =  _rasporedBAL.broj();
+            DateTime sati;
+            DateTime.TryParse(textBoxVrijeme.Text, out sati);
+
             raspored pregled = new raspored()
             {
                 rasporedID = broj,
                 opis = textBoxOpis.Text,
                 datum = d2,
-                vrijeme = HelpClass.GetValueOrNull<TimeSpan>(textBoxVrijeme.Text),
+                vrijeme = sati.TimeOfDay,
                 pacijentiID = _pacijentiID,
                 sifra_zdrv_ustanoveID = _ustanovaID
 

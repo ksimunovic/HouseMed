@@ -68,9 +68,21 @@ namespace HouseMed.DAL
                 throw;
             }
         }
+        /// <summary>
+        /// dobivanje uputnice po id za edit
+        /// </summary>
+        /// <param name="IDnaloga"></param>
+        /// <returns></returns>
+        public uputnica GetUputnicaByID(int IdUputnice)
+        {
+            var uputnica = (from a in context.uputnica
+                         where a.uputnicaID == IdUputnice
+                            select a).FirstOrDefault();
+            return uputnica;
+        }
 
         /// <summary>
-        /// Method for getting all the Recipes from the DB with full names
+        /// Method for getting all the Uputnice from the DB with full names
         /// </summary>
         /// <returns></returns>
         public BindingList<uputnicaCustom> GetAllUputnicaPropsName()

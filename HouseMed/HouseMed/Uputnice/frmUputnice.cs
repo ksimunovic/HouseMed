@@ -106,12 +106,12 @@ namespace HouseMed.Uputnice
         /// </summary>
         private void deleteUputnica()
         {
-            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnica;
+            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnicaCustom;
 
             if (selectedItem != null)
             {
 
-               _uputnicaBAL.RemoveUputnicaById(selectedItem.uputnicaID);
+               _uputnicaBAL.RemoveUputnicaById(selectedItem.UputnicaId);
 
 
             }
@@ -123,7 +123,7 @@ namespace HouseMed.Uputnice
 
         private void btnUredi_Click(object sender, EventArgs e)
         {
-            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnica;
+            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnicaCustom;
             frmAddNewUputnice frm = new frmAddNewUputnice(selectedItem);
             frm.ShowDialog();
             RefreshDatagrid();
