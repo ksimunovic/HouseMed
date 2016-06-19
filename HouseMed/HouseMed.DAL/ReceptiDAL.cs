@@ -89,7 +89,7 @@ namespace HouseMed.DAL
                 throw;
             }
         }
-
+        
         /// <summary>
         /// Gets a single "recepti" object from the database
         /// </summary>
