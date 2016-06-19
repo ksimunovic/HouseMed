@@ -95,8 +95,8 @@ namespace HouseMed.Uputnice
         #region private methods
         private void RefreshDatagrid()
         {
-            dgvUputnice.DataSource = _uputnicaBAL.GetAllUputnicaPropsName();
-            
+            dgvUputnice.DataSource = _uputnicaBAL.GetAllUputnicaPropsName();    
+
 
         }
 
