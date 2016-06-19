@@ -40,20 +40,23 @@
             this.sifrazdrvustanoveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receptiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lijekoviBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnOdaberi = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnNewLijek = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuStripMedication = new System.Windows.Forms.MenuStrip();
+            this.natragToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.odaberiLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajNoviLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.urediOdabraniLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretražiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.obrišiOdabraniLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviBindingSource)).BeginInit();
+            this.menuStripMedication.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvMedication
             // 
-            this.dgvMedication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMedication.AllowUserToAddRows = false;
             this.dgvMedication.AutoGenerateColumns = false;
             this.dgvMedication.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedication.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -67,11 +70,12 @@
             this.sifrazdrvustanoveDataGridViewTextBoxColumn,
             this.receptiDataGridViewTextBoxColumn});
             this.dgvMedication.DataSource = this.lijekoviBindingSource;
-            this.dgvMedication.Location = new System.Drawing.Point(2, 39);
+            this.dgvMedication.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMedication.Location = new System.Drawing.Point(0, 27);
             this.dgvMedication.Name = "dgvMedication";
             this.dgvMedication.ReadOnly = true;
             this.dgvMedication.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedication.Size = new System.Drawing.Size(585, 167);
+            this.dgvMedication.Size = new System.Drawing.Size(662, 230);
             this.dgvMedication.TabIndex = 0;
             // 
             // lijekoviIDDataGridViewTextBoxColumn
@@ -146,70 +150,91 @@
             // 
             this.lijekoviBindingSource.DataSource = typeof(HouseMed.DAL.lijekovi);
             // 
-            // lblSearch
+            // contextMenuStrip1
             // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(12, 16);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(48, 13);
-            this.lblSearch.TabIndex = 1;
-            this.lblSearch.Text = "Pretraži: ";
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // menuStripMedication
+            // 
+            this.menuStripMedication.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.natragToolStripMenuItem,
+            this.odaberiLijekToolStripMenuItem,
+            this.dodajNoviLijekToolStripMenuItem,
+            this.urediOdabraniLijekToolStripMenuItem,
+            this.obrišiOdabraniLijekToolStripMenuItem,
+            this.pretražiToolStripMenuItem,
+            this.txtSearch});
+            this.menuStripMedication.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMedication.Name = "menuStripMedication";
+            this.menuStripMedication.Size = new System.Drawing.Size(662, 27);
+            this.menuStripMedication.TabIndex = 8;
+            this.menuStripMedication.Text = "menuStrip1";
+            // 
+            // natragToolStripMenuItem
+            // 
+            this.natragToolStripMenuItem.Name = "natragToolStripMenuItem";
+            this.natragToolStripMenuItem.Size = new System.Drawing.Size(55, 23);
+            this.natragToolStripMenuItem.Text = "Natrag";
+            this.natragToolStripMenuItem.Click += new System.EventHandler(this.natragToolStripMenuItem_Click);
+            // 
+            // odaberiLijekToolStripMenuItem
+            // 
+            this.odaberiLijekToolStripMenuItem.Name = "odaberiLijekToolStripMenuItem";
+            this.odaberiLijekToolStripMenuItem.Size = new System.Drawing.Size(85, 23);
+            this.odaberiLijekToolStripMenuItem.Text = "Odaberi lijek";
+            this.odaberiLijekToolStripMenuItem.Click += new System.EventHandler(this.odaberiLijekToolStripMenuItem_Click);
+            // 
+            // dodajNoviLijekToolStripMenuItem
+            // 
+            this.dodajNoviLijekToolStripMenuItem.Name = "dodajNoviLijekToolStripMenuItem";
+            this.dodajNoviLijekToolStripMenuItem.Size = new System.Drawing.Size(100, 23);
+            this.dodajNoviLijekToolStripMenuItem.Text = "Dodaj novi lijek";
+            this.dodajNoviLijekToolStripMenuItem.Click += new System.EventHandler(this.dodajNoviLijekToolStripMenuItem_Click);
+            // 
+            // urediOdabraniLijekToolStripMenuItem
+            // 
+            this.urediOdabraniLijekToolStripMenuItem.Name = "urediOdabraniLijekToolStripMenuItem";
+            this.urediOdabraniLijekToolStripMenuItem.Size = new System.Drawing.Size(121, 23);
+            this.urediOdabraniLijekToolStripMenuItem.Text = "Uredi odabrani lijek";
+            this.urediOdabraniLijekToolStripMenuItem.Click += new System.EventHandler(this.urediOdabraniLijekToolStripMenuItem_Click);
+            // 
+            // pretražiToolStripMenuItem
+            // 
+            this.pretražiToolStripMenuItem.Name = "pretražiToolStripMenuItem";
+            this.pretražiToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
+            this.pretražiToolStripMenuItem.Text = "Pretraži:";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(67, 13);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(100, 20);
-            this.txtSearch.TabIndex = 2;
+            this.txtSearch.Size = new System.Drawing.Size(100, 23);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // btnOdaberi
+            // obrišiOdabraniLijekToolStripMenuItem
             // 
-            this.btnOdaberi.Location = new System.Drawing.Point(340, 216);
-            this.btnOdaberi.Name = "btnOdaberi";
-            this.btnOdaberi.Size = new System.Drawing.Size(75, 23);
-            this.btnOdaberi.TabIndex = 3;
-            this.btnOdaberi.Text = "Odaberi";
-            this.btnOdaberi.UseVisualStyleBackColor = true;
-            this.btnOdaberi.Click += new System.EventHandler(this.btnOdaberi_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(502, 216);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 4;
-            this.btnClose.Text = "Zatvori";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnNewLijek
-            // 
-            this.btnNewLijek.Location = new System.Drawing.Point(421, 216);
-            this.btnNewLijek.Name = "btnNewLijek";
-            this.btnNewLijek.Size = new System.Drawing.Size(75, 23);
-            this.btnNewLijek.TabIndex = 5;
-            this.btnNewLijek.Text = "Dodaj";
-            this.btnNewLijek.UseVisualStyleBackColor = true;
-            this.btnNewLijek.Click += new System.EventHandler(this.btnNewLijek_Click);
+            this.obrišiOdabraniLijekToolStripMenuItem.Name = "obrišiOdabraniLijekToolStripMenuItem";
+            this.obrišiOdabraniLijekToolStripMenuItem.Size = new System.Drawing.Size(124, 23);
+            this.obrišiOdabraniLijekToolStripMenuItem.Text = "Obriši odabrani lijek";
+            this.obrišiOdabraniLijekToolStripMenuItem.Click += new System.EventHandler(this.obrišiOdabraniLijekToolStripMenuItem_Click);
             // 
             // frmMedicationSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 251);
-            this.Controls.Add(this.btnNewLijek);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnOdaberi);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.lblSearch);
+            this.ClientSize = new System.Drawing.Size(662, 257);
             this.Controls.Add(this.dgvMedication);
+            this.Controls.Add(this.menuStripMedication);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStripMedication;
             this.Name = "frmMedicationSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lijekovi";
             this.Load += new System.EventHandler(this.frmMedicationSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedication)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviBindingSource)).EndInit();
+            this.menuStripMedication.ResumeLayout(false);
+            this.menuStripMedication.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,8 +244,6 @@
 
         private System.Windows.Forms.DataGridView dgvMedication;
         private System.Windows.Forms.BindingSource lijekoviBindingSource;
-        private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn lijekoviIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumvrijemekontroleDataGridViewTextBoxColumn;
@@ -230,8 +253,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sifrazdrvustanoveIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sifrazdrvustanoveDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn receptiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnOdaberi;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnNewLijek;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMedication;
+        private System.Windows.Forms.ToolStripMenuItem natragToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajNoviLijekToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem urediOdabraniLijekToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretražiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox txtSearch;
+        private System.Windows.Forms.ToolStripMenuItem odaberiLijekToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem obrišiOdabraniLijekToolStripMenuItem;
     }
 }

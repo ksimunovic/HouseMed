@@ -17,7 +17,7 @@ namespace HouseMed.Recipes
         private DjelatniciBAL _djelatniciBAL;
         private ZdravUstanovaBAL _zdravUstanovaBAL;
         private ReceptiBAL _receptiBAL;
-        private int _lijekoviID;
+        private receptiCustom _selectedRecept;
         private int _djelatniciID;
         private int _ustanovaID;
         #endregion
@@ -30,6 +30,15 @@ namespace HouseMed.Recipes
             _zdravUstanovaBAL = new ZdravUstanovaBAL();
             _receptiBAL = new ReceptiBAL();
         }
+
+        public frmAddNewRecipe(receptiCustom selectedRecept)
+        {
+            InitializeComponent();
+            _djelatniciBAL = new DjelatniciBAL();
+            _zdravUstanovaBAL = new ZdravUstanovaBAL();
+            _receptiBAL = new ReceptiBAL();
+            _selectedRecept = selectedRecept;
+        }
         #endregion
 
         #region form methods
@@ -40,7 +49,15 @@ namespace HouseMed.Recipes
         /// <param name="e"></param>
         private void frmAddNewRecipe_Load(object sender, EventArgs e)
         {
-            SetComboBox();
+            if(_selectedRecept != null)
+            {
+                LoadComboBox();
+                LoadTextBox();
+            }
+            else
+            {
+                LoadComboBox();
+            }
         }
         #endregion
 
@@ -52,7 +69,14 @@ namespace HouseMed.Recipes
         /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
-            SetNewRecipeObject();
+            if(_selectedRecept != null)
+            {
+                UpdateExistingObject();
+            }
+            else
+            {
+                SetNewRecipeObject();
+            }
             this.Close();
         }
         /// <summary>
@@ -72,6 +96,7 @@ namespace HouseMed.Recipes
         private void btnChooseMedicine_Click(object sender, EventArgs e)
         {
             frmMedicationSelect frm = new frmMedicationSelect();
+            frm.recipeSelection = true;
             frm.ShowDialog();
             if(ObjectProps.lijekovi != null)
             {
@@ -119,7 +144,7 @@ namespace HouseMed.Recipes
         /// <summary>
         /// Setting the combobox Djelatnici and Ustanova with values
         /// </summary>
-        private void SetComboBox()
+        private void LoadComboBox()
         {
             var listaDjelatnici = _djelatniciBAL.GetAllDjelatnici();
             var listaZdravUstanova = _zdravUstanovaBAL.GetAllUstanove();
@@ -136,11 +161,22 @@ namespace HouseMed.Recipes
 
         }
         /// <summary>
+        /// If there is a selected recipe load in the data from the object into textboxes
+        /// </summary>
+        private void LoadTextBox()
+        {
+            txtDoziranje.Text = _selectedRecept.Doziranje;
+            txtKolicina.Text = _selectedRecept.Kolicina.ToString();
+            txtLijekovi.Text = _selectedRecept.LijekoviIDName;
+            txtPacijent.Text = _selectedRecept.PacijentiIDName;
+            txtSlucaj.Text = _selectedRecept.Slucaj;
+            chckNadoplata.Checked = (bool)_selectedRecept.Nadoplata;
+        }
+        /// <summary>
         /// Instancing a new recipe object
         /// </summary>
         private void SetNewRecipeObject()
         {
-            // TODO: complete INSERT in DB and in OK button
             recepti recepti = new recepti()
             {
                 kolicina = HelpClass.GetValueOrNull<int>(txtKolicina.Text),
@@ -153,6 +189,32 @@ namespace HouseMed.Recipes
                 slucaj = txtSlucaj.Text
             };
             _receptiBAL.AddNewRecept(recepti);
+        }
+        /// <summary>
+        /// Updating the existing object in the DB
+        /// </summary>
+        private void UpdateExistingObject()
+        {
+
+            _selectedRecept.Kolicina = HelpClass.GetValueOrNull<int>(txtKolicina.Text);
+            _selectedRecept.Nadoplata = chckNadoplata.Checked;
+            _selectedRecept.DjelatniciID = _djelatniciID;
+            _selectedRecept.UstanovaID = _ustanovaID;
+            _selectedRecept.PacijentID = ObjectProps.pacijenti != null ? ObjectProps.pacijenti.pacijentiID : _selectedRecept.PacijentID;
+            _selectedRecept.LijekoviID = ObjectProps.lijekovi != null ? ObjectProps.lijekovi.lijekoviID : _selectedRecept.LijekoviID;
+            _selectedRecept.Doziranje = txtDoziranje.Text;
+            _selectedRecept.Slucaj = txtSlucaj.Text;
+
+            var editRecept = _receptiBAL.GetReceptObjectById(_selectedRecept.ReceptID);
+            editRecept.kolicina = _selectedRecept.Kolicina;
+            editRecept.nadoplata = _selectedRecept.Nadoplata;
+            editRecept.djelatniciID = _selectedRecept.DjelatniciID;
+            editRecept.sifra_zdrv_ustanoveID = _selectedRecept.UstanovaID;
+            editRecept.pacijentiID = _selectedRecept.PacijentID;
+            editRecept.lijekoviID = _selectedRecept.LijekoviID;
+            editRecept.doziranje = _selectedRecept.Doziranje;
+            editRecept.slucaj = _selectedRecept.Slucaj;
+            _receptiBAL.SaveChanges();
         }
         #endregion
     }
