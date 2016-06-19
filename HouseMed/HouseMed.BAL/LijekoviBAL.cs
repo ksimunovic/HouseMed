@@ -40,7 +40,22 @@ namespace HouseMed.BAL
         {
             return _lijekoviDAL.GetLijekoviByName(name);
         }
-
+        /// <summary>
+        /// Deleting the lijekovi object from the DB
+        /// </summary>
+        /// <param name="selectedLijek"></param>
+        /// <returns></returns>
+        public bool DeleteLijek(lijekovi selectedLijek)
+        {
+            return _lijekoviDAL.DeleteLijek(selectedLijek);
+        }
+        /// <summary>
+        /// Saving the changes in the database
+        /// </summary>
+        public void SaveChanges()
+        {
+            _lijekoviDAL.SaveChanges();
+        }
         /// <summary>
         /// Adds "lijek" object into the DB
         /// </summary>

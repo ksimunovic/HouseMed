@@ -28,154 +28,96 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.lblNewRecipe = new System.Windows.Forms.Label();
-            this.btnNewRecipe = new System.Windows.Forms.Button();
             this.dgvRecipe = new System.Windows.Forms.DataGridView();
-            this.receptiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.receptIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.slucajDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lijekoviIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolicinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doziranjeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nadoplataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacijentiIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.djelatniciIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sifrazdrvustanoveIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStripRecipe = new System.Windows.Forms.MenuStrip();
+            this.noviReceptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.akcijeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.obrišiOdabraniReceptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.natragToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.receptiBindingSource)).BeginInit();
+            this.menuStripRecipe.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblNewRecipe
-            // 
-            this.lblNewRecipe.AutoSize = true;
-            this.lblNewRecipe.Location = new System.Drawing.Point(12, 16);
-            this.lblNewRecipe.Name = "lblNewRecipe";
-            this.lblNewRecipe.Size = new System.Drawing.Size(94, 13);
-            this.lblNewRecipe.TabIndex = 0;
-            this.lblNewRecipe.Text = "Izradi novi recept: ";
-            // 
-            // btnNewRecipe
-            // 
-            this.btnNewRecipe.Location = new System.Drawing.Point(112, 9);
-            this.btnNewRecipe.Name = "btnNewRecipe";
-            this.btnNewRecipe.Size = new System.Drawing.Size(95, 26);
-            this.btnNewRecipe.TabIndex = 1;
-            this.btnNewRecipe.Text = "Novi recept";
-            this.btnNewRecipe.UseVisualStyleBackColor = true;
-            this.btnNewRecipe.Click += new System.EventHandler(this.btnNewRecipe_Click);
             // 
             // dgvRecipe
             // 
-            this.dgvRecipe.AutoGenerateColumns = false;
+            this.dgvRecipe.AllowUserToAddRows = false;
             this.dgvRecipe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecipe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.receptIDDataGridViewTextBoxColumn,
-            this.slucajDataGridViewTextBoxColumn,
-            this.lijekoviIDDataGridViewTextBoxColumn,
-            this.kolicinaDataGridViewTextBoxColumn,
-            this.doziranjeDataGridViewTextBoxColumn,
-            this.nadoplataDataGridViewTextBoxColumn,
-            this.pacijentiIDDataGridViewTextBoxColumn,
-            this.djelatniciIDDataGridViewTextBoxColumn,
-            this.sifrazdrvustanoveIDDataGridViewTextBoxColumn});
-            this.dgvRecipe.DataSource = this.receptiBindingSource;
-            this.dgvRecipe.Location = new System.Drawing.Point(1, 46);
+            this.dgvRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRecipe.Location = new System.Drawing.Point(0, 24);
             this.dgvRecipe.Name = "dgvRecipe";
-            this.dgvRecipe.Size = new System.Drawing.Size(942, 320);
+            this.dgvRecipe.ReadOnly = true;
+            this.dgvRecipe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRecipe.Size = new System.Drawing.Size(912, 461);
             this.dgvRecipe.TabIndex = 2;
             // 
-            // receptiBindingSource
+            // menuStripRecipe
             // 
-            this.receptiBindingSource.DataSource = typeof(HouseMed.DAL.recepti);
+            this.menuStripRecipe.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.natragToolStripMenuItem,
+            this.noviReceptToolStripMenuItem,
+            this.akcijeToolStripMenuItem,
+            this.obrišiOdabraniReceptToolStripMenuItem});
+            this.menuStripRecipe.Location = new System.Drawing.Point(0, 0);
+            this.menuStripRecipe.Name = "menuStripRecipe";
+            this.menuStripRecipe.Size = new System.Drawing.Size(912, 24);
+            this.menuStripRecipe.TabIndex = 4;
+            this.menuStripRecipe.Text = "File";
             // 
-            // receptIDDataGridViewTextBoxColumn
+            // noviReceptToolStripMenuItem
             // 
-            this.receptIDDataGridViewTextBoxColumn.DataPropertyName = "receptID";
-            this.receptIDDataGridViewTextBoxColumn.HeaderText = "receptID";
-            this.receptIDDataGridViewTextBoxColumn.Name = "receptIDDataGridViewTextBoxColumn";
+            this.noviReceptToolStripMenuItem.Name = "noviReceptToolStripMenuItem";
+            this.noviReceptToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.noviReceptToolStripMenuItem.Text = "Novi recept";
+            this.noviReceptToolStripMenuItem.Click += new System.EventHandler(this.noviReceptToolStripMenuItem_Click);
             // 
-            // slucajDataGridViewTextBoxColumn
+            // akcijeToolStripMenuItem
             // 
-            this.slucajDataGridViewTextBoxColumn.DataPropertyName = "slucaj";
-            this.slucajDataGridViewTextBoxColumn.HeaderText = "slucaj";
-            this.slucajDataGridViewTextBoxColumn.Name = "slucajDataGridViewTextBoxColumn";
+            this.akcijeToolStripMenuItem.Name = "akcijeToolStripMenuItem";
+            this.akcijeToolStripMenuItem.Size = new System.Drawing.Size(133, 20);
+            this.akcijeToolStripMenuItem.Text = "Uredi odabrani recept";
+            this.akcijeToolStripMenuItem.Click += new System.EventHandler(this.akcijeToolStripMenuItem_Click);
             // 
-            // lijekoviIDDataGridViewTextBoxColumn
+            // obrišiOdabraniReceptToolStripMenuItem
             // 
-            this.lijekoviIDDataGridViewTextBoxColumn.DataPropertyName = "lijekoviID";
-            this.lijekoviIDDataGridViewTextBoxColumn.HeaderText = "lijekoviID";
-            this.lijekoviIDDataGridViewTextBoxColumn.Name = "lijekoviIDDataGridViewTextBoxColumn";
+            this.obrišiOdabraniReceptToolStripMenuItem.Name = "obrišiOdabraniReceptToolStripMenuItem";
+            this.obrišiOdabraniReceptToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.obrišiOdabraniReceptToolStripMenuItem.Text = "Obriši odabrani recept";
+            this.obrišiOdabraniReceptToolStripMenuItem.Click += new System.EventHandler(this.obrišiOdabraniReceptToolStripMenuItem_Click);
             // 
-            // kolicinaDataGridViewTextBoxColumn
+            // natragToolStripMenuItem
             // 
-            this.kolicinaDataGridViewTextBoxColumn.DataPropertyName = "kolicina";
-            this.kolicinaDataGridViewTextBoxColumn.HeaderText = "kolicina";
-            this.kolicinaDataGridViewTextBoxColumn.Name = "kolicinaDataGridViewTextBoxColumn";
-            // 
-            // doziranjeDataGridViewTextBoxColumn
-            // 
-            this.doziranjeDataGridViewTextBoxColumn.DataPropertyName = "doziranje";
-            this.doziranjeDataGridViewTextBoxColumn.HeaderText = "doziranje";
-            this.doziranjeDataGridViewTextBoxColumn.Name = "doziranjeDataGridViewTextBoxColumn";
-            // 
-            // nadoplataDataGridViewTextBoxColumn
-            // 
-            this.nadoplataDataGridViewTextBoxColumn.DataPropertyName = "nadoplata";
-            this.nadoplataDataGridViewTextBoxColumn.HeaderText = "nadoplata";
-            this.nadoplataDataGridViewTextBoxColumn.Name = "nadoplataDataGridViewTextBoxColumn";
-            // 
-            // pacijentiIDDataGridViewTextBoxColumn
-            // 
-            this.pacijentiIDDataGridViewTextBoxColumn.DataPropertyName = "pacijentiID";
-            this.pacijentiIDDataGridViewTextBoxColumn.HeaderText = "pacijentiID";
-            this.pacijentiIDDataGridViewTextBoxColumn.Name = "pacijentiIDDataGridViewTextBoxColumn";
-            // 
-            // djelatniciIDDataGridViewTextBoxColumn
-            // 
-            this.djelatniciIDDataGridViewTextBoxColumn.DataPropertyName = "djelatniciID";
-            this.djelatniciIDDataGridViewTextBoxColumn.HeaderText = "djelatniciID";
-            this.djelatniciIDDataGridViewTextBoxColumn.Name = "djelatniciIDDataGridViewTextBoxColumn";
-            // 
-            // sifrazdrvustanoveIDDataGridViewTextBoxColumn
-            // 
-            this.sifrazdrvustanoveIDDataGridViewTextBoxColumn.DataPropertyName = "sifra_zdrv_ustanoveID";
-            this.sifrazdrvustanoveIDDataGridViewTextBoxColumn.HeaderText = "sifra_zdrv_ustanoveID";
-            this.sifrazdrvustanoveIDDataGridViewTextBoxColumn.Name = "sifrazdrvustanoveIDDataGridViewTextBoxColumn";
+            this.natragToolStripMenuItem.Name = "natragToolStripMenuItem";
+            this.natragToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.natragToolStripMenuItem.Text = "Natrag";
+            this.natragToolStripMenuItem.Click += new System.EventHandler(this.natragToolStripMenuItem_Click);
             // 
             // frmRecipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 367);
+            this.ClientSize = new System.Drawing.Size(912, 485);
             this.Controls.Add(this.dgvRecipe);
-            this.Controls.Add(this.lblNewRecipe);
-            this.Controls.Add(this.btnNewRecipe);
+            this.Controls.Add(this.menuStripRecipe);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStripRecipe;
             this.Name = "frmRecipe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recepti";
             this.Load += new System.EventHandler(this.frmRecipe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.receptiBindingSource)).EndInit();
+            this.menuStripRecipe.ResumeLayout(false);
+            this.menuStripRecipe.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblNewRecipe;
-        private System.Windows.Forms.Button btnNewRecipe;
         private System.Windows.Forms.DataGridView dgvRecipe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn receptIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn slucajDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lijekoviIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doziranjeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nadoplataDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pacijentiIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn djelatniciIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sifrazdrvustanoveIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource receptiBindingSource;
+        private System.Windows.Forms.MenuStrip menuStripRecipe;
+        private System.Windows.Forms.ToolStripMenuItem noviReceptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem akcijeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem obrišiOdabraniReceptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem natragToolStripMenuItem;
     }
 }

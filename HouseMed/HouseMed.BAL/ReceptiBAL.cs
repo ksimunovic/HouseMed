@@ -26,9 +26,9 @@ namespace HouseMed.BAL
         /// Returns all the "Recepti" from the DB to bind the bindingsource
         /// </summary>
         /// <returns></returns>
-        public BindingList<recepti> GetALLRecepti()
+        public BindingList<receptiCustom> GetAllReceptiNamedProps()
         {
-            return _receptiDAL.GetAllRecepti();
+            return _receptiDAL.GetAllReceptiNamedProps();
         }
         /// <summary>
         /// Returns all the "Recepti" from the DB with ID names not values
@@ -39,13 +39,35 @@ namespace HouseMed.BAL
         {
             return _receptiDAL.GetAllReceptiNamedPropsById(PacijentId);
         }
-
+        /// <summary>
+        /// Gets a single "recepti" object from the database
+        /// </summary>
+        public recepti GetReceptObjectById(int receptId)
+        {
+           return  _receptiDAL.GetReceptObjectById(receptId);
+        }
+        /// <summary>
+        /// Bool method for deleting the recept object from the database
+        /// </summary>
+        /// <param name="recept"></param>
+        /// <returns></returns>
+        public bool DeleteRecept(int receptId)
+        {
+            return _receptiDAL.DeleteReceptById(receptId);
+        }
         /// <summary>
         /// Adds new "Recept" into the DB
         /// </summary>
         public void AddNewRecept(recepti recept)
         {
             _receptiDAL.AddNewRecept(recept);
+        }
+        /// <summary>
+        /// Method for saving the current context (used for updating)
+        /// </summary>
+        public void SaveChanges()
+        {
+            _receptiDAL.SaveChanges();
         }
         #endregion
 
