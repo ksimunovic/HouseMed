@@ -18,6 +18,7 @@ namespace HouseMed.E_Carton
         #region public variables
         public bool recipeSelection = false;
         #endregion
+
         #region private variables
         private PacijentiBAL _pacijentiBAL;
         private ReceptiBAL _receptiBAL;
@@ -59,6 +60,18 @@ namespace HouseMed.E_Carton
             GetSelectedPatient();
             dgvPatients.Select();
         }
+        /// <summary>
+        /// Form KeyDownEvent: Open the help for the app on the website
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmECarton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima");
+            }
+        }
         #endregion
 
         #region event handlers
@@ -93,6 +106,7 @@ namespace HouseMed.E_Carton
         private void comboPrikaz_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetSelectedPatient();
+            dgvPatients.Select();
         }
         /// <summary>
         /// DataGrid[Pacijent] event handler: get the selected patient and execute query
@@ -113,7 +127,6 @@ namespace HouseMed.E_Carton
             dgvPatients.DataSource = _pacijentiBAL.GetAllPacijentiBy(txtSearch.Text);
         }
         #endregion
-
 
         #region private methods
         /// <summary>
@@ -179,5 +192,7 @@ namespace HouseMed.E_Carton
             }
         }
         #endregion
+
+        
     }
 }

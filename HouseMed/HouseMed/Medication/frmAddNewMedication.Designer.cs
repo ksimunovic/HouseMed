@@ -226,10 +226,12 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gbPodaci);
             this.Controls.Add(this.gbInterno);
+            this.KeyPreview = true;
             this.Name = "frmAddNewMedication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj novi lijek";
             this.Load += new System.EventHandler(this.frmAddNewMedication_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAddNewMedication_KeyDown);
             this.gbInterno.ResumeLayout(false);
             this.gbInterno.PerformLayout();
             this.gbPodaci.ResumeLayout(false);
