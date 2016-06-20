@@ -24,8 +24,8 @@ namespace HouseMed.DAL
         public Nullable<System.DateTime> datum { get; set; }
         public Nullable<int> djelatniciID { get; set; }
     
-        public virtual djelatnici djelatnici { get; set; }
         public virtual pacijenti pacijenti { get; set; }
         public virtual sifra_zdrv_ustanove sifra_zdrv_ustanove { get; set; }
+        public virtual djelatnici djelatnici { get; set; }
     }
 }
