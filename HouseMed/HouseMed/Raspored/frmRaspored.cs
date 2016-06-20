@@ -54,6 +54,11 @@ namespace HouseMed.Raspored
             DateTime datum = datum1.Date;
             dgvRaspored.DataSource = _rasporedBAL.GetAllRasporedPropNamesByDate(datum);
             dgvCijepljenje.DataSource = _cijepljenjeBAL.GetAllRasporedPropNamesByDate(datum);
+            dgvRaspored.Columns[0].HeaderCell.Value = "ID";
+            dgvCijepljenje.Columns[0].HeaderCell.Value = "ID";
+            dgvCijepljenje.Columns[3].HeaderCell.Value = "Vrsta";
+            dgvCijepljenje.Columns[4].HeaderCell.Value = "Priprava";
+            dgvCijepljenje.Columns[5].HeaderCell.Value = "Doza";
         }
 
         /// <summary>
@@ -69,6 +74,7 @@ namespace HouseMed.Raspored
             DateTime datum1 = dateTimePickerRaspored.Value;
             DateTime datum = datum1.Date;
             dgvRaspored.DataSource = _rasporedBAL.GetAllRasporedPropNamesByDate(datum);
+            dgvRaspored.Columns[0].HeaderCell.Value = "ID";
         }
         /// <summary>
         /// na klik novi pregled se otvara forma AddNewCijepljenje i nakon toga se azurira datagrid
@@ -82,7 +88,26 @@ namespace HouseMed.Raspored
             DateTime datum1 = dateTimePickerRaspored.Value;
             DateTime datum = datum1.Date;
             dgvCijepljenje.DataSource = _cijepljenjeBAL.GetAllRasporedPropNamesByDate(datum);
+            dgvCijepljenje.Columns[0].HeaderCell.Value = "ID";
+            dgvCijepljenje.Columns[3].HeaderCell.Value = "Vrsta";
+            dgvCijepljenje.Columns[4].HeaderCell.Value = "Priprava";
+            dgvCijepljenje.Columns[5].HeaderCell.Value = "Doza";
         }
+
+        /// <summary>
+        /// event za pozivanje help stranice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmRaspored_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima");
+            }
+
+        }
+
 
         #endregion
 
