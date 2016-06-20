@@ -267,10 +267,12 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gbPacijent);
             this.Controls.Add(this.gbUstanova);
+            this.KeyPreview = true;
             this.Name = "frmAddNewRecipe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izradi novi recept";
             this.Load += new System.EventHandler(this.frmAddNewRecipe_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAddNewRecipe_KeyDown);
             this.gbUstanova.ResumeLayout(false);
             this.gbUstanova.PerformLayout();
             this.gbPacijent.ResumeLayout(false);
