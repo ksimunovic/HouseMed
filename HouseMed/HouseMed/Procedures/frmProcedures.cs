@@ -33,12 +33,20 @@ namespace HouseMed.Procedures
             if (trenutniPacijent != null)
             {
                 labelPacijentIspis.Text = trenutniPacijent.ImePrezime;
-                btnSpremi.Enabled = true;
+                foreach (Control c in this.Controls)
+                {
+                    if ((c is Button || c is TextBox) && c.Name.ToString() != "btnOdaberi")
+                        c.Enabled = true;
+                }
             }
             else
             {
                 labelPacijentIspis.Text = "----->";
-                btnSpremi.Enabled = false;
+                foreach (Control c in this.Controls)
+                {
+                    if ((c is Button || c is TextBox) && c.Name.ToString() != "btnOdaberi")
+                        c.Enabled = false;
+                }
             }
         }
         private void btnOdaberi_Click(object sender, EventArgs e)

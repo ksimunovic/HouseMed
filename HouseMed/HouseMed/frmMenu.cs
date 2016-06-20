@@ -98,6 +98,11 @@ namespace HouseMed
         {
             frmPatients frm = new frmPatients();
             frm.ShowDialog();
+            if (trenutniPacijent != null)
+            {
+                labelOdabraniPacijent.Text = trenutniPacijent.ImePrezime;
+            }
+
         }
         /// <summary>
         /// Buttton[Pacijenti] event handler: open the "frmUputnice" form
@@ -134,9 +139,7 @@ namespace HouseMed
 
         #endregion
 
-        private void labelOdabraniPacijent_Click(object sender, EventArgs e)
-        {
-            // TODO: Stavit da piše trenutno odabrani pacijent
-        }
+
+
     }
 }
