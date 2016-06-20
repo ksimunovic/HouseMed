@@ -92,9 +92,11 @@
             this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.btnNovaUputnica);
             this.Controls.Add(this.dgvUputnice);
+            this.KeyPreview = true;
             this.Name = "frmUputnice";
             this.Text = "Uputnice";
             this.Load += new System.EventHandler(this.frmUputnice_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmUputnice_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUputnice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uputnicaBindingSource)).EndInit();
             this.ResumeLayout(false);

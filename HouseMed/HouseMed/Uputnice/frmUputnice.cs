@@ -87,15 +87,30 @@ namespace HouseMed.Uputnice
             btnUredi.Enabled = true;
         }
 
-
+        /// <summary>
+        /// event za pozivanje help stranice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmUputnice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima");
+            }
+        }
         #endregion
+
+        #region private methods
         /// <summary>
         /// funkcija za punjenje datagrida s podacima
         /// </summary>
-        #region private methods
         private void RefreshDatagrid()
         {
-            dgvUputnice.DataSource = _uputnicaBAL.GetAllUputnicaPropsName();    
+            dgvUputnice.DataSource = _uputnicaBAL.GetAllUputnicaPropsName();
+            dgvUputnice.Columns[0].HeaderCell.Value = "ID";
+            dgvUputnice.Columns[3].HeaderCell.Value = "Upućuje se";
+            dgvUputnice.Columns[5].HeaderCell.Value = "Traži se";
 
 
         }
@@ -106,14 +121,18 @@ namespace HouseMed.Uputnice
         /// </summary>
         private void deleteUputnica()
         {
-            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnicaCustom;
 
-            if (selectedItem != null)
+            if (MessageBox.Show("Jeste li sigurni da želite obrisati", "Upozorenje!", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnicaCustom;
 
-               _uputnicaBAL.RemoveUputnicaById(selectedItem.UputnicaId);
+                if (selectedItem != null)
+                {
 
+                    _uputnicaBAL.RemoveUputnicaById(selectedItem.UputnicaId);
+                    MessageBox.Show(string.Format("Uputnica je obrisana"), "Obavijest!");
 
+                }
             }
         }
 
@@ -128,5 +147,6 @@ namespace HouseMed.Uputnice
             frm.ShowDialog();
             RefreshDatagrid();
         }
+
     }
 }

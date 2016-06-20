@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LoadingScreen;
+//using LoadingScreen;
 
 namespace HouseMed
 {
@@ -17,14 +17,14 @@ namespace HouseMed
         #region Variables
         // instance to access the methods
         DjelatniciBAL djelatniciData = new DjelatniciBAL();
-        SlideShow _image;
+        //SlideShow _image;
         #endregion
 
         #region Constructor
         public frmLogin()
         {
             InitializeComponent();
-            _image = new SlideShow();
+            //_image = new SlideShow();
         }
         #endregion
 
@@ -85,9 +85,9 @@ namespace HouseMed
         /// </summary>
         private void SetImagesLoadingScreen()
         {
-            Image imgTemp = (Image)_image.GetImage();
+           // Image imgTemp = (Image)_image.GetImage();
             pictureBoxLoading.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxLoading.Image = imgTemp;
+           // pictureBoxLoading.Image = imgTemp;
         }
         #endregion
 
