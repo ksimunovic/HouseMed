@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvHospitalDays = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbPacijenti = new System.Windows.Forms.ComboBox();
-            this.lblTest = new System.Windows.Forms.Label();
             this.btnNoviNalog = new System.Windows.Forms.Button();
             this.pacijentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.djelatniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -40,6 +37,9 @@
             this.btnUrediBoravak = new System.Windows.Forms.Button();
             this.labelPretrazi = new System.Windows.Forms.Label();
             this.tbPretrazi = new System.Windows.Forms.TextBox();
+            this.labelPacijentText = new System.Windows.Forms.Label();
+            this.labelPacijentIspis = new System.Windows.Forms.Label();
+            this.btnOdaberi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHospitalDays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.djelatniciBindingSource)).BeginInit();
@@ -47,6 +47,8 @@
             // 
             // dgvHospitalDays
             // 
+            this.dgvHospitalDays.AllowUserToAddRows = false;
+            this.dgvHospitalDays.AllowUserToDeleteRows = false;
             this.dgvHospitalDays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHospitalDays.Location = new System.Drawing.Point(22, 69);
             this.dgvHospitalDays.Name = "dgvHospitalDays";
@@ -54,34 +56,6 @@
             this.dgvHospitalDays.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHospitalDays.Size = new System.Drawing.Size(646, 150);
             this.dgvHospitalDays.TabIndex = 0;
-            this.dgvHospitalDays.SelectionChanged += new System.EventHandler(this.dgvHospitalDays_SelectionChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Pacijenti:";
-            // 
-            // cbPacijenti
-            // 
-            this.cbPacijenti.FormattingEnabled = true;
-            this.cbPacijenti.Location = new System.Drawing.Point(72, 24);
-            this.cbPacijenti.Name = "cbPacijenti";
-            this.cbPacijenti.Size = new System.Drawing.Size(121, 21);
-            this.cbPacijenti.TabIndex = 2;
-            this.cbPacijenti.SelectedValueChanged += new System.EventHandler(this.cbPacijenti_SelectedValueChanged);
-            // 
-            // lblTest
-            // 
-            this.lblTest.AutoSize = true;
-            this.lblTest.Location = new System.Drawing.Point(220, 27);
-            this.lblTest.Name = "lblTest";
-            this.lblTest.Size = new System.Drawing.Size(35, 13);
-            this.lblTest.TabIndex = 3;
-            this.lblTest.Text = "label2";
             // 
             // btnNoviNalog
             // 
@@ -124,7 +98,7 @@
             // labelPretrazi
             // 
             this.labelPretrazi.AutoSize = true;
-            this.labelPretrazi.Location = new System.Drawing.Point(296, 27);
+            this.labelPretrazi.Location = new System.Drawing.Point(412, 27);
             this.labelPretrazi.Name = "labelPretrazi";
             this.labelPretrazi.Size = new System.Drawing.Size(48, 13);
             this.labelPretrazi.TabIndex = 7;
@@ -132,29 +106,56 @@
             // 
             // tbPretrazi
             // 
-            this.tbPretrazi.Location = new System.Drawing.Point(350, 22);
+            this.tbPretrazi.Location = new System.Drawing.Point(466, 24);
             this.tbPretrazi.Name = "tbPretrazi";
             this.tbPretrazi.Size = new System.Drawing.Size(100, 20);
             this.tbPretrazi.TabIndex = 8;
             this.tbPretrazi.TextChanged += new System.EventHandler(this.tbPretrazi_TextChanged);
+            // 
+            // labelPacijentText
+            // 
+            this.labelPacijentText.AutoSize = true;
+            this.labelPacijentText.Location = new System.Drawing.Point(19, 27);
+            this.labelPacijentText.Name = "labelPacijentText";
+            this.labelPacijentText.Size = new System.Drawing.Size(104, 13);
+            this.labelPacijentText.TabIndex = 9;
+            this.labelPacijentText.Text = "Pacijent u postupku:";
+            // 
+            // labelPacijentIspis
+            // 
+            this.labelPacijentIspis.AutoSize = true;
+            this.labelPacijentIspis.Location = new System.Drawing.Point(129, 27);
+            this.labelPacijentIspis.Name = "labelPacijentIspis";
+            this.labelPacijentIspis.Size = new System.Drawing.Size(35, 13);
+            this.labelPacijentIspis.TabIndex = 10;
+            this.labelPacijentIspis.Text = "label1";
+            // 
+            // btnOdaberi
+            // 
+            this.btnOdaberi.Location = new System.Drawing.Point(239, 22);
+            this.btnOdaberi.Name = "btnOdaberi";
+            this.btnOdaberi.Size = new System.Drawing.Size(75, 23);
+            this.btnOdaberi.TabIndex = 11;
+            this.btnOdaberi.Text = "Odaberi";
+            this.btnOdaberi.UseVisualStyleBackColor = true;
+            this.btnOdaberi.Click += new System.EventHandler(this.btnOdaberi_Click);
             // 
             // frmHospitalDays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 262);
+            this.Controls.Add(this.btnOdaberi);
+            this.Controls.Add(this.labelPacijentIspis);
+            this.Controls.Add(this.labelPacijentText);
             this.Controls.Add(this.tbPretrazi);
             this.Controls.Add(this.labelPretrazi);
             this.Controls.Add(this.btnUrediBoravak);
             this.Controls.Add(this.btnBrisiBoravak);
             this.Controls.Add(this.btnNoviNalog);
-            this.Controls.Add(this.lblTest);
-            this.Controls.Add(this.cbPacijenti);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvHospitalDays);
             this.Name = "frmHospitalDays";
             this.Text = "frmHospitalDays";
-            this.Load += new System.EventHandler(this.frmHospitalDays_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHospitalDays)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.djelatniciBindingSource)).EndInit();
@@ -166,15 +167,15 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvHospitalDays;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbPacijenti;
         private System.Windows.Forms.BindingSource pacijentiBindingSource;
         private System.Windows.Forms.BindingSource djelatniciBindingSource;
-        private System.Windows.Forms.Label lblTest;
         private System.Windows.Forms.Button btnNoviNalog;
         private System.Windows.Forms.Button btnBrisiBoravak;
         private System.Windows.Forms.Button btnUrediBoravak;
         private System.Windows.Forms.Label labelPretrazi;
         private System.Windows.Forms.TextBox tbPretrazi;
+        private System.Windows.Forms.Label labelPacijentText;
+        private System.Windows.Forms.Label labelPacijentIspis;
+        private System.Windows.Forms.Button btnOdaberi;
     }
 }

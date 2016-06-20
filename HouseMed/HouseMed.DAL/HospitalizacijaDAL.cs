@@ -55,14 +55,14 @@ namespace HouseMed.DAL
             return nalog;
         }
 
-        public BindingList<hospitalizacijaCustom> SearchHospitalizacija(string name)
+        public BindingList<hospitalizacijaCustom> SearchHospitalizacija(string name, int pacijentiID)
         {
             try
             {
                 
                 var hospitalizacija = (from a in context.evidencija_hospitalizacije
                                        join b in context.pacijenti on a.pacijentiID equals b.pacijentiID
-                                       where a.naziv_bolnice.ToString().Contains(name) || a.razlog.Contains(name) || a.boravio_do_datuma.ToString().Contains(name) || b.ime.Contains(name) || b.prezime.Contains(name)
+                                       where (a.naziv_bolnice.ToString().Contains(name) || a.razlog.Contains(name) || a.boravio_do_datuma.ToString().Contains(name) || b.ime.Contains(name) || b.prezime.Contains(name)) && b.pacijentiID == pacijentiID
                                        select new hospitalizacijaCustom()
                                        {
                                            HospitalizacijaId = a.evidencija_hospitalizacijeID,
