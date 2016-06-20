@@ -70,9 +70,9 @@ namespace HouseMed.BAL
             return _hospitalizacijaDAL.GetNalogByID(IDnaloga);
         }
 
-        public BindingList<hospitalizacijaCustom> SearchHospitalizacija(string name)
+        public BindingList<hospitalizacijaCustom> SearchHospitalizacija(string name, int pacijentiID)
         {
-            return _hospitalizacijaDAL.SearchHospitalizacija(name);
+            return _hospitalizacijaDAL.SearchHospitalizacija(name, pacijentiID);
         }
         #endregion
     }

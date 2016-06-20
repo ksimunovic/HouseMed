@@ -42,7 +42,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="LoadingScreen">
-      <HintPath>..\..\..\..\FAKS\FAKS\3. god\PI\PROJEKT DLL\LoadingScreen\LoadingScreen\bin\Debug\LoadingScreen.dll</HintPath>
+      <HintPath>D:\__backup\Karlo\Dropbox\PI Projekt\LoadingScreen.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
