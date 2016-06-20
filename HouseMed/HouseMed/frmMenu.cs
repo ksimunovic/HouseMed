@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Diagnostics;
 using HouseMed.Recipes;
 using HouseMed.HospitalDays;
 using HouseMed.E_Carton;
@@ -25,6 +26,21 @@ namespace HouseMed
         #endregion
 
         #region event handlers
+
+        /// <summary>
+        /// event koji se aktivira na tipku F1 i zove nasu wiki stranicu za pomoc korisniku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMenu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima");
+            }
+        }
+
+
         /// <summary>
         /// Button[E-Karton] event handler: opent the 
         /// </summary>
@@ -44,6 +60,10 @@ namespace HouseMed
         {
             Recipes.frmRecipe frm = new frmRecipe();
             frm.ShowDialog();
+        }
+        private void button1_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            Help.ShowHelp(this, "helpfile.chm", HelpNavigator.TopicId, "1234");
         }
 
         /// <summary>

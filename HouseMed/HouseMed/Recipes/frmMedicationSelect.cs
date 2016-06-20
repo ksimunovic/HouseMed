@@ -44,6 +44,18 @@ namespace HouseMed.Recipes
             }
             RefreshDatagrid();
         }
+        /// <summary>
+        /// Form KeyDownEvent: Open the help for the app on the website
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMedicationSelect_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima");
+            }
+        }
         #endregion
 
         #region event handlers
@@ -102,6 +114,23 @@ namespace HouseMed.Recipes
             frm.ShowDialog();
             RefreshDatagrid();
         }
+        /// <summary>
+        /// MenuSelect[Obriši odabrani lijek] event: Remove the selected object from the DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void obrišiOdabraniLijekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Jeste li sigurni da želite obrisati odabrani lijek?", "Upozorenje", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var selectedItem = dgvMedication.CurrentRow.DataBoundItem as lijekovi;
+                if (_lijekoviBAL.DeleteLijek(selectedItem))
+                {
+                    RefreshDatagrid();
+                    MessageBox.Show(string.Format("Lijek '{0}' je obrisan.", selectedItem.naziv), "Obavijest!");
+                }
+            }
+        }
         #endregion
 
         #region private methods
@@ -114,22 +143,5 @@ namespace HouseMed.Recipes
             lijekoviBindingSource.DataSource = _lijekoviBAL.GetAllLijekovi();
         }
         #endregion
-        /// <summary>
-        /// MenuSelect[Obriši odabrani lijek] event: Remove the selected object from the DB
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void obrišiOdabraniLijekToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(MessageBox.Show("Jeste li sigurni da želite obrisati odabrani lijek?","Upozorenje", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                var selectedItem = dgvMedication.CurrentRow.DataBoundItem as lijekovi;
-                if (_lijekoviBAL.DeleteLijek(selectedItem))
-                {
-                    RefreshDatagrid();
-                    MessageBox.Show(string.Format("Lijek '{0}' je obrisan.", selectedItem.naziv), "Obavijest!");
-                }
-            }
-        }
     }
 }
