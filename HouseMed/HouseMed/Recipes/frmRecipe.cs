@@ -27,9 +27,26 @@ namespace HouseMed.Recipes
         #endregion
 
         #region form methods
+        /// <summary>
+        /// FormLoad event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmRecipe_Load(object sender, EventArgs e)
         {
             RefreshRecipeDatagrid();
+        }
+        /// <summary>
+        /// Form KeyDownEvent: Open the help for the app on the website
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmRecipe_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima");
+            }
         }
         #endregion
 
@@ -117,6 +134,5 @@ namespace HouseMed.Recipes
 
 
         #endregion
-       
     }
 }

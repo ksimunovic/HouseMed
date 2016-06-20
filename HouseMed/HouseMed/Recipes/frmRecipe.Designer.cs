@@ -99,11 +99,13 @@
             this.Controls.Add(this.dgvRecipe);
             this.Controls.Add(this.menuStripRecipe);
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStripRecipe;
             this.Name = "frmRecipe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recepti";
             this.Load += new System.EventHandler(this.frmRecipe_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRecipe_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).EndInit();
             this.menuStripRecipe.ResumeLayout(false);
             this.menuStripRecipe.PerformLayout();

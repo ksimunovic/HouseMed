@@ -46,9 +46,9 @@
             this.odaberiLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajNoviLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.urediOdabraniLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.obrišiOdabraniLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretražiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.obrišiOdabraniLijekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviBindingSource)).BeginInit();
             this.menuStripMedication.SuspendLayout();
@@ -199,6 +199,13 @@
             this.urediOdabraniLijekToolStripMenuItem.Text = "Uredi odabrani lijek";
             this.urediOdabraniLijekToolStripMenuItem.Click += new System.EventHandler(this.urediOdabraniLijekToolStripMenuItem_Click);
             // 
+            // obrišiOdabraniLijekToolStripMenuItem
+            // 
+            this.obrišiOdabraniLijekToolStripMenuItem.Name = "obrišiOdabraniLijekToolStripMenuItem";
+            this.obrišiOdabraniLijekToolStripMenuItem.Size = new System.Drawing.Size(124, 23);
+            this.obrišiOdabraniLijekToolStripMenuItem.Text = "Obriši odabrani lijek";
+            this.obrišiOdabraniLijekToolStripMenuItem.Click += new System.EventHandler(this.obrišiOdabraniLijekToolStripMenuItem_Click);
+            // 
             // pretražiToolStripMenuItem
             // 
             this.pretražiToolStripMenuItem.Name = "pretražiToolStripMenuItem";
@@ -211,13 +218,6 @@
             this.txtSearch.Size = new System.Drawing.Size(100, 23);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // obrišiOdabraniLijekToolStripMenuItem
-            // 
-            this.obrišiOdabraniLijekToolStripMenuItem.Name = "obrišiOdabraniLijekToolStripMenuItem";
-            this.obrišiOdabraniLijekToolStripMenuItem.Size = new System.Drawing.Size(124, 23);
-            this.obrišiOdabraniLijekToolStripMenuItem.Text = "Obriši odabrani lijek";
-            this.obrišiOdabraniLijekToolStripMenuItem.Click += new System.EventHandler(this.obrišiOdabraniLijekToolStripMenuItem_Click);
-            // 
             // frmMedicationSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,11 +226,13 @@
             this.Controls.Add(this.dgvMedication);
             this.Controls.Add(this.menuStripMedication);
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStripMedication;
             this.Name = "frmMedicationSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lijekovi";
             this.Load += new System.EventHandler(this.frmMedicationSelect_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMedicationSelect_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedication)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviBindingSource)).EndInit();
             this.menuStripMedication.ResumeLayout(false);
