@@ -43,104 +43,99 @@
             // 
             // dateTimePickerDatum
             // 
-            this.dateTimePickerDatum.Location = new System.Drawing.Point(80, 71);
-            this.dateTimePickerDatum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerDatum.Location = new System.Drawing.Point(107, 87);
+            this.dateTimePickerDatum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerDatum.Name = "dateTimePickerDatum";
-            this.dateTimePickerDatum.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePickerDatum.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerDatum.TabIndex = 0;
             // 
             // comboBoxPacijent
             // 
             this.comboBoxPacijent.FormattingEnabled = true;
-            this.comboBoxPacijent.Location = new System.Drawing.Point(80, 26);
-            this.comboBoxPacijent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxPacijent.Location = new System.Drawing.Point(107, 32);
+            this.comboBoxPacijent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxPacijent.Name = "comboBoxPacijent";
-            this.comboBoxPacijent.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxPacijent.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPacijent.TabIndex = 1;
             this.comboBoxPacijent.SelectedValueChanged += new System.EventHandler(this.comboBoxPacijent_SelectedValueChanged);
             // 
             // textBoxVrijeme
             // 
-            this.textBoxVrijeme.Location = new System.Drawing.Point(80, 114);
-            this.textBoxVrijeme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVrijeme.Location = new System.Drawing.Point(107, 140);
+            this.textBoxVrijeme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxVrijeme.Name = "textBoxVrijeme";
-            this.textBoxVrijeme.Size = new System.Drawing.Size(76, 20);
+            this.textBoxVrijeme.Size = new System.Drawing.Size(100, 22);
             this.textBoxVrijeme.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(15, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Pacijent";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 74);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(15, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(49, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Datum";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 116);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(15, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(55, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Vrijeme";
             // 
             // textBoxOpis
             // 
-            this.textBoxOpis.Location = new System.Drawing.Point(80, 155);
-            this.textBoxOpis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxOpis.Location = new System.Drawing.Point(107, 191);
+            this.textBoxOpis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxOpis.Name = "textBoxOpis";
-            this.textBoxOpis.Size = new System.Drawing.Size(76, 20);
+            this.textBoxOpis.Size = new System.Drawing.Size(100, 22);
             this.textBoxOpis.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 158);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(15, 194);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.Size = new System.Drawing.Size(37, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "Opis";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 204);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(15, 251);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "Ustanova";
             // 
             // comboBoxUstanova
             // 
             this.comboBoxUstanova.FormattingEnabled = true;
-            this.comboBoxUstanova.Location = new System.Drawing.Point(80, 202);
-            this.comboBoxUstanova.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxUstanova.Location = new System.Drawing.Point(107, 249);
+            this.comboBoxUstanova.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxUstanova.Name = "comboBoxUstanova";
-            this.comboBoxUstanova.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxUstanova.Size = new System.Drawing.Size(121, 24);
             this.comboBoxUstanova.TabIndex = 9;
             this.comboBoxUstanova.SelectedValueChanged += new System.EventHandler(this.comboBoxUstanova_SelectedValueChanged);
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(176, 240);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDodaj.Location = new System.Drawing.Point(235, 295);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(81, 34);
+            this.btnDodaj.Size = new System.Drawing.Size(108, 42);
             this.btnDodaj.TabIndex = 10;
             this.btnDodaj.Text = "Dodaj Pregled";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -148,9 +143,9 @@
             // 
             // frmAddNewPregled
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 291);
+            this.ClientSize = new System.Drawing.Size(369, 358);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.comboBoxUstanova);
             this.Controls.Add(this.label5);
@@ -162,8 +157,9 @@
             this.Controls.Add(this.textBoxVrijeme);
             this.Controls.Add(this.comboBoxPacijent);
             this.Controls.Add(this.dateTimePickerDatum);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddNewPregled";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novi Pregled";
             this.ResumeLayout(false);
             this.PerformLayout();

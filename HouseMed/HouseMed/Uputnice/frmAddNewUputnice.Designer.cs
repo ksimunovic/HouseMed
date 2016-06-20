@@ -246,6 +246,7 @@
             this.Controls.Add(this.labelUpucuje_se);
             this.Controls.Add(this.labelReceptID);
             this.Name = "frmAddNewUputnice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nova uputnica";
             this.Load += new System.EventHandler(this.frmAddNewUputnice_Load);
             this.ResumeLayout(false);
