@@ -115,8 +115,11 @@
             this.Controls.Add(this.labelPacijenti);
             this.Controls.Add(this.dgvRaspored);
             this.Controls.Add(this.dateTimePickerRaspored);
+            this.KeyPreview = true;
             this.Name = "frmRaspored";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Raspored";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRaspored_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaspored)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCijepljenje)).EndInit();
             this.ResumeLayout(false);

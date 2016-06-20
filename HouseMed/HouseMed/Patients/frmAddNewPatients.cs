@@ -73,8 +73,10 @@ namespace HouseMed.Patients
         {
             if(_selectedPacijent != null)
             {
+                
                 LoadSelectedPatient();
                 SetComboBox();
+
             }
             else
             {

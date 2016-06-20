@@ -108,6 +108,20 @@ namespace HouseMed.Patients
             btnObrisi.Enabled = true;
             btnUredi.Enabled = true;
         }
+
+        /// <summary>
+        /// event za pozivanje help stranice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmPatients_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.F1)
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima");
+            }
+        }
         #endregion
 
 
@@ -118,6 +132,7 @@ namespace HouseMed.Patients
         private void RefreshDatagrid()
         {
             dgvPatients.DataSource = _pacijentiBAL.GetAllPacijenti();
+            dgvPatients.Columns[0].HeaderCell.Value = "ID";
 
         }
         /// <summary>
@@ -125,14 +140,18 @@ namespace HouseMed.Patients
         /// </summary>
         private void GetSelectedPatient()
         {
-            var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
-
-            if (selectedItem != null)
+            if (MessageBox.Show("Jeste li sigurni da želite obrisati", "Upozorenje!", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                var selectedItem = dgvPatients.CurrentRow.DataBoundItem as pacijenti;
 
-                _pacijentiBAL.RemovePatientById(selectedItem.pacijentiID);
+                if (selectedItem != null)
+                {
+
+                    _pacijentiBAL.RemovePatientById(selectedItem.pacijentiID);
+                    MessageBox.Show(string.Format("Pacijent je obrisan"), "Obavijest!");
 
 
+                }
             }
         }
 
@@ -157,8 +176,8 @@ namespace HouseMed.Patients
             }
             this.Close();
         }
-        #endregion
 
+        #endregion
 
     }
 }

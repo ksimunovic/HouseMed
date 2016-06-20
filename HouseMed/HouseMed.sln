@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseMed.DAL", "HouseMed.DA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseMed.BAL", "HouseMed.BAL\HouseMed.BAL.csproj", "{0DAD1F44-D740-4255-8C1F-C01E102D4DA6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assemblies", "Assemblies", "{136F21CA-97BB-4760-972B-CA6E99B44C82}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\FAKS\FAKS\3. god\PI\PROJEKT DLL\LoadingScreen\LoadingScreen\bin\Debug\LoadingScreen.dll = ..\..\..\FAKS\FAKS\3. god\PI\PROJEKT DLL\LoadingScreen\LoadingScreen\bin\Debug\LoadingScreen.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

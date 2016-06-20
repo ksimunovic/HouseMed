@@ -15,7 +15,7 @@ namespace HouseMed
     public partial class frmLogin : Form
     {
         #region Variables
-        // instance to access the methods
+        //instance to access the methods
         DjelatniciBAL djelatniciData = new DjelatniciBAL();
         SlideShow _image;
         #endregion
@@ -85,9 +85,9 @@ namespace HouseMed
         /// </summary>
         private void SetImagesLoadingScreen()
         {
-            Image imgTemp = (Image)_image.GetImage();
+           Image imgTemp = (Image)_image.GetImage();
             pictureBoxLoading.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxLoading.Image = imgTemp;
+           pictureBoxLoading.Image = imgTemp;
         }
         #endregion
 

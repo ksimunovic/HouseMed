@@ -66,8 +66,9 @@ namespace HouseMed.Uputnice
         {
             if (_selectedUputnica != null)
             {
-                LoadSelectedUputnica();
                 SetComboBox();
+                LoadSelectedUputnica();
+                
             } else
 
             {
