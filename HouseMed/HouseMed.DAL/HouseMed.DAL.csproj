@@ -97,6 +97,9 @@
     </Compile>
     <Compile Include="postupciCustom.cs" />
     <Compile Include="PostupciDAL.cs" />
+    <Compile Include="potvrde.cs">
+      <DependentUpon>HouseMedModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rasporedCustom.cs" />
     <Compile Include="raspored.cs">

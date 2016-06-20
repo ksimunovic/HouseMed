@@ -26,14 +26,15 @@ namespace HouseMed.DAL
         }
     
         public virtual DbSet<cijepljenje> cijepljenje { get; set; }
-        public virtual DbSet<djelatnici> djelatnici { get; set; }
         public virtual DbSet<evidencija_hospitalizacije> evidencija_hospitalizacije { get; set; }
         public virtual DbSet<lijekovi> lijekovi { get; set; }
         public virtual DbSet<pacijenti> pacijenti { get; set; }
-        public virtual DbSet<postupci> postupci { get; set; }
         public virtual DbSet<raspored> raspored { get; set; }
         public virtual DbSet<sifra_zdrv_ustanove> sifra_zdrv_ustanove { get; set; }
         public virtual DbSet<uputnica> uputnica { get; set; }
         public virtual DbSet<recepti> recepti { get; set; }
+        public virtual DbSet<potvrde> potvrde { get; set; }
+        public virtual DbSet<djelatnici> djelatnici { get; set; }
+        public virtual DbSet<postupci> postupci { get; set; }
     }
 }

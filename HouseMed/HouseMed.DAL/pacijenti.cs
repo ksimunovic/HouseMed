@@ -19,10 +19,11 @@ namespace HouseMed.DAL
         {
             this.cijepljenje = new HashSet<cijepljenje>();
             this.evidencija_hospitalizacije = new HashSet<evidencija_hospitalizacije>();
-            this.postupci = new HashSet<postupci>();
             this.raspored = new HashSet<raspored>();
             this.uputnica = new HashSet<uputnica>();
             this.recepti = new HashSet<recepti>();
+            this.potvrde = new HashSet<potvrde>();
+            this.postupci = new HashSet<postupci>();
         }
     
         public int pacijentiID { get; set; }
@@ -45,12 +46,14 @@ namespace HouseMed.DAL
         public virtual ICollection<evidencija_hospitalizacije> evidencija_hospitalizacije { get; set; }
         public virtual sifra_zdrv_ustanove sifra_zdrv_ustanove { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<postupci> postupci { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<raspored> raspored { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<uputnica> uputnica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<recepti> recepti { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<potvrde> potvrde { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<postupci> postupci { get; set; }
     }
 }

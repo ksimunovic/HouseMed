@@ -18,10 +18,10 @@ namespace HouseMed.DAL
         public djelatnici()
         {
             this.cijepljenje = new HashSet<cijepljenje>();
-            this.postupci = new HashSet<postupci>();
-            this.postupci1 = new HashSet<postupci>();
-            this.uputnica = new HashSet<uputnica>();
+            this.potvrde = new HashSet<potvrde>();
             this.recepti = new HashSet<recepti>();
+            this.uputnica = new HashSet<uputnica>();
+            this.postupci = new HashSet<postupci>();
         }
     
         public int djelatniciID { get; set; }
@@ -35,17 +35,18 @@ namespace HouseMed.DAL
         public string telefon { get; set; }
         public string mobitel { get; set; }
         public string email { get; set; }
+        public string sifra { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cijepljenje> cijepljenje { get; set; }
         public virtual sifra_zdrv_ustanove sifra_zdrv_ustanove { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<postupci> postupci { get; set; }
+        public virtual ICollection<potvrde> potvrde { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<postupci> postupci1 { get; set; }
+        public virtual ICollection<recepti> recepti { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<uputnica> uputnica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<recepti> recepti { get; set; }
+        public virtual ICollection<postupci> postupci { get; set; }
     }
 }
