@@ -315,6 +315,7 @@
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.labelId);
             this.Name = "frmAddNewPatients";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novi Pacijent";
             this.Load += new System.EventHandler(this.frmAddNewPatients_Load);
             this.ResumeLayout(false);

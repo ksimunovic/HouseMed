@@ -94,6 +94,7 @@
             this.Controls.Add(this.dgvUputnice);
             this.KeyPreview = true;
             this.Name = "frmUputnice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uputnice";
             this.Load += new System.EventHandler(this.frmUputnice_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmUputnice_KeyDown);

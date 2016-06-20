@@ -212,6 +212,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxPacijent);
             this.Name = "FrmAddNewCijepljenje";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodavanje cijepljenja";
             this.Load += new System.EventHandler(this.FrmAddNewCijepljenje_Load);
             this.ResumeLayout(false);

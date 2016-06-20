@@ -290,7 +290,7 @@
             // btnPostavi
             // 
             this.btnPostavi.Location = new System.Drawing.Point(21, 322);
-            this.btnPostavi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPostavi.Margin = new System.Windows.Forms.Padding(4);
             this.btnPostavi.Name = "btnPostavi";
             this.btnPostavi.Size = new System.Drawing.Size(100, 28);
             this.btnPostavi.TabIndex = 6;
@@ -313,7 +313,8 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmPatients";
-            this.Text = "frmPatients";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Pacijenti";
             this.Load += new System.EventHandler(this.frmPatients_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPatients_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).EndInit();
