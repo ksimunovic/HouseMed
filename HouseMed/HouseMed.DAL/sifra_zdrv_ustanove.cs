@@ -17,12 +17,12 @@ namespace HouseMed.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public sifra_zdrv_ustanove()
         {
-            this.djelatnici = new HashSet<djelatnici>();
             this.lijekovi = new HashSet<lijekovi>();
             this.pacijenti = new HashSet<pacijenti>();
             this.raspored = new HashSet<raspored>();
             this.uputnica = new HashSet<uputnica>();
             this.recepti = new HashSet<recepti>();
+            this.djelatnici = new HashSet<djelatnici>();
         }
     
         public int sifra_zdrv_ustanoveID { get; set; }
@@ -31,8 +31,6 @@ namespace HouseMed.DAL
         public string ulica { get; set; }
         public string telefon { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<djelatnici> djelatnici { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lijekovi> lijekovi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +41,7 @@ namespace HouseMed.DAL
         public virtual ICollection<uputnica> uputnica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<recepti> recepti { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<djelatnici> djelatnici { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace HouseMed.DAL
         public int postupciID { get; set; }
         public Nullable<System.DateTime> datum { get; set; }
         public Nullable<int> ljecnikID { get; set; }
-        public Nullable<int> upisaoID { get; set; }
         public string anamneza { get; set; }
         public string status { get; set; }
         public string dijagnoza { get; set; }
@@ -26,7 +25,6 @@ namespace HouseMed.DAL
         public Nullable<int> pacijentiID { get; set; }
     
         public virtual djelatnici djelatnici { get; set; }
-        public virtual djelatnici djelatnici1 { get; set; }
         public virtual pacijenti pacijenti { get; set; }
     }
 }
