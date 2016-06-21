@@ -33,8 +33,8 @@ namespace HouseMed.DAL
         public virtual DbSet<sifra_zdrv_ustanove> sifra_zdrv_ustanove { get; set; }
         public virtual DbSet<uputnica> uputnica { get; set; }
         public virtual DbSet<recepti> recepti { get; set; }
-        public virtual DbSet<potvrde> potvrde { get; set; }
         public virtual DbSet<djelatnici> djelatnici { get; set; }
         public virtual DbSet<postupci> postupci { get; set; }
+        public virtual DbSet<potvrde> potvrde { get; set; }
     }
 }

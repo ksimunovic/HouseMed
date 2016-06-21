@@ -99,6 +99,14 @@ namespace HouseMed.Uputnice
                 System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima");
             }
         }
+
+        private void btnUredi_Click(object sender, EventArgs e)
+        {
+            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnicaCustom;
+            frmAddNewUputnice frm = new frmAddNewUputnice(selectedItem);
+            frm.ShowDialog();
+            RefreshDatagrid();
+        }
         #endregion
 
         #region private methods
@@ -139,14 +147,5 @@ namespace HouseMed.Uputnice
 
 
         #endregion
-
-        private void btnUredi_Click(object sender, EventArgs e)
-        {
-            var selectedItem = dgvUputnice.CurrentRow.DataBoundItem as uputnicaCustom;
-            frmAddNewUputnice frm = new frmAddNewUputnice(selectedItem);
-            frm.ShowDialog();
-            RefreshDatagrid();
-        }
-
     }
 }

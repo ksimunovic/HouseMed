@@ -8,7 +8,9 @@ using HouseMed.Patients;
 using HouseMed.Uputnice;
 using HouseMed.Raspored;
 using HouseMed.Procedures;
+
 using HouseMed.DAL;
+using HouseMed.Utilities;
 
 namespace HouseMed
 {
@@ -18,10 +20,12 @@ namespace HouseMed
         /// Trenutno postavljeni pacijent putam frmPatients
         /// </summary>
         public static pacijenti trenutniPacijent = null;
+        public static djelatnici trenutniDjelatnik = null;
         #region constructor
-        public frmMenu()
+        public frmMenu(djelatnici it)
         {
             InitializeComponent();
+            trenutniDjelatnik = it;
         }
         #endregion
 
@@ -40,6 +44,18 @@ namespace HouseMed
             }
         }
 
+        /// <summary>
+        /// Postavlja natpis koji je trenutno odabrani pacijent u sustavu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMenu_Activated(object sender, EventArgs e)
+        {
+            if (trenutniPacijent != null)
+            {
+                labelOdabraniPacijent.Text = trenutniPacijent.ImePrezime;
+            }
+        }
 
         /// <summary>
         /// Button[E-Karton] event handler: opent the 
@@ -98,11 +114,6 @@ namespace HouseMed
         {
             frmPatients frm = new frmPatients();
             frm.ShowDialog();
-            if (trenutniPacijent != null)
-            {
-                labelOdabraniPacijent.Text = trenutniPacijent.ImePrezime;
-            }
-
         }
         /// <summary>
         /// Buttton[Pacijenti] event handler: open the "frmUputnice" form
@@ -137,9 +148,18 @@ namespace HouseMed
             frm.ShowDialog();
         }
 
+
+        /// <summary>
+        /// Otvara formu za dodavanje i ispis potvrda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPotvrde_Click(object sender, EventArgs e)
+        {
+            frmCertificates frm = new frmCertificates();
+            frm.ShowDialog();
+        }
+
         #endregion
-
-
-
     }
 }
