@@ -37,6 +37,7 @@
             this.btnKalendar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPotvrde = new System.Windows.Forms.Button();
             this.labelOdabraniPacijent = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnZaprimi = new System.Windows.Forms.Button();
@@ -127,6 +128,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPotvrde);
             this.groupBox2.Controls.Add(this.labelOdabraniPacijent);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnBolnica);
@@ -135,10 +137,20 @@
             this.groupBox2.Controls.Add(this.btnUputnice);
             this.groupBox2.Location = new System.Drawing.Point(464, 32);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(273, 170);
+            this.groupBox2.Size = new System.Drawing.Size(382, 170);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pacijent";
+            // 
+            // btnPotvrde
+            // 
+            this.btnPotvrde.Location = new System.Drawing.Point(273, 30);
+            this.btnPotvrde.Name = "btnPotvrde";
+            this.btnPotvrde.Size = new System.Drawing.Size(83, 37);
+            this.btnPotvrde.TabIndex = 9;
+            this.btnPotvrde.Text = "Potvrde";
+            this.btnPotvrde.UseVisualStyleBackColor = true;
+            this.btnPotvrde.Click += new System.EventHandler(this.btnPotvrde_Click);
             // 
             // labelOdabraniPacijent
             // 
@@ -172,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 235);
+            this.ClientSize = new System.Drawing.Size(856, 235);
             this.Controls.Add(this.btnZaprimi);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -181,6 +193,7 @@
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Funkcionalnosti";
+            this.Activated += new System.EventHandler(this.frmMenu_Activated);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMenu_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -203,5 +216,6 @@
         private System.Windows.Forms.Button btnZaprimi;
         private System.Windows.Forms.Label labelOdabraniPacijent;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnPotvrde;
     }
 }

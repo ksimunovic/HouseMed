@@ -44,9 +44,9 @@
             this.lblUser.AutoSize = true;
             this.lblUser.Location = new System.Drawing.Point(59, 257);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(50, 13);
+            this.lblUser.Size = new System.Drawing.Size(31, 13);
             this.lblUser.TabIndex = 0;
-            this.lblUser.Text = "Korisnik: ";
+            this.lblUser.Text = "OIB: ";
             // 
             // txtUser
             // 

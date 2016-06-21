@@ -85,7 +85,7 @@ namespace HouseMed.HospitalDays
 
         private void EditNalog()
         {
-            evidencija_hospitalizacije editableNalog = _hospitalizacijaBAL.GetNalogByID(selectedNalog.HospitalizacijaId);
+            evidencija_hospitalizacije editableNalog = _hospitalizacijaBAL.GetNalogByID(selectedNalog.HospitalizacijaId.ToString());
             editableNalog.boravio_od_datuma = HelpClass.GetValueOrNull<DateTime>(dtpBoravioOd.Text);
             editableNalog.boravio_do_datuma = HelpClass.GetValueOrNull<DateTime>(dtpBoravioDo.Text);
             editableNalog.naziv_bolnice = tbBolnica.Text;

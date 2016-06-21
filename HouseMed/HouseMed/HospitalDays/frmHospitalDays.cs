@@ -19,8 +19,7 @@ namespace HouseMed.HospitalDays
         private HospitalizacijaBAL _hospitalizacijaBAL;
         private pacijenti trenutniPacijent;
         #endregion
-
-
+        
         #region constructor
         public frmHospitalDays()
         {
@@ -37,7 +36,7 @@ namespace HouseMed.HospitalDays
             trenutniPacijent = frmMenu.trenutniPacijent;
             if (trenutniPacijent != null)
             {
-                labelPacijentIspis.Text = trenutniPacijent.ImePrezime;
+                labelPacijentIspis.Text = "Pacijent: " + trenutniPacijent.ImePrezime;
                 DataGridRefresh();
                 foreach (Control c in this.Controls)
                 {
@@ -47,7 +46,7 @@ namespace HouseMed.HospitalDays
             }
             else
             {
-                labelPacijentIspis.Text = "---------->";
+                labelPacijentIspis.Text = "Pacijent: --->";
                 foreach (Control c in this.Controls)
                 {
                     if ((c is Button || c is TextBox) && c.Name.ToString() != "btnOdaberi")
@@ -82,7 +81,7 @@ namespace HouseMed.HospitalDays
 
             if (selectedItem != null)
             {
-                _hospitalizacijaBAL.RemoveNalogByID(selectedItem.HospitalizacijaId);
+                _hospitalizacijaBAL.RemoveNalogByID(selectedItem.HospitalizacijaId.ToString());
             }
         }
 

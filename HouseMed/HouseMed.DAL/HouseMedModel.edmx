@@ -91,8 +91,6 @@
           <Property Name="preporuka" Type="varchar(max)" />
           <Property Name="pacijentiID" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="potvrde">
           <Key>
             <PropertyRef Name="potvrdeID" />
@@ -388,20 +386,11 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
           <EntitySet Name="lijekovi" EntityType="Self.lijekovi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="pacijenti" EntityType="Self.pacijenti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="postupci" EntityType="Self.postupci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="potvrde" EntityType="Self.potvrde" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="raspored" EntityType="Self.raspored" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="recepti" EntityType="Self.recepti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sifra_zdrv_ustanove" EntityType="Self.sifra_zdrv_ustanove" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uputnica" EntityType="Self.uputnica" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="potvrde" EntityType="Self.potvrde" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [potvrde].[potvrdeID] AS [potvrdeID], 
-    [potvrde].[svrha] AS [svrha], 
-    [potvrde].[opis] AS [opis], 
-    [potvrde].[datum] AS [datum], 
-    [potvrde].[djelatniciID] AS [djelatniciID], 
-    [potvrde].[pacijentiID] AS [pacijentiID]
-    FROM [dbo].[potvrde] AS [potvrde]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_cijepljenje_djelatnici" Association="Self.FK_cijepljenje_djelatnici">
             <End Role="djelatnici" EntitySet="djelatnici" />
             <End Role="cijepljenje" EntitySet="cijepljenje" />
@@ -548,8 +537,8 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
           <NavigationProperty Name="raspored" Relationship="Self.FK_raspored_pacijenti" FromRole="pacijenti" ToRole="raspored" />
           <NavigationProperty Name="uputnica" Relationship="Self.FK_uputnica_Pacijenti" FromRole="pacijenti" ToRole="uputnica" />
           <NavigationProperty Name="recepti" Relationship="HouseMedDBModel.FK_recepti_pacijenti" FromRole="pacijenti" ToRole="recepti" />
-          <NavigationProperty Name="potvrde" Relationship="HouseMedDBModel.FK_Potvrde_pacijenti" FromRole="pacijenti" ToRole="potvrde" />
           <NavigationProperty Name="postupci" Relationship="HouseMedDBModel.FK_postupci_pacijenti" FromRole="pacijenti" ToRole="postupci" />
+          <NavigationProperty Name="potvrde" Relationship="HouseMedDBModel.FK_Potvrde_pacijenti" FromRole="pacijenti" ToRole="potvrde" />
         </EntityType>
         <EntityType Name="raspored">
           <Key>
@@ -746,11 +735,6 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
             <End Role="sifra_zdrv_ustanove" EntitySet="sifra_zdrv_ustanove" />
             <End Role="recepti" EntitySet="recepti" />
           </AssociationSet>
-          <EntitySet Name="potvrde" EntityType="HouseMedDBModel.potvrde" />
-          <AssociationSet Name="FK_Potvrde_pacijenti" Association="HouseMedDBModel.FK_Potvrde_pacijenti">
-            <End Role="pacijenti" EntitySet="pacijenti" />
-            <End Role="potvrde" EntitySet="potvrde" />
-          </AssociationSet>
           <EntitySet Name="djelatnici" EntityType="HouseMedDBModel.djelatnici" />
           <AssociationSet Name="FK_cijepljenje_djelatnici" Association="HouseMedDBModel.FK_cijepljenje_djelatnici">
             <End Role="djelatnici" EntitySet="djelatnici" />
@@ -759,10 +743,6 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
           <AssociationSet Name="FK_djelatnici_sifra_zdrv_ustanove" Association="HouseMedDBModel.FK_djelatnici_sifra_zdrv_ustanove">
             <End Role="sifra_zdrv_ustanove" EntitySet="sifra_zdrv_ustanove" />
             <End Role="djelatnici" EntitySet="djelatnici" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Potvrde_djelatnici" Association="HouseMedDBModel.FK_Potvrde_djelatnici">
-            <End Role="djelatnici" EntitySet="djelatnici" />
-            <End Role="potvrde" EntitySet="potvrde" />
           </AssociationSet>
           <AssociationSet Name="FK_recepti_djelatnici" Association="HouseMedDBModel.FK_recepti_djelatnici">
             <End Role="djelatnici" EntitySet="djelatnici" />
@@ -781,7 +761,16 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
             <End Role="pacijenti" EntitySet="pacijenti" />
             <End Role="postupci" EntitySet="postupci" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="potvrde" EntityType="HouseMedDBModel.potvrde" />
+          <AssociationSet Name="FK_Potvrde_djelatnici" Association="HouseMedDBModel.FK_Potvrde_djelatnici">
+            <End Role="djelatnici" EntitySet="djelatnici" />
+            <End Role="potvrde" EntitySet="potvrde" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Potvrde_pacijenti" Association="HouseMedDBModel.FK_Potvrde_pacijenti">
+            <End Role="pacijenti" EntitySet="pacijenti" />
+            <End Role="potvrde" EntitySet="potvrde" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="recepti">
           <Key>
             <PropertyRef Name="receptID" />
@@ -836,31 +825,6 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="potvrde">
-          <Key>
-            <PropertyRef Name="potvrdeID" />
-          </Key>
-          <Property Name="potvrdeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="svrha" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="datum" Type="DateTime" Precision="0" />
-          <Property Name="djelatniciID" Type="Int32" />
-          <Property Name="pacijentiID" Type="Int32" />
-          <NavigationProperty Name="pacijenti" Relationship="HouseMedDBModel.FK_Potvrde_pacijenti" FromRole="potvrde" ToRole="pacijenti" />
-          <NavigationProperty Name="djelatnici" Relationship="HouseMedDBModel.FK_Potvrde_djelatnici" FromRole="potvrde" ToRole="djelatnici" />
-        </EntityType>
-        <Association Name="FK_Potvrde_pacijenti">
-          <End Type="HouseMedDBModel.pacijenti" Role="pacijenti" Multiplicity="0..1" />
-          <End Type="HouseMedDBModel.potvrde" Role="potvrde" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pacijenti">
-              <PropertyRef Name="pacijentiID" />
-            </Principal>
-            <Dependent Role="potvrde">
-              <PropertyRef Name="pacijentiID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="djelatnici">
           <Key>
             <PropertyRef Name="djelatniciID" />
@@ -879,10 +843,10 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
           <Property Name="sifra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="cijepljenje" Relationship="HouseMedDBModel.FK_cijepljenje_djelatnici" FromRole="djelatnici" ToRole="cijepljenje" />
           <NavigationProperty Name="sifra_zdrv_ustanove" Relationship="HouseMedDBModel.FK_djelatnici_sifra_zdrv_ustanove" FromRole="djelatnici" ToRole="sifra_zdrv_ustanove" />
-          <NavigationProperty Name="potvrde" Relationship="HouseMedDBModel.FK_Potvrde_djelatnici" FromRole="djelatnici" ToRole="potvrde" />
           <NavigationProperty Name="recepti" Relationship="HouseMedDBModel.FK_recepti_djelatnici" FromRole="djelatnici" ToRole="recepti" />
           <NavigationProperty Name="uputnica" Relationship="HouseMedDBModel.FK_uputnica_djelatnici" FromRole="djelatnici" ToRole="uputnica" />
           <NavigationProperty Name="postupci" Relationship="HouseMedDBModel.FK_postupci_djelatnici" FromRole="djelatnici" ToRole="postupci" />
+          <NavigationProperty Name="potvrde" Relationship="HouseMedDBModel.FK_Potvrde_djelatnici" FromRole="djelatnici" ToRole="potvrde" />
         </EntityType>
         <Association Name="FK_cijepljenje_djelatnici">
           <End Type="HouseMedDBModel.djelatnici" Role="djelatnici" Multiplicity="0..1" />
@@ -905,18 +869,6 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
             </Principal>
             <Dependent Role="djelatnici">
               <PropertyRef Name="sifra_zdrv_ustanoveID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Potvrde_djelatnici">
-          <End Type="HouseMedDBModel.djelatnici" Role="djelatnici" Multiplicity="0..1" />
-          <End Type="HouseMedDBModel.potvrde" Role="potvrde" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="djelatnici">
-              <PropertyRef Name="djelatniciID" />
-            </Principal>
-            <Dependent Role="potvrde">
-              <PropertyRef Name="djelatniciID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -984,7 +936,44 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="potvrde">
+          <Key>
+            <PropertyRef Name="potvrdeID" />
+          </Key>
+          <Property Name="potvrdeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="svrha" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <Property Name="djelatniciID" Type="Int32" />
+          <Property Name="pacijentiID" Type="Int32" />
+          <NavigationProperty Name="djelatnici" Relationship="HouseMedDBModel.FK_Potvrde_djelatnici" FromRole="potvrde" ToRole="djelatnici" />
+          <NavigationProperty Name="pacijenti" Relationship="HouseMedDBModel.FK_Potvrde_pacijenti" FromRole="potvrde" ToRole="pacijenti" />
+        </EntityType>
+        <Association Name="FK_Potvrde_djelatnici">
+          <End Type="HouseMedDBModel.djelatnici" Role="djelatnici" Multiplicity="0..1" />
+          <End Type="HouseMedDBModel.potvrde" Role="potvrde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="djelatnici">
+              <PropertyRef Name="djelatniciID" />
+            </Principal>
+            <Dependent Role="potvrde">
+              <PropertyRef Name="djelatniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Potvrde_pacijenti">
+          <End Type="HouseMedDBModel.pacijenti" Role="pacijenti" Multiplicity="0..1" />
+          <End Type="HouseMedDBModel.potvrde" Role="potvrde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacijenti">
+              <PropertyRef Name="pacijentiID" />
+            </Principal>
+            <Dependent Role="potvrde">
+              <PropertyRef Name="pacijentiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1102,18 +1091,6 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="potvrde">
-            <EntityTypeMapping TypeName="HouseMedDBModel.potvrde">
-              <MappingFragment StoreEntitySet="potvrde">
-                <ScalarProperty Name="pacijentiID" ColumnName="pacijentiID" />
-                <ScalarProperty Name="djelatniciID" ColumnName="djelatniciID" />
-                <ScalarProperty Name="datum" ColumnName="datum" />
-                <ScalarProperty Name="opis" ColumnName="opis" />
-                <ScalarProperty Name="svrha" ColumnName="svrha" />
-                <ScalarProperty Name="potvrdeID" ColumnName="potvrdeID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="djelatnici">
             <EntityTypeMapping TypeName="HouseMedDBModel.djelatnici">
               <MappingFragment StoreEntitySet="djelatnici">
@@ -1144,6 +1121,18 @@ warning 6002: The table/view '16049_DB.dbo.potvrde' does not have a primary key 
                 <ScalarProperty Name="ljecnikID" ColumnName="ljecnikID" />
                 <ScalarProperty Name="datum" ColumnName="datum" />
                 <ScalarProperty Name="postupciID" ColumnName="postupciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="potvrde">
+            <EntityTypeMapping TypeName="HouseMedDBModel.potvrde">
+              <MappingFragment StoreEntitySet="potvrde">
+                <ScalarProperty Name="pacijentiID" ColumnName="pacijentiID" />
+                <ScalarProperty Name="djelatniciID" ColumnName="djelatniciID" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="svrha" ColumnName="svrha" />
+                <ScalarProperty Name="potvrdeID" ColumnName="potvrdeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

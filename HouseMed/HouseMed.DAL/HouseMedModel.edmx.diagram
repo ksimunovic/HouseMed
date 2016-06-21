@@ -24,17 +24,17 @@
         <AssociationConnector Association="HouseMedDBModel.FK_recepti_lijekovi" />
         <AssociationConnector Association="HouseMedDBModel.FK_recepti_pacijenti" />
         <AssociationConnector Association="HouseMedDBModel.FK_recepti_sifra_zdrv_ustanove" />
-        <EntityTypeShape EntityType="HouseMedDBModel.potvrde" Width="1.5" PointX="11.25" PointY="13.75" />
-        <AssociationConnector Association="HouseMedDBModel.FK_Potvrde_pacijenti" />
         <EntityTypeShape EntityType="HouseMedDBModel.djelatnici" Width="1.5" PointX="3" PointY="7.625" />
         <AssociationConnector Association="HouseMedDBModel.FK_cijepljenje_djelatnici" />
         <AssociationConnector Association="HouseMedDBModel.FK_djelatnici_sifra_zdrv_ustanove" />
-        <AssociationConnector Association="HouseMedDBModel.FK_Potvrde_djelatnici" />
         <AssociationConnector Association="HouseMedDBModel.FK_recepti_djelatnici" />
         <AssociationConnector Association="HouseMedDBModel.FK_uputnica_djelatnici" />
         <EntityTypeShape EntityType="HouseMedDBModel.postupci" Width="1.5" PointX="8.25" PointY="13.125" />
         <AssociationConnector Association="HouseMedDBModel.FK_postupci_djelatnici" />
         <AssociationConnector Association="HouseMedDBModel.FK_postupci_pacijenti" />
+        <EntityTypeShape EntityType="HouseMedDBModel.potvrde" Width="1.5" PointX="11.25" PointY="13.375" />
+        <AssociationConnector Association="HouseMedDBModel.FK_Potvrde_djelatnici" />
+        <AssociationConnector Association="HouseMedDBModel.FK_Potvrde_pacijenti" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
