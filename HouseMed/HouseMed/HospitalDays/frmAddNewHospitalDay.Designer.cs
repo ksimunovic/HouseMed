@@ -128,9 +128,11 @@
             this.Controls.Add(this.labelBoravioDo);
             this.Controls.Add(this.dtpBoravioOd);
             this.Controls.Add(this.labelBoravioOd);
+            this.KeyPreview = true;
             this.Name = "frmAddNewHospitalDay";
             this.Text = "frmAddNewHospitalDay";
             this.Load += new System.EventHandler(this.frmAddNewHospitalDay_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAddNewHospitalDay_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

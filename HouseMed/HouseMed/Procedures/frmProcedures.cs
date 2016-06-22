@@ -70,7 +70,7 @@ namespace HouseMed.Procedures
             {
                 pacijentiID = trenutniPacijent.pacijentiID,
                 datum = HelpClass.GetValueOrNull<DateTime>(labelDatum.Text),
-                ljecnikID = 2,
+                ljecnikID = frmMenu.trenutniDjelatnik.djelatniciID,
                 anamneza = tbAnamneza.Text,
                 status = tbStatus.Text,
                 dijagnoza = tbDijagnoza.Text,

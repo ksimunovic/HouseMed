@@ -100,8 +100,10 @@
             this.Controls.Add(this.tbSvrha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelIspisPacijenta);
+            this.KeyPreview = true;
             this.Name = "frmAddNewCertificate";
             this.Text = "frmAddNewCertificate";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAddNewCertificate_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
