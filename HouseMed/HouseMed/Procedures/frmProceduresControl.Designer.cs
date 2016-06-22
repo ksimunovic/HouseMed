@@ -106,8 +106,10 @@
             this.Controls.Add(this.btnUputnica);
             this.Controls.Add(this.btnPotvrda);
             this.Controls.Add(this.dgvPostupciPacijenta);
+            this.KeyPreview = true;
             this.Name = "frmProceduresControl";
             this.Text = "frmProceduresControl";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProceduresControl_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPostupciPacijenta)).EndInit();
             this.ResumeLayout(false);
 

@@ -209,8 +209,10 @@
             this.Controls.Add(this.btnOdaberi);
             this.Controls.Add(this.labelPacijentText);
             this.Controls.Add(this.labelPacijentIspis);
+            this.KeyPreview = true;
             this.Name = "frmProcedures";
             this.Text = "frmProcedures";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProcedures_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
