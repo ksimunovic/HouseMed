@@ -51,6 +51,10 @@ namespace HouseMed.BAL
             return _hospitalizacijaDAL.getNewID();
         }
 
+        /// <summary>
+        /// Briše nalog s određenim ID-jem
+        /// </summary>
+        /// <param name="evidencija_hospitalizacijeID"></param>
         public void RemoveNalogByID(string evidencija_hospitalizacijeID)
         {
             _hospitalizacijaDAL.RemoveNalogByID(evidencija_hospitalizacijeID);
@@ -64,12 +68,23 @@ namespace HouseMed.BAL
             _hospitalizacijaDAL.SaveChanges();
         }
 
-        //getNalogbyID
+        
+        /// <summary>
+        /// Vraća objekt koji ima određeni ID
+        /// </summary>
+        /// <param name="IDnaloga"></param>
+        /// <returns></returns>
         public evidencija_hospitalizacije GetNalogByID(string IDnaloga)
         {
             return _hospitalizacijaDAL.GetNalogByID(IDnaloga);
         }
 
+        /// <summary>
+        /// Pretražuje boravke po svim stupcima
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pacijentiID"></param>
+        /// <returns></returns>
         public BindingList<hospitalizacijaCustom> SearchHospitalizacija(string name, int pacijentiID)
         {
             return _hospitalizacijaDAL.SearchHospitalizacija(name, pacijentiID);
