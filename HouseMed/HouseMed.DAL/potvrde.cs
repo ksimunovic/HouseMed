@@ -21,7 +21,7 @@ namespace HouseMed.DAL
         public Nullable<int> djelatniciID { get; set; }
         public Nullable<int> pacijentiID { get; set; }
     
-        public virtual pacijenti pacijenti { get; set; }
         public virtual djelatnici djelatnici { get; set; }
+        public virtual pacijenti pacijenti { get; set; }
     }
 }

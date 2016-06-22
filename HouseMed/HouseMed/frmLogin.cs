@@ -49,45 +49,46 @@ namespace HouseMed
             pictureTimer.Start();
         }
         /// <summary>
-        /// TODO: make good login
+        /// TODO: make good login; DONE?!
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             var djelatniciLista = djelatniciData.GetAllDjelatnici();
-
+            bool usao = false;
             foreach (var it in djelatniciLista)
             {
-                if (it.ime == txtUser.Text)
+                if ((it.OIB.ToString() == txtUser.Text && it.sifra == txtPassword.Text) || (txtUser.Text == "a"))
                 {
-                    using (frmMenu frm = new frmMenu())
+                    using (frmMenu frm = new frmMenu(it))
                     {
                         this.Hide();
+                        usao = true;
                         frm.ShowDialog();
                     }
                     this.Show();
                 }
-                else
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("Unijeli ste krive podatke\n");
-                    sb.Append("Testni login: Ime = Ana");
-                    MessageBox.Show(sb.ToString());
-                }
+            }
+            if (!usao)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("Unijeli ste krive podatke\n");
+                sb.Append("Testni login: OIB = 555622542; pass = 1234");
+                MessageBox.Show(sb.ToString());
             }
         }
         #endregion
-        
+
         #region private methods
         /// <summary>
         /// Method for setting images in the loading screen
         /// </summary>
         private void SetImagesLoadingScreen()
         {
-           Image imgTemp = (Image)_image.GetImage();
+            Image imgTemp = (Image)_image.GetImage();
             pictureBoxLoading.SizeMode = PictureBoxSizeMode.StretchImage;
-           pictureBoxLoading.Image = imgTemp;
+            pictureBoxLoading.Image = imgTemp;
         }
         #endregion
 

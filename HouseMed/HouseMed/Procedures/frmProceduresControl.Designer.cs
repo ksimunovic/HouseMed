@@ -53,6 +53,7 @@
             this.btnPotvrda.TabIndex = 1;
             this.btnPotvrda.Text = "Potvrda";
             this.btnPotvrda.UseVisualStyleBackColor = true;
+            this.btnPotvrda.Click += new System.EventHandler(this.btnPotvrda_Click);
             // 
             // btnUputnica
             // 
@@ -62,6 +63,7 @@
             this.btnUputnica.TabIndex = 2;
             this.btnUputnica.Text = "Uputnica";
             this.btnUputnica.UseVisualStyleBackColor = true;
+            this.btnUputnica.Click += new System.EventHandler(this.btnUputnica_Click);
             // 
             // btnRecept
             // 
@@ -71,6 +73,7 @@
             this.btnRecept.TabIndex = 3;
             this.btnRecept.Text = "Recept";
             this.btnRecept.UseVisualStyleBackColor = true;
+            this.btnRecept.Click += new System.EventHandler(this.btnRecept_Click);
             // 
             // btnPregled
             // 
@@ -90,6 +93,7 @@
             this.btnCijepljenje.TabIndex = 5;
             this.btnCijepljenje.Text = "Naruči za cijepljenje";
             this.btnCijepljenje.UseVisualStyleBackColor = true;
+            this.btnCijepljenje.Click += new System.EventHandler(this.btnCijepljenje_Click);
             // 
             // frmProceduresControl
             // 

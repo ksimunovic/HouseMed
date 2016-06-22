@@ -108,7 +108,7 @@ namespace HouseMed.DAL
             }
             catch
             {
-                throw;
+                throw; //TODO: baca error kad pokušam unjet novi nalog, DONE?!
             }
         }
 
@@ -118,7 +118,9 @@ namespace HouseMed.DAL
         /// <returns></returns>
         public int getNewID()
         {
-            return (from u in context.evidencija_hospitalizacije select u).Count();
+            Random random = new Random();
+            int randomNumber = random.Next(0, 10);
+            return (from u in context.evidencija_hospitalizacije select u).Count() + randomNumber;
         }
         #endregion
     }

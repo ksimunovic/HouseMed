@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Certificates\frmAddNewCertificate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Certificates\frmAddNewCertificate.Designer.cs">
+      <DependentUpon>frmAddNewCertificate.cs</DependentUpon>
+    </Compile>
     <Compile Include="E-Carton\frmECarton.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,12 @@
     <Compile Include="Uputnice\frmUputnice.Designer.cs">
       <DependentUpon>frmUputnice.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Certificates\frmAddNewCertificate.resx">
+      <DependentUpon>frmAddNewCertificate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Certificates\frmCertificates.resx">
+      <DependentUpon>frmCertificates.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="E-Carton\frmECarton.resx">
       <DependentUpon>frmECarton.cs</DependentUpon>
     </EmbeddedResource>
