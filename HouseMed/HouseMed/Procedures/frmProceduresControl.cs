@@ -65,6 +65,19 @@ namespace HouseMed.Procedures
             FrmAddNewCijepljenje frm = new FrmAddNewCijepljenje();
             frm.ShowDialog();
         }
+
+        /// <summary>
+        /// event koji se aktivira na tipku F1 i zove nasu wiki stranicu za pomoc korisniku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmProceduresControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima#zaprimi-pacijenta");
+            }
+        }
         #endregion
     }
 }

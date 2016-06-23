@@ -48,7 +48,7 @@ namespace HouseMed.HospitalDays
 
         #endregion
 
-        #region form methods
+        #region private methods
 
         /// <summary>
         /// Instancing a new Evidencija object
@@ -67,22 +67,10 @@ namespace HouseMed.HospitalDays
 
             _hospitalizacijaBAL.AddNewNalog(nalog);
         }
-        #endregion
 
-        private void btnDodajBoravak_Click(object sender, EventArgs e)
-        {
-            if (selectedNalog != null)
-            {
-                EditNalog();
-            }
-            else
-            {
-                SetNewEvidencijaObject();
-            }
-
-            this.Close();
-        }
-
+        /// <summary>
+        /// Sprema trenutne izmjene naloga u bazu
+        /// </summary>
         private void EditNalog()
         {
             evidencija_hospitalizacije editableNalog = _hospitalizacijaBAL.GetNalogByID(selectedNalog.HospitalizacijaId.ToString());
@@ -93,6 +81,41 @@ namespace HouseMed.HospitalDays
             _hospitalizacijaBAL.SaveChanges();
         }
 
+        /// <summary>
+        /// Učitava odabrani nalog u formu
+        /// </summary>
+        private void LoadSelectedNalog()
+        {
+            tbBolnica.Text = selectedNalog.NazivBolnice;
+            dtpBoravioOd.Text = selectedNalog.BoravioOdDatuma.ToString();
+            dtpBoravioOd.Text = selectedNalog.BoravioDoDatuma.ToString();
+            tbRazlogBoravka.Text = selectedNalog.Razlog;
+        }
+        #endregion
+
+        #region event handlers
+        /// <summary>
+        /// Odlučuje da li se kreira novi nalog ili sprema postojeći
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDodajBoravak_Click(object sender, EventArgs e)
+        {
+            if (selectedNalog != null)
+            {
+                EditNalog();
+            }
+            else
+            {
+                SetNewEvidencijaObject();
+            }
+            this.Close();
+        }
+        /// <summary>
+        /// Pri učitavanju forme mjenja text gumba Dodaj/spremi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmAddNewHospitalDay_Load(object sender, EventArgs e)
         {
             if (selectedNalog != null)
@@ -104,17 +127,20 @@ namespace HouseMed.HospitalDays
             {
                 btnDodajBoravak.Text = "Dodaj";
             }
-
         }
 
-        private void LoadSelectedNalog()
+        /// <summary>
+        /// event koji se aktivira na tipku F1 i zove nasu wiki stranicu za pomoc korisniku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmAddNewHospitalDay_KeyDown(object sender, KeyEventArgs e)
         {
-            tbBolnica.Text = selectedNalog.NazivBolnice;
-            dtpBoravioOd.Text = selectedNalog.BoravioOdDatuma.ToString();
-            dtpBoravioOd.Text = selectedNalog.BoravioDoDatuma.ToString();
-            tbRazlogBoravka.Text = selectedNalog.Razlog;
+            if (e.KeyCode.ToString() == "F1")
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima#boravci-u-bolnici");
+            }
         }
+        #endregion
     }
-
-
 }

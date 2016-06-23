@@ -33,8 +33,8 @@
             this.btnOdaberi = new System.Windows.Forms.ToolStripMenuItem();
             this.novaPotvrdaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UrediPotvrduToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvCertificates = new System.Windows.Forms.DataGridView();
             this.izbrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvCertificates = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCertificates)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.izbrišiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(478, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(586, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,6 +80,13 @@
             this.UrediPotvrduToolStripMenuItem.Text = "Uredi potvrdu";
             this.UrediPotvrduToolStripMenuItem.Click += new System.EventHandler(this.UrediPotvrduToolStripMenuItem_Click);
             // 
+            // izbrišiToolStripMenuItem
+            // 
+            this.izbrišiToolStripMenuItem.Name = "izbrišiToolStripMenuItem";
+            this.izbrišiToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.izbrišiToolStripMenuItem.Text = "Izbriši";
+            this.izbrišiToolStripMenuItem.Click += new System.EventHandler(this.izbrišiToolStripMenuItem_Click);
+            // 
             // dgvCertificates
             // 
             this.dgvCertificates.AllowUserToAddRows = false;
@@ -91,27 +98,22 @@
             this.dgvCertificates.Name = "dgvCertificates";
             this.dgvCertificates.ReadOnly = true;
             this.dgvCertificates.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCertificates.Size = new System.Drawing.Size(478, 188);
+            this.dgvCertificates.Size = new System.Drawing.Size(586, 188);
             this.dgvCertificates.TabIndex = 2;
-            // 
-            // izbrišiToolStripMenuItem
-            // 
-            this.izbrišiToolStripMenuItem.Name = "izbrišiToolStripMenuItem";
-            this.izbrišiToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.izbrišiToolStripMenuItem.Text = "Izbriši";
-            this.izbrišiToolStripMenuItem.Click += new System.EventHandler(this.izbrišiToolStripMenuItem_Click);
             // 
             // frmCertificates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 212);
+            this.ClientSize = new System.Drawing.Size(586, 212);
             this.Controls.Add(this.dgvCertificates);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmCertificates";
             this.Text = "frmCertificates";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCertificates_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCertificates)).EndInit();

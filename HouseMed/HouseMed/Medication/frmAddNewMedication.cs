@@ -73,7 +73,7 @@ namespace HouseMed.Medication
         #endregion
 
         #region event handlers
-        /// <summary>
+        /*/// <summary> <------- Umjesto ovoga dodan ucNatrag (Karlo)
         /// Button[Odustani] event handler: closing this form
         /// </summary>
         /// <param name="sender"></param>
@@ -81,7 +81,7 @@ namespace HouseMed.Medication
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        }*/
         /// <summary>
         /// ComboBox[Ustanove] event handler: take "ustanovaID" when selection is changed
         /// </summary>

@@ -44,6 +44,7 @@
             this.tbTerapija = new System.Windows.Forms.TextBox();
             this.tbPreporuka = new System.Windows.Forms.TextBox();
             this.btnSpremi = new System.Windows.Forms.Button();
+            this.ucNatrag1 = new HouseMed.ucNatrag();
             this.SuspendLayout();
             // 
             // labelPacijentIspis
@@ -180,19 +181,27 @@
             // 
             // btnSpremi
             // 
-            this.btnSpremi.Location = new System.Drawing.Point(15, 345);
+            this.btnSpremi.Location = new System.Drawing.Point(101, 345);
             this.btnSpremi.Name = "btnSpremi";
-            this.btnSpremi.Size = new System.Drawing.Size(318, 23);
+            this.btnSpremi.Size = new System.Drawing.Size(232, 23);
             this.btnSpremi.TabIndex = 15;
             this.btnSpremi.Text = "Spremi";
             this.btnSpremi.UseVisualStyleBackColor = true;
             this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
+            // 
+            // ucNatrag1
+            // 
+            this.ucNatrag1.Location = new System.Drawing.Point(15, 345);
+            this.ucNatrag1.Name = "ucNatrag1";
+            this.ucNatrag1.Size = new System.Drawing.Size(80, 23);
+            this.ucNatrag1.TabIndex = 16;
             // 
             // frmProcedures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 380);
+            this.Controls.Add(this.ucNatrag1);
             this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.tbPreporuka);
             this.Controls.Add(this.tbTerapija);
@@ -209,8 +218,10 @@
             this.Controls.Add(this.btnOdaberi);
             this.Controls.Add(this.labelPacijentText);
             this.Controls.Add(this.labelPacijentIspis);
+            this.KeyPreview = true;
             this.Name = "frmProcedures";
             this.Text = "frmProcedures";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProcedures_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +245,6 @@
         private System.Windows.Forms.TextBox tbTerapija;
         private System.Windows.Forms.TextBox tbPreporuka;
         private System.Windows.Forms.Button btnSpremi;
+        private ucNatrag ucNatrag1;
     }
 }

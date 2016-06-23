@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbOpis = new System.Windows.Forms.TextBox();
             this.btnSpremi = new System.Windows.Forms.Button();
+            this.ucNatrag1 = new HouseMed.ucNatrag();
             this.SuspendLayout();
             // 
             // labelIspisPacijenta
@@ -81,27 +82,37 @@
             // 
             // btnSpremi
             // 
-            this.btnSpremi.Location = new System.Drawing.Point(90, 226);
+            this.btnSpremi.Location = new System.Drawing.Point(131, 225);
             this.btnSpremi.Name = "btnSpremi";
-            this.btnSpremi.Size = new System.Drawing.Size(208, 23);
+            this.btnSpremi.Size = new System.Drawing.Size(167, 23);
             this.btnSpremi.TabIndex = 5;
             this.btnSpremi.Text = "Spremi";
             this.btnSpremi.UseVisualStyleBackColor = true;
             this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
+            // 
+            // ucNatrag1
+            // 
+            this.ucNatrag1.Location = new System.Drawing.Point(49, 225);
+            this.ucNatrag1.Name = "ucNatrag1";
+            this.ucNatrag1.Size = new System.Drawing.Size(76, 23);
+            this.ucNatrag1.TabIndex = 6;
             // 
             // frmAddNewCertificate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 258);
+            this.Controls.Add(this.ucNatrag1);
             this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.tbOpis);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbSvrha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelIspisPacijenta);
+            this.KeyPreview = true;
             this.Name = "frmAddNewCertificate";
             this.Text = "frmAddNewCertificate";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAddNewCertificate_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +126,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbOpis;
         private System.Windows.Forms.Button btnSpremi;
+        private ucNatrag ucNatrag1;
     }
 }

@@ -168,6 +168,12 @@
     <Compile Include="Recipes\frmRecipe.Designer.cs">
       <DependentUpon>frmRecipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucNatrag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucNatrag.Designer.cs">
+      <DependentUpon>ucNatrag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uputnice\frmAddNewUputnice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recipes\frmRecipe.resx">
       <DependentUpon>frmRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucNatrag.resx">
+      <DependentUpon>ucNatrag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Uputnice\frmAddNewUputnice.resx">
       <DependentUpon>frmAddNewUputnice.cs</DependentUpon>
