@@ -30,18 +30,21 @@
         {
             this.dateTimePickerRaspored = new System.Windows.Forms.DateTimePicker();
             this.dgvRaspored = new System.Windows.Forms.DataGridView();
-            this.labelPacijenti = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvCijepljenje = new System.Windows.Forms.DataGridView();
-            this.btnNoviPregled = new System.Windows.Forms.Button();
-            this.btnUnosCijepljanja = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnNoviPregled = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnUnosCijepljanja = new System.Windows.Forms.ToolStripMenuItem();
+            this.datumToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaspored)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCijepljenje)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePickerRaspored
             // 
-            this.dateTimePickerRaspored.Location = new System.Drawing.Point(59, 26);
+            this.dateTimePickerRaspored.Location = new System.Drawing.Point(307, 6);
             this.dateTimePickerRaspored.Name = "dateTimePickerRaspored";
             this.dateTimePickerRaspored.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerRaspored.TabIndex = 0;
@@ -55,15 +58,6 @@
             this.dgvRaspored.RowTemplate.Height = 24;
             this.dgvRaspored.Size = new System.Drawing.Size(741, 169);
             this.dgvRaspored.TabIndex = 1;
-            // 
-            // labelPacijenti
-            // 
-            this.labelPacijenti.AutoSize = true;
-            this.labelPacijenti.Location = new System.Drawing.Point(56, 96);
-            this.labelPacijenti.Name = "labelPacijenti";
-            this.labelPacijenti.Size = new System.Drawing.Size(189, 17);
-            this.labelPacijenti.TabIndex = 2;
-            this.labelPacijenti.Text = "Pregled naručenih pacijenta:";
             // 
             // label1
             // 
@@ -83,38 +77,60 @@
             this.dgvCijepljenje.Size = new System.Drawing.Size(741, 159);
             this.dgvCijepljenje.TabIndex = 4;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNoviPregled,
+            this.btnUnosCijepljanja,
+            this.datumToolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(873, 28);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // btnNoviPregled
             // 
-            this.btnNoviPregled.Location = new System.Drawing.Point(695, 80);
             this.btnNoviPregled.Name = "btnNoviPregled";
-            this.btnNoviPregled.Size = new System.Drawing.Size(105, 33);
-            this.btnNoviPregled.TabIndex = 5;
+            this.btnNoviPregled.Size = new System.Drawing.Size(108, 24);
             this.btnNoviPregled.Text = "Novi pregled";
-            this.btnNoviPregled.UseVisualStyleBackColor = true;
             this.btnNoviPregled.Click += new System.EventHandler(this.btnNoviPregled_Click);
             // 
             // btnUnosCijepljanja
             // 
-            this.btnUnosCijepljanja.Location = new System.Drawing.Point(682, 326);
             this.btnUnosCijepljanja.Name = "btnUnosCijepljanja";
-            this.btnUnosCijepljanja.Size = new System.Drawing.Size(118, 33);
-            this.btnUnosCijepljanja.TabIndex = 6;
+            this.btnUnosCijepljanja.Size = new System.Drawing.Size(126, 24);
             this.btnUnosCijepljanja.Text = "Unos cijepljenja";
-            this.btnUnosCijepljanja.UseVisualStyleBackColor = true;
             this.btnUnosCijepljanja.Click += new System.EventHandler(this.btnUnosCijepljanja_Click);
+            // 
+            // datumToolStripMenuItem1
+            // 
+            this.datumToolStripMenuItem1.Name = "datumToolStripMenuItem1";
+            this.datumToolStripMenuItem1.Size = new System.Drawing.Size(73, 24);
+            this.datumToolStripMenuItem1.Text = "Datum: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(56, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(129, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Kalendar pregleda:";
             // 
             // frmRaspored
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 556);
-            this.Controls.Add(this.btnUnosCijepljanja);
-            this.Controls.Add(this.btnNoviPregled);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvCijepljenje);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelPacijenti);
             this.Controls.Add(this.dgvRaspored);
             this.Controls.Add(this.dateTimePickerRaspored);
+            this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.Name = "frmRaspored";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -122,6 +138,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRaspored_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaspored)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCijepljenje)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,10 +149,12 @@
 
         private System.Windows.Forms.DateTimePicker dateTimePickerRaspored;
         private System.Windows.Forms.DataGridView dgvRaspored;
-        private System.Windows.Forms.Label labelPacijenti;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvCijepljenje;
-        private System.Windows.Forms.Button btnNoviPregled;
-        private System.Windows.Forms.Button btnUnosCijepljanja;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem btnNoviPregled;
+        private System.Windows.Forms.ToolStripMenuItem btnUnosCijepljanja;
+        private System.Windows.Forms.ToolStripMenuItem datumToolStripMenuItem1;
+        private System.Windows.Forms.Label label2;
     }
 }
