@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HouseMed;
 
 namespace HouseMed.BAL
 {
@@ -32,11 +33,10 @@ namespace HouseMed.BAL
             {
                 if(e is FormatException)
                 {
-                    MessageBox.Show(String.Format("Vijednost: '{0}' je krivog formata", value));
+                    MessageBox.Show(String.Format("Vijednost: '{0}' je krivog formata", value), "Upozorenje!");
                 }
                 return null;
             }
-            
         }
 
         public enum Ecarton
