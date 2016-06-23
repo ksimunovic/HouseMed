@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace HouseMed.DAL
 
         #region public methods
         /// <summary>
-        /// Getting ALL the medication from the DB
+        /// #1 Getting ALL the medication from the DB
         /// </summary>
         /// <returns></returns>
         public BindingList<lijekovi> GetAllLijekovi()
@@ -29,14 +30,14 @@ namespace HouseMed.DAL
                 BindingList<lijekovi> lista = new BindingList<DAL.lijekovi>(lijekovi);
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Debug.WriteLine("LijekoviDAL(#1): {0}", ex.InnerException);
+                return null;
             }
         }
         /// <summary>
-        /// Getting the medication by name for filtering purposes
+        /// #2 Getting the medication by name for filtering purposes
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
@@ -50,13 +51,14 @@ namespace HouseMed.DAL
                 BindingList<lijekovi> lista = new BindingList<DAL.lijekovi>(lijekovi);
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Debug.WriteLine("LijekoviDAL(#2): {0}", ex.InnerException);
+                return null;
             }
         }
         /// <summary>
-        /// Deleting the lijekovi object from the DB
+        /// #3 Deleting the lijekovi object from the DB
         /// </summary>
         /// <param name="selectedLijek"></param>
         /// <returns></returns>
@@ -68,23 +70,30 @@ namespace HouseMed.DAL
                 context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Debug.WriteLine("LijekoviDAL(#3): {0}", ex.InnerException);
                 return false;
             }
         }
         /// <summary>
-        /// Adds "lijek" object into the DB
+        /// #4 Adds "lijek" object into the DB
         /// </summary>
         /// <param name="lijek"></param>
         public void AddNewLijekoviObject(lijekovi lijek)
         {
-            context.lijekovi.Add(lijek);
-            context.SaveChanges();
+            try
+            {
+                context.lijekovi.Add(lijek);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("LijekoviDAL(#4): {0}", ex.InnerException);
+            }
         }
         /// <summary>
-        /// Saving the changes in the database
+        ///#5 Saving the changes in the database
         /// </summary>
         public void SaveChanges()
         {
@@ -92,10 +101,9 @@ namespace HouseMed.DAL
             {
                 context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Debug.WriteLine("LijekoviDAL(#5): {0}", ex.InnerException);
             }
         }
         #endregion

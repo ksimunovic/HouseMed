@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace HouseMed.DAL
 
         #region public methods
         /// <summary>
-        /// Method for getting all the Recipes from the DB with full FK names
+        /// #1 Method for getting all the Recipes from the DB with full FK names
         /// </summary>
         /// <returns></returns>
         public BindingList<receptiCustom> GetAllReceptiNamedProps()
@@ -48,14 +49,14 @@ namespace HouseMed.DAL
                 BindingList<receptiCustom> lista = new BindingList<receptiCustom>(recepti);
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Debug.WriteLine("ReceptiDAL(#1): {0}", ex.InnerException);
+                return null;
             }
         }
         /// <summary>
-        /// Method for getting all the Recipes from the DB with full FK names by pacijentId
+        /// #2 Method for getting all the Recipes from the DB with full FK names by pacijentId
         /// </summary>
         /// <returns></returns>
         public BindingList<receptiCustom> GetAllReceptiNamedPropsById(int PacijentId)
@@ -83,15 +84,15 @@ namespace HouseMed.DAL
                 BindingList<receptiCustom> lista = new BindingList<receptiCustom>(recepti);
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Debug.WriteLine("ReceptiDAL(#2): {0}", ex.InnerException);
+                return null;
             }
         }
         
         /// <summary>
-        /// Gets a single "recepti" object from the database
+        /// #3 Gets a single "recepti" object from the database
         /// </summary>
         public recepti GetReceptObjectById(int receptId)
         {
@@ -102,14 +103,14 @@ namespace HouseMed.DAL
                               select a).FirstOrDefault();
                 return recept;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Debug.WriteLine("ReceptiDAL(#3): {0}", ex.InnerException);
+                return null;
             }
         }
         /// <summary>
-        /// Bool method for deleting the recept object from the database
+        /// #4 Bool method for deleting the recept object from the database
         /// </summary>
         /// <param name="recept"></param>
         /// <returns></returns>
@@ -125,13 +126,14 @@ namespace HouseMed.DAL
                 context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine("ReceptiDAL(#4): {0}", ex.InnerException);
                 return false;
             }
         }
         /// <summary>
-        /// Adds new "Recept" into the DB
+        /// #5 Adds new "Recept" into the DB
         /// </summary>
         public void AddNewRecept(recepti recept)
         {
@@ -140,13 +142,13 @@ namespace HouseMed.DAL
                 context.recepti.Add(recept);
                 context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Debug.WriteLine("ReceptiDAL(#5): {0}", ex.InnerException);
             }
         }
         /// <summary>
-        /// Method for saving the current context (used for updating)
+        /// #6 Method for saving the current context (used for updating)
         /// </summary>
         public void SaveChanges()
         {
@@ -154,9 +156,9 @@ namespace HouseMed.DAL
             {
                 context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Debug.WriteLine("ReceptiDAL(#6): {0}", ex.InnerException);
             }
         }
         #endregion

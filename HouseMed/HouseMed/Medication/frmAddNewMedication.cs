@@ -101,13 +101,26 @@ namespace HouseMed.Medication
         {
             if (_selectedLijek != null)
             {
-                UpdateExistingLijekoviObject();
+                if (UpdateExistingLijekoviObject())
+                {
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Provjerite da li su vam svi unosi u redu!", "Upozorenje!");
+                }
             }
             else
             {
-                SetNewLijekoviObject();
+                if(SetNewLijekoviObject())
+                {
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Provjerite da li su vam svi unosi u redu!", "Upozorenje!");
+                }
             }
-            this.Close();
         }
         #endregion
 
@@ -128,7 +141,7 @@ namespace HouseMed.Medication
         /// <summary>
         /// Instancing a new "lijekovi" object
         /// </summary>
-        private void SetNewLijekoviObject()
+        private bool SetNewLijekoviObject()
         {
             lijekovi lijekovi = new lijekovi()
             {
@@ -139,7 +152,12 @@ namespace HouseMed.Medication
                 kolicina = HelpClass.GetValueOrNull<int>(txtKolicina.Text),
                 cijena = HelpClass.GetValueOrNull<decimal>(txtCijena.Text)
             };
-            _lijekoviBAL.AddNewLijekoviObject(lijekovi);
+            if(lijekovi.kolicina != null && lijekovi.cijena != null)
+            {
+                _lijekoviBAL.AddNewLijekoviObject(lijekovi);
+                return true;
+            }
+            return false;
         }
         /// <summary>
         /// Set the textbox values with the selected object
@@ -154,7 +172,7 @@ namespace HouseMed.Medication
         /// <summary>
         /// Updating the existing "lijekovi" object in the DB
         /// </summary>
-        private void UpdateExistingLijekoviObject()
+        private bool UpdateExistingLijekoviObject()
         {
             _selectedLijek.cijena = HelpClass.GetValueOrNull<decimal>(txtCijena.Text);
             _selectedLijek.datum_vrijeme_kontrole = dtpDatumKontrole.Value.Date;
@@ -163,7 +181,13 @@ namespace HouseMed.Medication
             _selectedLijek.rok_trajanja = dtpRokTrajanja.Value.Date;
             _selectedLijek.sifra_zdrv_ustanoveID = _ustanovaId;
 
-            _lijekoviBAL.SaveChanges();
+            if( _selectedLijek.cijena != null && _selectedLijek.kolicina != null)
+            {
+                _lijekoviBAL.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
         #endregion
 
