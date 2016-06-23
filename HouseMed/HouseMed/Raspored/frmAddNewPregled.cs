@@ -50,18 +50,6 @@ namespace HouseMed.Raspored
         #endregion
 
         #region event handler
-
-        /* ----->Prebacio sam ovo u konstruktor forme radi lakšeg prilagodjavanja za frmProceduresControl
-        /// <summary>
-        /// load forme postavlja comboboxove
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmAddNewPregled_Load(object sender, EventArgs e)
-        {
-            //SetComboBox();
-        }*/
-
         /// <summary>
         /// dohvacanje vrijednosti iz comboboxa pacijenti
         /// </summary>

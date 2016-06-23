@@ -37,6 +37,7 @@
             this.labelRazlogBoravka = new System.Windows.Forms.Label();
             this.tbBolnica = new System.Windows.Forms.TextBox();
             this.btnDodajBoravak = new System.Windows.Forms.Button();
+            this.ucNatrag1 = new HouseMed.ucNatrag();
             this.SuspendLayout();
             // 
             // labelBoravioOd
@@ -106,19 +107,27 @@
             // 
             // btnDodajBoravak
             // 
-            this.btnDodajBoravak.Location = new System.Drawing.Point(33, 270);
+            this.btnDodajBoravak.Location = new System.Drawing.Point(115, 257);
             this.btnDodajBoravak.Name = "btnDodajBoravak";
-            this.btnDodajBoravak.Size = new System.Drawing.Size(241, 23);
+            this.btnDodajBoravak.Size = new System.Drawing.Size(159, 23);
             this.btnDodajBoravak.TabIndex = 13;
             this.btnDodajBoravak.Text = "Dodaj";
             this.btnDodajBoravak.UseVisualStyleBackColor = true;
             this.btnDodajBoravak.Click += new System.EventHandler(this.btnDodajBoravak_Click);
             // 
+            // ucNatrag1
+            // 
+            this.ucNatrag1.Location = new System.Drawing.Point(33, 257);
+            this.ucNatrag1.Name = "ucNatrag1";
+            this.ucNatrag1.Size = new System.Drawing.Size(76, 23);
+            this.ucNatrag1.TabIndex = 14;
+            // 
             // frmAddNewHospitalDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 316);
+            this.ClientSize = new System.Drawing.Size(310, 291);
+            this.Controls.Add(this.ucNatrag1);
             this.Controls.Add(this.btnDodajBoravak);
             this.Controls.Add(this.tbBolnica);
             this.Controls.Add(this.labelRazlogBoravka);
@@ -128,9 +137,11 @@
             this.Controls.Add(this.labelBoravioDo);
             this.Controls.Add(this.dtpBoravioOd);
             this.Controls.Add(this.labelBoravioOd);
+            this.KeyPreview = true;
             this.Name = "frmAddNewHospitalDay";
             this.Text = "frmAddNewHospitalDay";
             this.Load += new System.EventHandler(this.frmAddNewHospitalDay_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAddNewHospitalDay_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,5 +157,6 @@
         private System.Windows.Forms.Label labelRazlogBoravka;
         private System.Windows.Forms.TextBox tbBolnica;
         private System.Windows.Forms.Button btnDodajBoravak;
+        private ucNatrag ucNatrag1;
     }
 }

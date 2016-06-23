@@ -34,6 +34,7 @@
             this.btnRecept = new System.Windows.Forms.Button();
             this.btnPregled = new System.Windows.Forms.Button();
             this.btnCijepljenje = new System.Windows.Forms.Button();
+            this.ucNatrag1 = new HouseMed.ucNatrag();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPostupciPacijenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,19 +96,29 @@
             this.btnCijepljenje.UseVisualStyleBackColor = true;
             this.btnCijepljenje.Click += new System.EventHandler(this.btnCijepljenje_Click);
             // 
+            // ucNatrag1
+            // 
+            this.ucNatrag1.Location = new System.Drawing.Point(606, 160);
+            this.ucNatrag1.Name = "ucNatrag1";
+            this.ucNatrag1.Size = new System.Drawing.Size(79, 23);
+            this.ucNatrag1.TabIndex = 6;
+            // 
             // frmProceduresControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 179);
+            this.ClientSize = new System.Drawing.Size(746, 195);
+            this.Controls.Add(this.ucNatrag1);
             this.Controls.Add(this.btnCijepljenje);
             this.Controls.Add(this.btnPregled);
             this.Controls.Add(this.btnRecept);
             this.Controls.Add(this.btnUputnica);
             this.Controls.Add(this.btnPotvrda);
             this.Controls.Add(this.dgvPostupciPacijenta);
+            this.KeyPreview = true;
             this.Name = "frmProceduresControl";
             this.Text = "frmProceduresControl";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProceduresControl_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPostupciPacijenta)).EndInit();
             this.ResumeLayout(false);
 
@@ -121,5 +132,6 @@
         private System.Windows.Forms.Button btnRecept;
         private System.Windows.Forms.Button btnPregled;
         private System.Windows.Forms.Button btnCijepljenje;
+        private ucNatrag ucNatrag1;
     }
 }
