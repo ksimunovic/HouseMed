@@ -12,7 +12,9 @@ namespace HouseMed.Recipes
         {
             public static pacijenti pacijenti { get; set; }
             public static lijekovi lijekovi { get; set; }
+            public static bool IsGood { get; set; }
         }
+
         #region private variables
         private DjelatniciBAL _djelatniciBAL;
         private ZdravUstanovaBAL _zdravUstanovaBAL;
@@ -81,15 +83,28 @@ namespace HouseMed.Recipes
         /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if(_selectedRecept != null)
+            if (_selectedRecept != null)
             {
-                UpdateExistingObject();
+                if(UpdateExistingObject())
+                {
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Provjerite da li su vam svi unosi u redu!", "Upozorenje!");
+                }
             }
             else
             {
-                SetNewRecipeObject();
+                if (SetNewRecipeObject())
+                {
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Provjerite da li su vam svi unosi u redu!", "Upozorenje!");
+                }
             }
-            this.Close();
         }
         /// <summary>
         /// Button[Odustani] event handler: Close the form
@@ -188,7 +203,7 @@ namespace HouseMed.Recipes
         /// <summary>
         /// Instancing a new recipe object
         /// </summary>
-        private void SetNewRecipeObject()
+        private bool SetNewRecipeObject()
         {
             recepti recepti = new recepti()
             {
@@ -201,12 +216,18 @@ namespace HouseMed.Recipes
                 doziranje = txtDoziranje.Text,
                 slucaj = txtSlucaj.Text
             };
-            _receptiBAL.AddNewRecept(recepti);
+
+            if(recepti.kolicina != null)
+            {
+                _receptiBAL.AddNewRecept(recepti);
+                return true;
+            }
+            return false;
         }
         /// <summary>
         /// Updating the existing object in the DB
         /// </summary>
-        private void UpdateExistingObject()
+        private bool UpdateExistingObject()
         {
 
             _selectedRecept.Kolicina = HelpClass.GetValueOrNull<int>(txtKolicina.Text);
@@ -218,16 +239,21 @@ namespace HouseMed.Recipes
             _selectedRecept.Doziranje = txtDoziranje.Text;
             _selectedRecept.Slucaj = txtSlucaj.Text;
 
-            var editRecept = _receptiBAL.GetReceptObjectById(_selectedRecept.ReceptID);
-            editRecept.kolicina = _selectedRecept.Kolicina;
-            editRecept.nadoplata = _selectedRecept.Nadoplata;
-            editRecept.djelatniciID = _selectedRecept.DjelatniciID;
-            editRecept.sifra_zdrv_ustanoveID = _selectedRecept.UstanovaID;
-            editRecept.pacijentiID = _selectedRecept.PacijentID;
-            editRecept.lijekoviID = _selectedRecept.LijekoviID;
-            editRecept.doziranje = _selectedRecept.Doziranje;
-            editRecept.slucaj = _selectedRecept.Slucaj;
-            _receptiBAL.SaveChanges();
+            if(_selectedRecept.Kolicina != null)
+            {
+                var editRecept = _receptiBAL.GetReceptObjectById(_selectedRecept.ReceptID);
+                editRecept.kolicina = _selectedRecept.Kolicina;
+                editRecept.nadoplata = _selectedRecept.Nadoplata;
+                editRecept.djelatniciID = _selectedRecept.DjelatniciID;
+                editRecept.sifra_zdrv_ustanoveID = _selectedRecept.UstanovaID;
+                editRecept.pacijentiID = _selectedRecept.PacijentID;
+                editRecept.lijekoviID = _selectedRecept.LijekoviID;
+                editRecept.doziranje = _selectedRecept.Doziranje;
+                editRecept.slucaj = _selectedRecept.Slucaj;
+                _receptiBAL.SaveChanges();
+                return true;
+            }
+            return false;
         }
         #endregion
     }

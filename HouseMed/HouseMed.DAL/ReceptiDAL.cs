@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,10 +49,10 @@ namespace HouseMed.DAL
                 BindingList<receptiCustom> lista = new BindingList<receptiCustom>(recepti);
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Debug.WriteLine(ex.InnerException);
+                return null;
             }
         }
         /// <summary>
