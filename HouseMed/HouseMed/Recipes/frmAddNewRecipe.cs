@@ -89,20 +89,12 @@ namespace HouseMed.Recipes
                 {
                     this.Close();
                 }
-                else
-                {
-                    MessageBox.Show("Provjerite da li su vam svi unosi u redu!", "Upozorenje!");
-                }
             }
             else
             {
                 if (SetNewRecipeObject())
                 {
                     this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Provjerite da li su vam svi unosi u redu!", "Upozorenje!");
                 }
             }
         }
@@ -217,10 +209,21 @@ namespace HouseMed.Recipes
                 slucaj = txtSlucaj.Text
             };
 
-            if(recepti.kolicina != null)
+            if(ObjectProps.lijekovi != null && ObjectProps.pacijenti != null)
             {
-                _receptiBAL.AddNewRecept(recepti);
-                return true;
+                if (recepti.kolicina != null)
+                {
+                    _receptiBAL.AddNewRecept(recepti);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Provjerite da li su vam svi unosi u redu!", "Upozorenje!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Zaboravili ste odabrati pacijenta ili lijek! \n Pokušajte ponovo.", "Upozorenje!");
             }
             return false;
         }
