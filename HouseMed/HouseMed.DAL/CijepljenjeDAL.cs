@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace HouseMed.DAL
 {
@@ -43,10 +45,12 @@ namespace HouseMed.DAL
                 BindingList<cijepljenjeCustom> lista = new BindingList<cijepljenjeCustom>(cijepljenje);
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+               
+                Debug.WriteLine("Greška kod GetAllCijepPropNamesById", ex.InnerException);
+                return null;
+                
             }
         }
 
@@ -74,10 +78,10 @@ namespace HouseMed.DAL
                 BindingList<cijepljenjeCustom> lista = new BindingList<cijepljenjeCustom>(cijepljenje);
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Debug.WriteLine("Greška kod GetAllCijepPropNamesById", ex.InnerException);
+                return null;
             }
         }
         /// <summary>
@@ -86,10 +90,18 @@ namespace HouseMed.DAL
         /// <returns></returns>
         public int broj()
         {
-            var cijepljenje = (from u in context.cijepljenje select u).Count();
+            try
+            {
+                var cijepljenje = (from u in context.cijepljenje select u).Count();
 
 
-            return cijepljenje + 1;
+                return cijepljenje + 1;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("Greška kod broj", ex.InnerException);
+                return int.Parse(null);
+            }
         }
 
         /// <summary>
@@ -102,9 +114,9 @@ namespace HouseMed.DAL
                 context.cijepljenje.Add(cijep);
                 context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Debug.WriteLine("Greška kod AddNewCijepljenje", ex.InnerException);
             }
         }
 
