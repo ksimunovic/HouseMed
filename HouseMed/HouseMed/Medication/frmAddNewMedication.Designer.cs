@@ -45,7 +45,7 @@
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.lblNaziv = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.ucNatrag1 = new HouseMed.ucNatrag();
             this.gbInterno.SuspendLayout();
             this.gbPodaci.SuspendLayout();
             this.SuspendLayout();
@@ -201,28 +201,25 @@
             // 
             this.btnOk.Location = new System.Drawing.Point(99, 288);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.Size = new System.Drawing.Size(147, 23);
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "U redu";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // btnClose
+            // ucNatrag1
             // 
-            this.btnClose.Location = new System.Drawing.Point(180, 288);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "Odustani";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.ucNatrag1.Location = new System.Drawing.Point(18, 288);
+            this.ucNatrag1.Name = "ucNatrag1";
+            this.ucNatrag1.Size = new System.Drawing.Size(76, 23);
+            this.ucNatrag1.TabIndex = 4;
             // 
             // frmAddNewMedication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(267, 319);
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.ucNatrag1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gbPodaci);
             this.Controls.Add(this.gbInterno);
@@ -259,6 +256,6 @@
         private System.Windows.Forms.TextBox txtNaziv;
         private System.Windows.Forms.Label lblNaziv;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Button btnClose;
+        private ucNatrag ucNatrag1;
     }
 }

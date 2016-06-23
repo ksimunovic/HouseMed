@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace HouseMed.DAL
 {
@@ -21,11 +22,22 @@ namespace HouseMed.DAL
         /// <returns></returns>
         public BindingList<pacijenti> GetAllPacijenti()
         {
-            var pacijenti = (from a in context.pacijenti
-                             select a).ToList();
-            BindingList<pacijenti> lista = new BindingList<pacijenti>(pacijenti);
-            return lista;
+            try
+            {
+
+                var pacijenti = (from a in context.pacijenti
+                                 select a).ToList();
+                BindingList<pacijenti> lista = new BindingList<pacijenti>(pacijenti);
+                return lista;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("Greška kod GetAllPacijenti", ex.InnerException);
+                return null;
+
+            }
         }
+
 
         /// <summary>
         /// Remove patient by id
@@ -33,13 +45,21 @@ namespace HouseMed.DAL
         /// <param name="pacijentiID"></param>
         public void RemovePatientById(int pacijentiID)
         {
-            var pacijent = (from a in context.pacijenti
-                            where a.pacijentiID == pacijentiID
-                            select a).FirstOrDefault();
+            try
+            {
+                var pacijent = (from a in context.pacijenti
+                                where a.pacijentiID == pacijentiID
+                                select a).FirstOrDefault();
 
-            context.pacijenti.Remove(pacijent);
-            context.SaveChanges();
+                context.pacijenti.Remove(pacijent);
+                context.SaveChanges();
+            } catch(Exception ex)
+            {
+                Debug.WriteLine("Greška kod RemovePatientById", ex.InnerException);
+                
+            }
         }
+            
 
         /// <summary>
         /// Adds new "Pacijent" u bazu
@@ -51,9 +71,9 @@ namespace HouseMed.DAL
                 context.pacijenti.Add(pacijent);
                 context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Debug.WriteLine("Greška kod AddNewPacijent", ex.InnerException);
             }
         }
 
@@ -66,9 +86,9 @@ namespace HouseMed.DAL
             {
                 context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Debug.WriteLine("Greška kod SaveChanges", ex.InnerException);
             }
             #endregion
         }
@@ -87,9 +107,11 @@ namespace HouseMed.DAL
                 BindingList<pacijenti> lista = new BindingList<DAL.pacijenti>(pacijenti);
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+
+                Debug.WriteLine("Greška kod GetAllPacijentiBy", ex.InnerException);
+                return null;
             }
         }
     }

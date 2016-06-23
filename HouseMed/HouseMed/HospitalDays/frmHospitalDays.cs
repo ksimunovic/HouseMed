@@ -19,7 +19,7 @@ namespace HouseMed.HospitalDays
         private HospitalizacijaBAL _hospitalizacijaBAL;
         private pacijenti trenutniPacijent;
         #endregion
-        
+
         #region constructor
         public frmHospitalDays()
         {
@@ -31,6 +31,9 @@ namespace HouseMed.HospitalDays
         #endregion
 
         #region private methods
+        /// <summary>
+        /// Osvježava naziv pacijenta s kojim se trenutno radi
+        /// </summary>
         private void OdabraniPacijentRefresh()
         {
             trenutniPacijent = frmMenu.trenutniPacijent;
@@ -67,9 +70,12 @@ namespace HouseMed.HospitalDays
         /// <param name="e"></param>
         private void btnNoviNalog_Click(object sender, EventArgs e)
         {
-            frmAddNewHospitalDay frm = new frmAddNewHospitalDay(trenutniPacijent.pacijentiID);
-            frm.ShowDialog();
-            DataGridRefresh();
+            if (trenutniPacijent != null)
+            {
+                frmAddNewHospitalDay frm = new frmAddNewHospitalDay(trenutniPacijent.pacijentiID);
+                frm.ShowDialog();
+                DataGridRefresh();
+            }
         }
 
         /// <summary>
@@ -77,11 +83,14 @@ namespace HouseMed.HospitalDays
         /// </summary>
         private void DeleteSelectedNalog()
         {
-            var selectedItem = dgvHospitalDays.CurrentRow.DataBoundItem as hospitalizacijaCustom;
-
-            if (selectedItem != null)
+            if (trenutniPacijent != null)
             {
-                _hospitalizacijaBAL.RemoveNalogByID(selectedItem.HospitalizacijaId.ToString());
+                var selectedItem = dgvHospitalDays.CurrentRow.DataBoundItem as hospitalizacijaCustom;
+
+                if (selectedItem != null)
+                {
+                    _hospitalizacijaBAL.RemoveNalogByID(selectedItem.HospitalizacijaId.ToString());
+                }
             }
         }
 
@@ -92,39 +101,79 @@ namespace HouseMed.HospitalDays
         /// <param name="e"></param>
         private void btnBrisiBoravak_Click(object sender, EventArgs e)
         {
-            DeleteSelectedNalog();
-            DataGridRefresh();
+            if (trenutniPacijent != null)
+            {
+                DeleteSelectedNalog();
+                DataGridRefresh();
+            }
         }
-
-
+        
+        /// <summary>
+        /// Osvježava DataGridView nakon mjenjanja podataka
+        /// </summary>
         private void DataGridRefresh()
         {
             if (trenutniPacijent != null)
             {
                 dgvHospitalDays.DataSource = _hospitalizacijaBAL.GetAllHospitalizacijaPropNamesById(trenutniPacijent.pacijentiID);
             }
-
         }
-        
+
+        /// <summary>
+        /// Otvara se frmAddNewHospitalDay te se popunjava selektiranim nalogom iz DataGridView-a
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUrediBoravak_Click(object sender, EventArgs e)
         {
-            var selectedItem = dgvHospitalDays.CurrentRow.DataBoundItem as hospitalizacijaCustom;
-            frmAddNewHospitalDay frm = new frmAddNewHospitalDay(selectedItem, trenutniPacijent.pacijentiID);
-            frm.ShowDialog();
-            DataGridRefresh();
+            if (trenutniPacijent != null)
+            {
+                var selectedItem = dgvHospitalDays.CurrentRow.DataBoundItem as hospitalizacijaCustom;
+                frmAddNewHospitalDay frm = new frmAddNewHospitalDay(selectedItem, trenutniPacijent.pacijentiID);
+                frm.ShowDialog();
+                DataGridRefresh();
+            }
         }
 
+        /// <summary>
+        /// Upisivanjem teksta se pretrazuje DataGridView po svim stupcima
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbPretrazi_TextChanged(object sender, EventArgs e)
         {
-            dgvHospitalDays.DataSource = _hospitalizacijaBAL.SearchHospitalizacija(tbPretrazi.Text, trenutniPacijent.pacijentiID);
+            if (trenutniPacijent != null)
+            {
+                dgvHospitalDays.DataSource = _hospitalizacijaBAL.SearchHospitalizacija(tbPretrazi.Text, trenutniPacijent.pacijentiID);
+            }
         }
 
+        /// <summary>
+        /// Odabire se pacijent s kojim se radi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOdaberi_Click(object sender, EventArgs e)
         {
             frmPatients frm = new frmPatients();
             frm.ShowDialog();
             OdabraniPacijentRefresh();
 
+        }
+        #endregion
+
+        #region event handlers
+        /// <summary>
+        /// event koji se aktivira na tipku F1 i zove nasu wiki stranicu za pomoc korisniku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmHospitalDays_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima#boravci-u-bolnici");
+            }
         }
         #endregion
     }

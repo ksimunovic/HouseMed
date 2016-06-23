@@ -14,7 +14,6 @@ namespace HouseMed.Certificates
 {
     public partial class frmAddNewCertificate : Form
     {
-
         #region private variables
         private PotvrdeBAL _potvrdeBAL;
         private potvrdeCustom _selectedItem;
@@ -39,6 +38,11 @@ namespace HouseMed.Certificates
         #endregion
 
         #region event handlers
+        /// <summary>
+        /// Sprema novu potvrdu ili izmjene na postojećoj potvrdi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSpremi_Click(object sender, EventArgs e)
         {
             if (_selectedItem != null)
@@ -49,12 +53,27 @@ namespace HouseMed.Certificates
             {
                 SetNewPotvrdaObject();
             }
+        }
 
+        /// <summary>
+        /// event koji se aktivira na tipku F1 i zove nasu wiki stranicu za pomoc korisniku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmAddNewCertificate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                System.Diagnostics.Process.Start("https://github.com/foivz/r16049/wiki/7.-Pomo%C4%87-korisnicima#potvrde");
+            }
         }
         #endregion
 
         #region private methods
 
+        /// <summary>
+        /// Sprema izmjene na potvrdi u bazu
+        /// </summary>
         private void EditPotvrda()
         {
             potvrde editablePotvrda = _potvrdeBAL.GetPotvrdaByID(_selectedItem.PotvrdaID);
@@ -64,6 +83,9 @@ namespace HouseMed.Certificates
             this.Close();
         }
 
+        /// <summary>
+        /// Dodaje novu potvrdu u bazu
+        /// </summary>
         private void SetNewPotvrdaObject()
         {
             potvrde potvrda = new potvrde()

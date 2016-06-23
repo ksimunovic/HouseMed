@@ -137,9 +137,11 @@
             this.Controls.Add(this.dgvHospitalDays);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmHospitalDays";
             this.Text = "frmHospitalDays";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmHospitalDays_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHospitalDays)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
